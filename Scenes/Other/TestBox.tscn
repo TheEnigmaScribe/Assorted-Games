@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4b2eiukt3rbc"]
+
+[ext_resource type="Texture2D" uid="uid://cl3754ggeiku1" path="res://resources/graphics/objects/Box.png" id="1_exkl5"]
+
+[node name="TestBox" type="StaticBody2D"]
+
+[node name="TestBoxSprite" type="Sprite2D" parent="."]
+position = Vector2(400, 400)
+texture = ExtResource("1_exkl5")
+
+[node name="TestBoxCollision" type="CollisionPolygon2D" parent="."]
+position = Vector2(346, 372)
+polygon = PackedVector2Array(211.75, -95.75, -104.25, -95.75, -112.25, -92.75, -119.25, -85.75, -122.25, -78.75, -122.25, 138.25, -120.25, 144.25, -115.25, 151.25, -105.25, 156.25, 213.75, 156.25, 221.75, 152.25, 227.75, 145.25, 229.75, 139.25, 229.75, -77.75, 226.75, -85.75, 220.75, -92.75)
