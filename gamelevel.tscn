@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=4 uid="uid://c0qmd4bcjkmlf"]
+
+[ext_resource type="Texture2D" uid="uid://4hg5jm10j7va" path="res://pixil-frame-0-8.png" id="1_04e8k"]
+[ext_resource type="PackedScene" uid="uid://chf1ssegs1l14" path="res://player.tscn" id="2_vud8a"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vud8a"]
+texture = ExtResource("1_04e8k")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+4:2/0/custom_data_0 = true
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_h7t1i"]
+tile_size = Vector2i(32, 32)
+custom_data_layer_0/name = "walkable"
+custom_data_layer_0/type = 1
+sources/1 = SubResource("TileSetAtlasSource_vud8a")
+
+[node name="Gamelevel" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD+/wIAAQAEAAAAAAD//wIAAQAEAAAAAAAAAAIAAQAEAAAAAAABAAIAAQAEAAAAAAACAAEAAQAEAAEAAAACAAAAAQAEAAEAAAACAP//AQAEAAEAAAACAP7/AQAEAAEAAAABAP3/AQAFAAEAAAAAAP3/AQAFAAEAAAD///3/AQAFAAEAAAD+//3/AQAFAAEAAAD9//7/AQAFAAAAAAD9////AQAFAAAAAAD9/wAAAQAFAAAAAAD9/wEAAQAFAAAAAAD8//z/AQAGAAAAAAADAPz/AQAHAAAAAAADAAMAAQAHAAEAAAD8/wMAAQAGAAEAAAADAAIAAQAFAAAAAAADAAEAAQAFAAAAAAADAAAAAQAFAAAAAAADAP//AQAFAAAAAAADAP7/AQAFAAAAAAADAP3/AQAFAAAAAAD9/wMAAQAFAAEAAAD+/wMAAQAFAAEAAAD//wMAAQAFAAEAAAAAAAMAAQAFAAEAAAABAAMAAQAFAAEAAAACAAMAAQAFAAEAAAD8//3/AQAEAAEAAAD8//7/AQAEAAEAAAD8////AQAEAAEAAAD8/wAAAQAEAAEAAAD8/wEAAQAEAAEAAAD8/wIAAQAEAAEAAAD9/wIAAQAEAAIAAAD9//z/AQAEAAAAAAD+//z/AQAEAAAAAAD///z/AQAEAAAAAAAAAPz/AQAEAAAAAAABAPz/AQAEAAAAAAACAPz/AQAEAAAAAAACAP3/AQAEAAIAAAD9//3/AQAEAAIAAAACAAIAAQAEAAIAAAD+//7/AQAEAAIAAAD///7/AQAEAAIAAAAAAP7/AQAEAAIAAAABAP7/AQAEAAIAAAABAP//AQAEAAIAAAABAAAAAQAEAAIAAAABAAEAAQAEAAIAAAAAAAEAAQAEAAIAAAD//wEAAQAEAAIAAAD+/wEAAQAEAAIAAAD+/wAAAQAEAAIAAAD//wAAAQAEAAIAAAAAAAAAAQAEAAIAAAAAAP//AQAEAAIAAAD/////AQAEAAIAAAD+////AQAEAAIAAAA=")
+tile_set = SubResource("TileSet_h7t1i")
+
+[node name="Player" parent="." instance=ExtResource("2_vud8a")]
+position = Vector2(16, 16)
