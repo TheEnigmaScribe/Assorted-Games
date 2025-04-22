@@ -1,16 +1,12 @@
 Priority
-- Add player collision through tilemap for walls and enemies
-- Make Sniper and implement raycasting (check if moving an area into another collisionbox trigger the entered signal)
+- Figure out how to get the dictionary to work
+- Implement raycasting functionality on enemies
 
 Gameplay
-- Replace timer with something else (jank but prevents zooming)
-- Remove diagonal movement
-- Make movement based on most recently pressed key if holding multiple
-- If holding multiple and most recently pressed key is released, use input from second most recently held one
+- (none yet)
 
 Visual
-- Smooth movement between tiles instead of instant teleportation
-- Add functional (not good or final) sprites for player, enemies, walls and goal
+- (none yet)
 
 Audio
 - Add sounds later, probably free ones
