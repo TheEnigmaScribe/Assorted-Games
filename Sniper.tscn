@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://c83228r10urql"]
+
+[ext_resource type="Script" uid="uid://ddwjr7w8l6vyd" path="res://Sniper.gd" id="1_s7dwn"]
+[ext_resource type="Texture2D" uid="uid://4hg5jm10j7va" path="res://pixil-frame-0-8.png" id="2_73jju"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jcko"]
+atlas = ExtResource("2_73jju")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7dwn"]
+size = Vector2(32, 32)
+
+[node name="Sniper" type="Node2D"]
+script = ExtResource("1_s7dwn")
+
+[node name="SniperSprite" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_6jcko")
+
+[node name="SniperRaycast" type="RayCast2D" parent="."]
+target_position = Vector2(512, -1)
+collide_with_areas = true
+
+[node name="EnemyCollision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyCollision"]
+shape = SubResource("RectangleShape2D_s7dwn")
