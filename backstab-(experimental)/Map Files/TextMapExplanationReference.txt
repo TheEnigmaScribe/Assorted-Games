@@ -11,3 +11,48 @@ Letter meanings:
 	R - Warden
 	
 Numbers are for specifying which instance of an entity type it is.
+
+Enemies can be set to have specific action sequences for loops- which won't change unless I end up adding a "phase two", where the player doesn't die but is detected and then chased down by enemies.
+
+Enemy action sequences are composed of:
+	L - Turn left
+	R - Turn right
+	U - Flip direction
+	M - Move forward
+So something like LMLMLMLM would have an enemy move in a 2x2 square, turning every other action.
+For a more realistic path, it could be like MLULMLULMLULMLUL, which would move the enemy in a direction, have them check to the left first, then the right immediately after, before looking forward again. So there can be sequences that are interpreted with this code:
+
+if M:
+	move(facing)
+elif L:
+	turn(facing, -1)
+elif R:
+	turn(facing, 1)
+elif U:
+	flip(facing)
+
+var dirDict[] = ["Left", "Up", "Right", "Down"]
+
+func move(looking):
+	if looking == "Left":
+		# move left using tilemaplayer and move_towards()
+	elif looking == "Right":
+		# move right using tilemaplayer and move_towards()
+	elif looking == "Up":
+		# move up using tilemaplayer and move_towards()
+	elif looking == "Down":
+		# move down using tilemaplayer and move_towards()
+
+func turn(looking, turn):
+	var direction = dirDict.index(looking) + turn
+	if direction = -1:
+		direction = 3
+	elif direction = 4:
+		direction = 0
+	spriteFacing(dirDict[direction])
+
+func flip(looking):
+	var direction = dirDict.index(looking) + 2
+	if 3 < direction:
+		direction -= 4
+	spriteFacing(dirDict[direction])
