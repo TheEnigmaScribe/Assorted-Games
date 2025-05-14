@@ -26,7 +26,8 @@ region_rect = Rect2(0, 0, 32, 32)
 [node name="PlayerCamera" type="Camera2D" parent="PlayerSprite"]
 
 [node name="PlayerEnemyCollisionRaycast" type="RayCast2D" parent="."]
-target_position = Vector2(32, 0)
+target_position = Vector2(0, 32)
+collide_with_areas = true
 
 [node name="PlayerRaycastCollisionArea" type="Area2D" parent="."]
 

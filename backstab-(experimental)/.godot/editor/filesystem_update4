@@ -1,0 +1,7 @@
+res://Gamelevel.tscn
+res://Player.gd
+res://Player.tscn
+res://Sniper.gd
+res://Sniper.tscn
+res://EnemyMap1.txt
+res://TextMapExplanationReference.txt

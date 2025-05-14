@@ -17,8 +17,9 @@ script = ExtResource("1_s7dwn")
 texture = SubResource("AtlasTexture_6jcko")
 
 [node name="SniperRaycast" type="RayCast2D" parent="."]
-target_position = Vector2(512, -1)
+target_position = Vector2(512, 0)
 collide_with_areas = true
+collide_with_bodies = false
 
 [node name="EnemyCollision" type="Area2D" parent="."]
 

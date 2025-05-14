@@ -1,0 +1,11 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1747188786
+EnemyMap.txt::TextFile::-1::1747188763::0::1::::<><><>0<>0<><>::
+Gamelevel.tscn::PackedScene/PackedScene::6561327988522144139::1747188694::0::1::::<><><>0<>0<><>::uid://4hg5jm10j7va::::res://pixil-frame-0-8.png<>uid://chf1ssegs1l14::::res://Player.tscn<>uid://c83228r10urql::::res://Sniper.tscn
+icon.svg::CompressedTexture2D/CompressedTexture2D::6946922896553484176::1746670429::1747098560::1::::<><><>0<>0<>062eec5397b37cabd8346b65d9da7bb4<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+Notes.txt::TextFile/TextFile::-1::1746670429::0::1::::<><><>0<>0<><>::
+pixil-frame-0-8.png::CompressedTexture2D/CompressedTexture2D::2050345478018028386::1746670429::1747098560::1::::<><><>0<>0<>46c0ce70615434900d3915bcc695c77e<>res://.godot/imported/pixil-frame-0-8.png-0e282247f7a2f90f0086ecb742a090ea.ctex::
+Player.gd::GDScript/GDScript::8044551327095515169::1747184373::0::1::::<>Sprite2D<><>0<>0<><>::
+Player.tscn::PackedScene/PackedScene::5276096899622166253::1747188694::0::1::::<><><>0<>0<><>::uid://dmu3t5kfp5u30::::res://Player.gd<>uid://4hg5jm10j7va::::res://pixil-frame-0-8.png
+Sniper.gd::GDScript/GDScript::7415823420262210767::1747187151::0::1::::<>Node2D<><>0<>0<><>::
+Sniper.tscn::PackedScene/PackedScene::7148565120542836767::1747188694::0::1::::<><><>0<>0<><>::uid://ddwjr7w8l6vyd::::res://Sniper.gd<>uid://4hg5jm10j7va::::res://pixil-frame-0-8.png

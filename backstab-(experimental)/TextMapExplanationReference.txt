@@ -1,0 +1,13 @@
+Reference explanation for .txt files:
+
+Two characters [##] per tile, a letter and a number
+Letter indicates entity, number indicates what instance
+
+Letter meanings:
+	S - Sniper
+	G - Guard
+	W - Watcher
+	K - Keykeeper
+	R - Warden
+	
+Numbers are for specifying which instance of an entity type it is.
