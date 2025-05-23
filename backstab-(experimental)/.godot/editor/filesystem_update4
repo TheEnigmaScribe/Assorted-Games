@@ -1,7 +1,5 @@
-res://Gamelevel.tscn
-res://Player.gd
-res://Player.tscn
-res://Sniper.gd
-res://Sniper.tscn
-res://EnemyMap1.txt
-res://TextMapExplanationReference.txt
+res://ScenesAndScripts/Gamelevel.tscn
+res://ScenesAndScripts/gamelevel.gd
+res://ScenesAndScripts/Player.tscn
+res://ScenesAndScripts/Sniper.tscn
+res://MapFiles/EnemyInstructions1.txt

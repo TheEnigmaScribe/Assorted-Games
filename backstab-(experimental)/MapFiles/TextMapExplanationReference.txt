@@ -1,7 +1,10 @@
 Reference explanation for .txt files:
 
-Two characters [##] per tile, a letter and a number
-Letter indicates entity, number indicates what instance
+One letter per tile, no commas
+Letter indicates enemy type
+Each enemy gets an enemyID that indicates what instance of an enemy it is (starting from zero)
+The enemyID is stored within the enemyList dictionary entry under an enemy number
+Each enemyID refers to an entry in the enemyDict dictionary which stores all references to all instances of enemies
 
 Letter meanings:
 	S - Sniper
@@ -19,6 +22,12 @@ Enemy action sequences are composed of:
 	R - Turn right
 	U - Flip direction
 	M - Move forward
+	H - Hold/wait
+	
+	Possibly not have behaviors loop by default?
+	Something like R = return/loop, and being only used once or using a number before it for how many loops
+	E to end all actions?
+	
 So something like LMLMLMLM would have an enemy move in a 2x2 square, turning every other action.
 For a more realistic path, it could be like MLULMLULMLULMLUL, which would move the enemy in a direction, have them check to the left first, then the right immediately after, before looking forward again. So there can be sequences that are interpreted with this code:
 
@@ -30,6 +39,8 @@ elif R:
 	turn(facing, 1)
 elif U:
 	flip(facing)
+elif H:
+	pass
 
 var dirDict[] = ["Left", "Up", "Right", "Down"]
 

@@ -13,7 +13,7 @@ config_version=5
 config/name="Backstab (experimental)"
 run/main_scene="uid://c0qmd4bcjkmlf"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Assets/Visual Assets/icon.svg"
 
 [input]
 

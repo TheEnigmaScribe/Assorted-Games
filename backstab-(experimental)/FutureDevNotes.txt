@@ -1,6 +1,4 @@
-Priority
-- Implement tutorial tilemap movement functionalit
-- Implement raycasting functionality on enemies
+Possibly make all movement on a timer? Should try Crypt of the Necrodancer to get a feel of how
 
 Gameplay
 - (none yet)

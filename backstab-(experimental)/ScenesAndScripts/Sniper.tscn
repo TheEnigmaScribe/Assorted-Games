@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c83228r10urql"]
 
-[ext_resource type="Script" uid="uid://ddwjr7w8l6vyd" path="res://Sniper.gd" id="1_s7dwn"]
-[ext_resource type="Texture2D" uid="uid://4hg5jm10j7va" path="res://pixil-frame-0-8.png" id="2_73jju"]
+[ext_resource type="Script" uid="uid://ddwjr7w8l6vyd" path="res://ScenesAndScripts/Sniper.gd" id="1_s7dwn"]
+[ext_resource type="Texture2D" uid="uid://4hg5jm10j7va" path="res://Assets/Visual Assets/pixil-frame-0-8.png" id="2_73jju"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6jcko"]
 atlas = ExtResource("2_73jju")

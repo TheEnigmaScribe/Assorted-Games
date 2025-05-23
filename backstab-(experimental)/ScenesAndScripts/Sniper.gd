@@ -3,6 +3,8 @@ extends Node2D
 @onready var sprite_2d: Sprite2D = $SniperSprite
 @onready var raycast_2d: RayCast2D = $SniperRaycast
 
+var instructions = []
+
 # var spinning: bool
 # var moving: bool
 var initialFacing: String
@@ -18,7 +20,7 @@ func _ready():
 	
 func _process(delta):
 	if raycast_2d.is_colliding():
-		print("death")
+		onPlayerDetection()
 
 func _on_player_player_step():
 	if facing == "Left":
@@ -54,3 +56,5 @@ func spriteFacing(looking):
 	if looking == "Up" or looking == "Down":
 		raycast_2d.target_position = raycast_direction * Vector2(1, 16) * 32
 		
+func onPlayerDetection():
+	sprite_2d.texture_region = Rect2(192, 96, 32, 32)
