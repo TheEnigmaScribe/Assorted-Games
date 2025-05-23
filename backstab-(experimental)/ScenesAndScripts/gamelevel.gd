@@ -20,11 +20,27 @@ func loadMap(enemyMap, enemyInstructions):
 	else:
 		print("enemyMap loaded")
 	var enemyMapData = enemyMap.get_as_text()
+	#print(enemyMapData)
 	enemyMap.close()
+	var xCoord = 0
+	var yCoord = 0
 	for line in enemyMapData:
-		for i in enemyMapData:
-			if "S":
+		for i in line:
+			xCoord += 1
+			#print(xCoord)
+			#print(i)
+			if i == "/":
+				xCoord = 0
+				yCoord += 1
+			elif i == "[" or i == "]":
+				xCoord -= 1
+			elif i == "#":
+				pass
+			elif i == "S":
 				var sniper = sniperScene.instantiate()
+				print(str(xCoord) + ", " + str(yCoord))
+				sniper.position = Vector2(((xCoord - 1) * 32) + 16, (yCoord * 32) + 16)
+				# temp note- intended spawn should be tile 7, 2
 				add_child(sniper)
 				var enemyID = "S" + str(sniperNum)
 				enemyDict[enemyID] = sniper
@@ -33,12 +49,12 @@ func loadMap(enemyMap, enemyInstructions):
 				sniperNum += 1
 				enemyNum += 1
 				loadInstructions(enemyInstructions, enemyID)
-				sniper.instructions = enemyInst[enemyID]
+				#sniper.instructions = enemyInst[enemyID]
 			else:
-				pass
+				xCoord -= 1
 
 func loadInstructions(enemyInstructions, enemyID):
-	var finish: bool = false
+	var stop: bool = false
 	if enemyInstructions == null:
 		print("failed to load enemyInstructions")
 	else:
@@ -46,28 +62,20 @@ func loadInstructions(enemyInstructions, enemyID):
 	var enemyInstructionsData = enemyInstructions.get_as_text()
 	for line in enemyInstructionsData:
 		if enemyInstructionsData.substr(0, 2) == "[]":
-			finish = true
-		elif finish != true:
+			stop = true
+		elif stop != true:
 			if enemyDict[enemyInstructionsData.substr(0, 2)] == null:
 				print("enemyID in instructions not valid")
 				pass
 			if enemyInstructionsData.substr(0, 2) == enemyID:
-				var instructions: String
-				for i in line:
-					if i == "M":
-						instructions + "M"
-					elif i == "L":
-						instructions + "L"
-					elif i == "R":
-						instructions + "R"
-					elif i == "U":
-						instructions + "U"
-					elif i == "H":
-						instructions + "H"
+				var instructions: String = line
+				print(line)
+				instructions.replace(instructions.substr(0,3),"")
+				print(instructions)
 				enemyInst[enemyID] = instructions
-				enemyLoad[enemyID] = true
+				#print(enemyInst[enemyID])
 				return enemyInst[enemyID]
-		if (finish == true) and enemyDict[enemyID] != null:
+		if (stop == true) and enemyDict[enemyID] != null:
 			print("Failed to load " + enemyID + ", loading default behavior.")
 			var defaultBehavior = "LLLL"
 			enemyInst[enemyID] = defaultBehavior

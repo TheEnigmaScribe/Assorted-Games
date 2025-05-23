@@ -57,4 +57,5 @@ func spriteFacing(looking):
 		raycast_2d.target_position = raycast_direction * Vector2(1, 16) * 32
 		
 func onPlayerDetection():
-	sprite_2d.texture_region = Rect2(192, 96, 32, 32)
+	# sprite_2d.texture_region = Rect2(192, 96, 32, 32)
+	pass
