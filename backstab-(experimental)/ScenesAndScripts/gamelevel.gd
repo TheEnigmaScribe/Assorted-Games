@@ -2,19 +2,17 @@ extends Node2D
 
 var sniperScene: PackedScene = preload("res://ScenesAndScripts/Sniper.tscn")
 
-var enemyList = {}
 var enemyDict = {}
 var enemyInst = {}
-var enemyLoad = {}
 var enemyNum = 0
 var sniperNum = 0
 
 func _ready():
-	var enemyMap = FileAccess.open("res://MapFiles/EnemyMap1.txt", FileAccess.READ)
-	var enemyInstructions = FileAccess.open("res://Mapfiles/EnemyInstructions1.txt", FileAccess.READ)
-	loadMap(enemyMap, enemyInstructions)
-	
-func loadMap(enemyMap, enemyInstructions):
+	loadMap(FileAccess.open("res://MapFiles/EnemyMap1.txt", FileAccess.READ))
+	loadInstructions(FileAccess.open("res://Mapfiles/EnemyInstructions1.txt", FileAccess.READ))
+	print(enemyInst["S0"])
+
+func loadMap(enemyMap):
 	if enemyMap == null:
 		print("failed to load enemyMap")
 	else:
@@ -27,15 +25,9 @@ func loadMap(enemyMap, enemyInstructions):
 	for line in enemyMapData:
 		for i in line:
 			xCoord += 1
-			#print(xCoord)
-			#print(i)
-			if i == "/":
-				xCoord = 0
+			if i == "\n":
 				yCoord += 1
-			elif i == "[" or i == "]":
-				xCoord -= 1
-			elif i == "#":
-				pass
+				xCoord = 0
 			elif i == "S":
 				var sniper = sniperScene.instantiate()
 				print(str(xCoord) + ", " + str(yCoord))
@@ -45,38 +37,22 @@ func loadMap(enemyMap, enemyInstructions):
 				var enemyID = "S" + str(sniperNum)
 				enemyDict[enemyID] = sniper
 				print(enemyID)
-				enemyList[enemyNum] = "S" + str(sniperNum)
 				sniperNum += 1
 				enemyNum += 1
-				loadInstructions(enemyInstructions, enemyID)
-				#sniper.instructions = enemyInst[enemyID]
-			else:
-				xCoord -= 1
+				sniper.id = enemyID
 
-func loadInstructions(enemyInstructions, enemyID):
-	var stop: bool = false
+func loadInstructions(enemyInstructions):
 	if enemyInstructions == null:
 		print("failed to load enemyInstructions")
 	else:
 		print("enemyInstructions loaded")
 	var enemyInstructionsData = enemyInstructions.get_as_text()
-	for line in enemyInstructionsData:
-		if enemyInstructionsData.substr(0, 2) == "[]":
-			stop = true
-		elif stop != true:
-			if enemyDict[enemyInstructionsData.substr(0, 2)] == null:
-				print("enemyID in instructions not valid")
-				pass
-			if enemyInstructionsData.substr(0, 2) == enemyID:
-				var instructions: String = line
-				print(line)
-				instructions.replace(instructions.substr(0,3),"")
-				print(instructions)
-				enemyInst[enemyID] = instructions
-				#print(enemyInst[enemyID])
-				return enemyInst[enemyID]
-		if (stop == true) and enemyDict[enemyID] != null:
-			print("Failed to load " + enemyID + ", loading default behavior.")
-			var defaultBehavior = "LLLL"
-			enemyInst[enemyID] = defaultBehavior
-			pass
+	for line in enemyInstructionsData.split("\n"):
+		line = line.strip_edges()
+		var parts = line.split(" ")
+		if line.is_empty():
+			continue
+		var enemyID = parts[0]
+		var instructions = parts[1]
+		enemyInst[enemyID] = instructions
+		

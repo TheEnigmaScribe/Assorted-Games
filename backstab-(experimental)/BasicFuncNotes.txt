@@ -1,10 +1,7 @@
 To Do List
-	- set a default map size to use for loading maps later
-	- Figure out how to spawn enemies with text files
-		- presumably achievable via a similar method to the pygame tutorial video?
-		- might or might not include maps, since those can be loaded with scenes probably
-		- necessary for giving invidividual enemies unique behaviors
-		- if I end up doing the enemy text files, likely worth adding tilemap text files as well
+	- clean up formatting with classes and some naming stuff
+	- properly comment out code later
+	- possible load tilemaps with text files since I'm loading entities and enemy instructions that way already
 	- Implement actual "game over" functionality for enemies
 	- add player stab functionality
 	- Create enemy movement function
