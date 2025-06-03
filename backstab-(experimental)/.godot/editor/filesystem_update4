@@ -1,6 +1,5 @@
 res://ScenesAndScripts/Gamelevel.tscn
+res://BasicFuncNotes.txt
+res://FutureDevNotes.txt
 res://ScenesAndScripts/Player.tscn
 res://ScenesAndScripts/Sniper.tscn
-res://ScenesAndScripts/gamelevel.gd
-res://MapFiles/EnemyInstructions1.txt
-res://BasicFuncNotes.txt

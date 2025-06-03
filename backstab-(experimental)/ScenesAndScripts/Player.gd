@@ -1,26 +1,30 @@
-extends Sprite2D
+class_name Player
+extends Node2D
+
+enum {Left = 1, Up = 2, Right = 3, Down = 4}
 
 signal playerStep
 
-@onready var tile_map = $"../TileMapLayer"
+@onready var tile_map = get_tree().get_first_node_in_group("tilemaplayer")
 @onready var sprite_2d: Sprite2D = $PlayerSprite
 @onready var raycast_2d: RayCast2D = $PlayerEnemyCollisionRaycast
 
-var is_moving = false
-var default_facing = "Down"
-var facing: String
+var is_moving: bool = false
+var default_facing = Down
+var facing: int
 var raycast_default: Vector2
+var counter = -1
 
 func _ready():
 	if facing == null:
 		facing = default_facing
-	if facing == "Left":
+	if facing == Left:
 		raycast_default = Vector2.LEFT
-	elif facing == "Right":
+	elif facing == Right:
 		raycast_default = Vector2.RIGHT
-	elif facing == "Up":
+	elif facing == Up:
 		raycast_default = Vector2.UP
-	elif facing == "Down":
+	elif facing == Down:
 		raycast_default = Vector2.DOWN
 	raycast_2d.target_position = raycast_default * 32
 
@@ -40,27 +44,27 @@ func _process(delta):
 	if Input.is_action_just_pressed("stab"):
 		if raycast_2d.is_colliding():
 			print("functional")
-			if facing == "Left":
+			if facing == Left:
 				pass
-			elif facing == "Right":
+			elif facing == Right:
 				pass
-			elif facing == "Up":
+			elif facing == Up:
 				pass
-			elif facing == "Down":
+			elif facing == Down:
 				pass
 		stab(facing)
 	elif Input.is_action_just_pressed("left"):
 		move(Vector2.LEFT)
-		facing = "Left"
+		facing = Left
 	elif Input.is_action_just_pressed("right"):
 		move(Vector2.RIGHT)
-		facing = "Right"
+		facing = Right
 	elif Input.is_action_just_pressed("up"):
 		move(Vector2.UP)
-		facing = "Up"
+		facing = Up
 	elif Input.is_action_just_pressed("down"):
 		move(Vector2.DOWN)
-		facing = "Down"
+		facing = Down
 
 func move(direction):
 	var current_tile: Vector2i = tile_map.local_to_map(global_position)
@@ -83,17 +87,18 @@ func move(direction):
 	
 	is_moving = true
 	playerStep.emit()
+	# print("emitting")
 	global_position = tile_map.map_to_local(target_tile)
 	sprite_2d.global_position = tile_map.map_to_local(current_tile)
 
 func spriteFacing(looking):
-	if looking == "Left":
+	if looking == Left:
 		sprite_2d.texture.region = Rect2(32, 32, 32, 32)
-	if looking == "Right":
+	if looking == Right:
 		sprite_2d.texture.region = Rect2(0, 0, 32, 32)
-	if looking == "Up":
+	if looking == Up:
 		sprite_2d.texture.region = Rect2(0, 32, 32, 32)
-	if looking == "Down":
+	if looking == Down:
 		sprite_2d.texture.region = Rect2(32, 0, 32, 32)
 
 func stab(looking):

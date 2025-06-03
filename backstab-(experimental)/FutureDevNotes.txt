@@ -1,4 +1,22 @@
 Possibly make all movement on a timer? Should try Crypt of the Necrodancer to get a feel of how
+REALLY thinking about that...
+
+Guards have a set "patrol" path, but have AI to go off and investigate if they "hear" or otherwise indirectly detect the player?
+would return to patrols aftewards if they didn't find the player
+
+- textboxes and sprites for showing characters?
+- enemy sight indicators that don't outright show area mostly
+	- red laser line for snipers
+	- area of light around guards 
+		- (in the dark areas like if they have a lamp, or maybe just a bit lighter around them like the knight in hollow knight) 
+		- (could just vary from map to map with lightlevel)
+		- (prison really should have proper visibility around the shadow creature though...) 
+		- (the prison is really dark overall)
+	- brightened areas through telescopes for watchers?
+	- trackers have same area as guards, but can track once they have a "trace" 
+		- (or maybe they just always have a trace? or get one if you leave one, or just at some point midway)
+- "Hearing" if you're close to the guard but not within sight range?
+- "feeling" if you're right next to a guard?
 
 Gameplay
 - (none yet)

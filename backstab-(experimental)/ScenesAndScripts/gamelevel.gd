@@ -1,51 +1,55 @@
 extends Node2D
 
-var sniperScene: PackedScene = preload("res://ScenesAndScripts/Sniper.tscn")
+signal connectToPlayer
+signal instructionsFilled
 
-var enemyDict = {}
-var enemyInst = {}
-var enemyNum = 0
+var sniperScene: PackedScene = preload("res://ScenesAndScripts/Sniper.tscn")
+var playerScene: PackedScene = preload("res://ScenesAndScripts/Player.tscn")
+
+var enemyInfo: Dictionary = {}
 var sniperNum = 0
 
 func _ready():
-	loadMap(FileAccess.open("res://MapFiles/EnemyMap1.txt", FileAccess.READ))
+	loadMap(FileAccess.open("res://MapFiles/EntityMap1.txt", FileAccess.READ))
 	loadInstructions(FileAccess.open("res://Mapfiles/EnemyInstructions1.txt", FileAccess.READ))
-	print(enemyInst["S0"])
+	enemyInfo["isWorking"] = "testvalue"
 
-func loadMap(enemyMap):
-	if enemyMap == null:
-		print("failed to load enemyMap")
-	else:
-		print("enemyMap loaded")
-	var enemyMapData = enemyMap.get_as_text()
-	#print(enemyMapData)
-	enemyMap.close()
-	var xCoord = 0
+func loadMap(entityMap):
+	# load entityMap
+	var entityMapData = entityMap.get_as_text()
+	#print(entityMapData)
+	entityMap.close()
+	var xCoord = -1
 	var yCoord = 0
-	for line in enemyMapData:
+	for line in entityMapData:
 		for i in line:
 			xCoord += 1
 			if i == "\n":
 				yCoord += 1
-				xCoord = 0
+				xCoord = -1
+			elif i == "P":
+				var player = playerScene.instantiate()
+				$EntityList.add_child(player)
+				player.position = Vector2((xCoord * 32) + 16, (yCoord * 32) + 16)
 			elif i == "S":
+				var enemyID = "S" + str(sniperNum) 
 				var sniper = sniperScene.instantiate()
-				print(str(xCoord) + ", " + str(yCoord))
-				sniper.position = Vector2(((xCoord - 1) * 32) + 16, (yCoord * 32) + 16)
-				# temp note- intended spawn should be tile 7, 2
-				add_child(sniper)
-				var enemyID = "S" + str(sniperNum)
-				enemyDict[enemyID] = sniper
-				print(enemyID)
-				sniperNum += 1
-				enemyNum += 1
+				sniper.position = Vector2((xCoord * 32) + 16, (yCoord * 32) + 16)
+				$EntityList.add_child(sniper)
+				sniper.name = enemyID
+				# enemyInfo stores all enemy info, though in seperate entries
+				# each entry is the appropriate string and then the enemy ID
+				enemyInfo["Instance" + enemyID] = sniper
+				sniper.instPath = sniper
 				sniper.id = enemyID
+				sniper.add_to_group("enemies")
+				# print("sniper.id is " + sniper.id)
+				sniperNum += 1
+			elif i == "X":
+				connectToPlayer.emit()
 
 func loadInstructions(enemyInstructions):
-	if enemyInstructions == null:
-		print("failed to load enemyInstructions")
-	else:
-		print("enemyInstructions loaded")
+	# load enemyInstructions
 	var enemyInstructionsData = enemyInstructions.get_as_text()
 	for line in enemyInstructionsData.split("\n"):
 		line = line.strip_edges()
@@ -53,6 +57,8 @@ func loadInstructions(enemyInstructions):
 		if line.is_empty():
 			continue
 		var enemyID = parts[0]
-		var instructions = parts[1]
-		enemyInst[enemyID] = instructions
-		
+		var initialFacing = parts[1]
+		var instructions = parts[2]
+		enemyInfo["InitFacing" + enemyID] = initialFacing
+		enemyInfo["Instructions" + enemyID] = instructions
+	instructionsFilled.emit()

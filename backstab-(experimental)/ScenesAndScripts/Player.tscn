@@ -14,7 +14,7 @@ region = Rect2(0, 0, 64, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kpjcp"]
 size = Vector2(32, 32)
 
-[node name="Player" type="Sprite2D"]
+[node name="Player" type="Sprite2D" groups=["player"]]
 texture = SubResource("AtlasTexture_onrkg")
 script = ExtResource("1_4flbx")
 

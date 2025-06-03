@@ -1,10 +1,22 @@
 To Do List
-	- clean up formatting with classes and some naming stuff
-	- properly comment out code later
-	- possible load tilemaps with text files since I'm loading entities and enemy instructions that way already
-	- Implement actual "game over" functionality for enemies
+	- add actual "game over" functionality for enemies detecting the player
 	- add player stab functionality
-	- Create enemy movement function
-	- Implement enemy turning/movement code
+	- add player reaching goal functionality
 	- game menus
-	- level selection
+		- main menu
+		- settings (volume, zoom? idk yet)
+		- level selection/player
+		- quit button
+	- basic sfx and music for game?
+	- possibly load tilemaps with text files since I'm loading entities and enemy instructions that way already
+	- probably have a second layer of folders in MapFiles, seperating each set of files by level
+	- Fix minor input lag with movement keys based on comments under tilemap movement tutorial
+	- add either a bounce or player priority if a player and enemy move into the same space at the same time
+		- automatic detection guaranteed one way or another
+		- likely feaasible through somehow communicating to enemies what the target tile of the player is
+		- and then comparing it with the target tile of the enemy
+	- CLEANUP
+		- Reorganize with classes?
+		- Remove pointless code and text in all files
+		- Properly comment out code
+	

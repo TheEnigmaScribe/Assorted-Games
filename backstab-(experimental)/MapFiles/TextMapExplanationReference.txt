@@ -67,3 +67,5 @@ func flip(looking):
 	if 3 < direction:
 		direction -= 4
 	spriteFacing(dirDict[direction])
+
+#[-]
