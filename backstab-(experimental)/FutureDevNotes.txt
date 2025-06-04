@@ -15,8 +15,11 @@ would return to patrols aftewards if they didn't find the player
 	- brightened areas through telescopes for watchers?
 	- trackers have same area as guards, but can track once they have a "trace" 
 		- (or maybe they just always have a trace? or get one if you leave one, or just at some point midway)
+- vents? able to go between two points, possibly have guards notice the noise
 - "Hearing" if you're close to the guard but not within sight range?
 - "feeling" if you're right next to a guard?
+- dashing and other abilities
+- Alert phase
 
 Gameplay
 - (none yet)

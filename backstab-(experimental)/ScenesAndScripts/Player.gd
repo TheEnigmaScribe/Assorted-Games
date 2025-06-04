@@ -4,7 +4,10 @@ extends Node2D
 enum {Left = 1, Up = 2, Right = 3, Down = 4}
 
 signal playerStep
+signal whatWasHit
+signal reachedGoal
 
+@onready var game_level = get_tree().get_first_node_in_group("gamelevel")
 @onready var tile_map = get_tree().get_first_node_in_group("tilemaplayer")
 @onready var sprite_2d: Sprite2D = $PlayerSprite
 @onready var raycast_2d: RayCast2D = $PlayerEnemyCollisionRaycast
@@ -13,7 +16,8 @@ var is_moving: bool = false
 var default_facing = Down
 var facing: int
 var raycast_default: Vector2
-var counter = -1
+
+var nodeSeen
 
 func _ready():
 	if facing == null:
@@ -42,16 +46,6 @@ func _process(delta):
 		return
 	# if Input.is_action_just_pressed("cDash"):
 	if Input.is_action_just_pressed("stab"):
-		if raycast_2d.is_colliding():
-			print("functional")
-			if facing == Left:
-				pass
-			elif facing == Right:
-				pass
-			elif facing == Up:
-				pass
-			elif facing == Down:
-				pass
 		stab(facing)
 	elif Input.is_action_just_pressed("left"):
 		move(Vector2.LEFT)
@@ -80,6 +74,9 @@ func move(direction):
 	if tile_data.get_custom_data("walkable") == false:
 		return
 	
+	if tile_data.get_custom_data("goal") == true:
+		reachedGoal.emit()
+	
 	raycast_2d.target_position = direction * 32
 	raycast_2d.force_raycast_update()
 	if raycast_2d.is_colliding():
@@ -102,4 +99,18 @@ func spriteFacing(looking):
 		sprite_2d.texture.region = Rect2(32, 0, 32, 32)
 
 func stab(looking):
+	# if player stabs a vending machine or something, it makes a noise
+	if raycast_2d.is_colliding():
+		var hit: Area2D = raycast_2d.get_collider()
+		whatWasHit.emit(hit, looking)
+		print("hit something")
+		print(str(hit))
+	else:
+		# player stab animation and sound
+		pass
+
+func _level_finished():
+	pass
+
+func _is_player_seen(nodeSeen):
 	pass

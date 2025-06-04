@@ -1,7 +1,10 @@
 extends Node2D
 
 signal connectToPlayer
+signal connectToEnemies
 signal instructionsFilled
+signal gameOver
+signal levelComplete
 
 var sniperScene: PackedScene = preload("res://ScenesAndScripts/Sniper.tscn")
 var playerScene: PackedScene = preload("res://ScenesAndScripts/Player.tscn")
@@ -47,6 +50,12 @@ func loadMap(entityMap):
 				sniperNum += 1
 			elif i == "X":
 				connectToPlayer.emit()
+				connectToEnemies.emit()
+				for e in get_tree().get_nodes_in_group("enemies"):
+					e.playerSeen.connect(_game_over)
+				for p in get_tree().get_nodes_in_group("player"):
+					if p is Sprite2D:
+						p.reachedGoal.connect(_level_complete)
 
 func loadInstructions(enemyInstructions):
 	# load enemyInstructions
@@ -58,7 +67,26 @@ func loadInstructions(enemyInstructions):
 			continue
 		var enemyID = parts[0]
 		var initialFacing = parts[1]
-		var instructions = parts[2]
+		var instructions: String
+		if parts.size() == 2:
+			instructions = "null"
+		else: 
+			instructions = parts[2]
 		enemyInfo["InitFacing" + enemyID] = initialFacing
 		enemyInfo["Instructions" + enemyID] = instructions
 	instructionsFilled.emit()
+
+func _game_over():
+	print("gameOver")
+	gameOver.emit()
+
+func _level_complete():
+	# level ending sequence probably has player walking off through the exit to elsewhere
+	# enemies possibly relax or something like that, but not necessarily
+	# things like snipers bringing up their guns and pointing em up as if done
+	print("level completed")
+	levelComplete.emit()
+
+# possible thing to implement
+func _go_on_alert():
+	pass

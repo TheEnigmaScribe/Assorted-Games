@@ -1,13 +1,18 @@
 extends Node2D
 
 enum {Left = 1, Up = 2, Right = 3, Down = 4}
+enum {OnPatrol = 1, NoticedSomething = 2, OnAlert = 3, Dead = 4}
+
+signal playerSeen
 
 @onready var game_level = get_tree().get_first_node_in_group("gamelevel")
 @onready var tile_map = get_tree().get_first_node_in_group("tilemaplayer")
 var player: Sprite2D
+var playerHitbox: Area2D
 @onready var sprite_2d: Sprite2D = $SniperSprite
 @onready var raycast_2d: RayCast2D = $SniperRaycast
 @onready var wallchecker: Node2D = $SniperWallcheck
+@onready var area_2d: Area2D = $EnemyCollision
 
 
 var instPath: Node2D
@@ -18,6 +23,17 @@ var instructions: String
 var customBehavior: bool
 var enemyInfo: Dictionary
 var is_moving: bool
+var playerDetected: bool = false
+
+# determines enemy behavior
+# NoticedSomething and OnAlert are future possibilities for more ways the enemy can behave
+# NoticedSomething would have the enemy deviate from its patrol sequence to go off a few tiles to whatever it noticed
+# and if it doesn't find anything, it goes back to where it used to be
+# probably would keep a sequence of actions/saved tile coordinates to go back to and resume patrol if so
+# OnAlert is for a phase 2
+# if the player dashes past an enemy's vision, all enemies in the map go on alert
+# if the player is spotted again (even through dashing) all enemies start chasing after player (quickest path possible)
+var enemyState = OnPatrol
 
 var sequenceComplete: bool = false
 var currentChar: int = -1
@@ -37,13 +53,18 @@ func _ready():
 	# done this way so the code that uses the information isn't run before it can be loaded
 	game_level.connectToPlayer.connect(_connect_to_player)
 	game_level.instructionsFilled.connect(_register_sequence)
+	game_level.gameOver.connect(_game_over_sequence)
 
-# process methods
+# process methods, used for player detection and movement processing
 func _process(delta):
-	if raycast_2d.is_colliding():
-		var seenObject = raycast_2d.get_collider()
-		if seenObject == get_tree().get_first_node_in_group("player"):
-			onPlayerDetection()
+	if playerDetected == false:
+		if raycast_2d.is_colliding():
+			var seenObject = raycast_2d.get_collider()
+			if seenObject == playerHitbox:
+				playerDetected = true
+				playerSeen.emit()
+	elif playerDetected == true:
+		pass
 
 func _physics_process(delta):
 	if is_moving == false:
@@ -171,14 +192,40 @@ func turn(looking):
 	var raycast_endpoint = wallchecker.findRaycastEndpoint(looking, id)
 	raycast_2d.target_position = raycast_endpoint
 
-# player detection method
-func onPlayerDetection():
-	print("Player detected")
+func _game_over_sequence():
+	# checks playerDetected to make sure that this only triggers on enemy that detected player
+	if playerDetected == true:
+		print("playerDetected")
+		pass
+
+func _is_enemy_killed(nodeSeen, playerFacing):
+	print("enemynode area2d is " + str(area_2d))
+	if nodeSeen == area_2d:
+		# checks if player is behind the enemy
+		if facing == playerFacing:
+			print("Enemy" + id + "has been killed")
+			# run death animation/deletion? or just turn state to dead
+			pass
+		else:
+			# go on alert, probably, maybe dodge back? idk, but nothing yet
+			pass
+	else:
+		pass
 
 # variable setting methods
 func _connect_to_player():
-	player = get_tree().get_first_node_in_group("player")
-	player.playerStep.connect(_on_player_step)
+	var playerNodes = get_tree().get_nodes_in_group("player")
+	print(playerNodes)
+	for i in playerNodes:
+		if i is Sprite2D:
+			var nodeSeen: Area2D
+			player = i
+			player.playerStep.connect(_on_player_step)
+			player.whatWasHit.connect(_is_enemy_killed)
+			print("player filled with: " + str(player))
+		elif i is Area2D:
+			playerHitbox = i
+			print("playerHitbox filled with: " + str(playerHitbox))
 
 func _register_sequence():
 	initialFacing = enemyInfo["InitFacing" + id]
@@ -194,8 +241,13 @@ func _register_sequence():
 		facing = initialFacing
 		turn(facing)
 	instructions = enemyInfo["Instructions" + id]
-	if instructions == null:
+	if instructions == "null":
 		customBehavior = false
 	else:
 		customBehavior = true
 	print(id + " Instructions: " + instructions)
+
+func _go_on_alert():
+	# runs sequence if an enemy detected the player while dashing/didn't kill the player
+	# runs for all enemies, as the alert state affects whole map
+	enemyState = OnAlert
