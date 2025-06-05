@@ -229,6 +229,7 @@ func _connect_to_player():
 
 func _register_sequence():
 	initialFacing = enemyInfo["InitFacing" + id]
+	print(id + " should be facing " + initialFacing)
 	if initialFacing != null:
 		if initialFacing == "L":
 			initialFacing = Left

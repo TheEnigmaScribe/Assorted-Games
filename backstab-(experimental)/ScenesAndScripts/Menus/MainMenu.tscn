@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://c5f2a7pyvjsnu"]
 
-[ext_resource type="Script" uid="uid://ciu4trsayfo8y" path="res://ScenesAndScripts/MainMenu.gd" id="1_f4emj"]
-[ext_resource type="Texture2D" uid="uid://chjdix5jqup4w" path="res://Assets/Visual Assets/MenuAssets/Backstab.png" id="2_ss2ph"]
-[ext_resource type="Texture2D" uid="uid://ci1he3yg2yi1m" path="res://Assets/Visual Assets/MenuAssets/Buttons/Play.png" id="3_8uf7d"]
-[ext_resource type="Texture2D" uid="uid://catvhgvsdq76d" path="res://Assets/Visual Assets/MenuAssets/Buttons/Settings.png" id="4_w8p1h"]
-[ext_resource type="Texture2D" uid="uid://bq61fuu1fvldx" path="res://Assets/Visual Assets/MenuAssets/Buttons/Quit.png" id="5_2btg4"]
-[ext_resource type="AudioStream" uid="uid://dq2pqvvbiff6w" path="res://Assets/Audio Assets/vine-boom.mp3" id="6_ss2ph"]
+[ext_resource type="Script" uid="uid://ciu4trsayfo8y" path="res://ScenesAndScripts/Menus/MainMenu.gd" id="1_6ljxw"]
+[ext_resource type="Texture2D" uid="uid://chjdix5jqup4w" path="res://Assets/Visual Assets/MenuAssets/Backstab.png" id="2_l4rrg"]
+[ext_resource type="Texture2D" uid="uid://ci1he3yg2yi1m" path="res://Assets/Visual Assets/MenuAssets/Buttons/Play.png" id="3_ltsbv"]
+[ext_resource type="Texture2D" uid="uid://catvhgvsdq76d" path="res://Assets/Visual Assets/MenuAssets/Buttons/Settings.png" id="4_mvak6"]
+[ext_resource type="Texture2D" uid="uid://bq61fuu1fvldx" path="res://Assets/Visual Assets/MenuAssets/Buttons/Quit.png" id="5_06s6h"]
+[ext_resource type="AudioStream" uid="uid://dq2pqvvbiff6w" path="res://Assets/Audio Assets/vine-boom.mp3" id="6_dll0x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qoqlk"]
 bg_color = Color(0, 0, 0, 1)
@@ -17,7 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_f4emj")
+script = ExtResource("1_6ljxw")
 
 [node name="BlackPanel" type="Panel" parent="."]
 layout_mode = 1
@@ -41,7 +41,7 @@ offset_right = 264.0
 offset_bottom = -102.0
 grow_horizontal = 2
 grow_vertical = 2
-icon = ExtResource("2_ss2ph")
+icon = ExtResource("2_l4rrg")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -59,17 +59,17 @@ grow_vertical = 2
 
 [node name="Play" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-icon = ExtResource("3_8uf7d")
+icon = ExtResource("3_ltsbv")
 flat = true
 
 [node name="Settings" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-icon = ExtResource("4_w8p1h")
+icon = ExtResource("4_mvak6")
 flat = true
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-icon = ExtResource("5_2btg4")
+icon = ExtResource("5_06s6h")
 flat = true
 
 [node name="Label" type="Label" parent="."]
@@ -88,7 +88,7 @@ grow_vertical = 0
 text = "Backstab Version 0.1"
 
 [node name="VineBoom" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_ss2ph")
+stream = ExtResource("6_dll0x")
 
 [connection signal="pressed" from="Title" to="." method="_on_title_pressed"]
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]

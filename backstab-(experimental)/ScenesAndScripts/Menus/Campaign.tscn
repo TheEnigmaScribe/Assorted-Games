@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cnls88jw3wuat"]
 
-[ext_resource type="Script" uid="uid://k72fx6bep162" path="res://Campaign.gd" id="1_is08e"]
-[ext_resource type="Texture2D" uid="uid://bpflm36dqcuyf" path="res://Assets/Visual Assets/MenuAssets/Buttons/Back.png" id="2_4ig7r"]
+[ext_resource type="Script" uid="uid://k72fx6bep162" path="res://Campaign.gd" id="1_ipm4l"]
+[ext_resource type="Texture2D" uid="uid://bpflm36dqcuyf" path="res://Assets/Visual Assets/MenuAssets/Buttons/Back.png" id="2_qixae"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_is08e"]
 bg_color = Color(0, 0, 0, 1)
@@ -13,7 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_is08e")
+script = ExtResource("1_ipm4l")
 
 [node name="BlackPanel" type="Panel" parent="."]
 layout_mode = 1
@@ -40,7 +40,7 @@ offset_left = 444.0
 offset_top = 435.0
 offset_right = 708.0
 offset_bottom = 507.0
-icon = ExtResource("2_4ig7r")
+icon = ExtResource("2_qixae")
 flat = true
 
 [node name="Label" type="Label" parent="."]

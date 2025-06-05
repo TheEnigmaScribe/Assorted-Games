@@ -1,6 +1,6 @@
-HBoxContainer
-Button
 GridContainer
+Button
+HBoxContainer
 AudioStreamPlayer2D
 Label
 VBoxContainer

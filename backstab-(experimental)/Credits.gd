@@ -1,8 +1,4 @@
 extends Control
-# at some point add a feature that checks whether or not the player has played before or not
-# that way the save can display start or continue, depending on which
-
-signal folderPath
 
 func _process(delta):
 	if Input.is_action_just_pressed("escape"):

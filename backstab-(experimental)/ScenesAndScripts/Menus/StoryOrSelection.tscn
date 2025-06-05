@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://wiahd5jbgivy"]
 
 [ext_resource type="Texture2D" uid="uid://chjdix5jqup4w" path="res://Assets/Visual Assets/MenuAssets/Backstab.png" id="1_1njof"]
-[ext_resource type="Script" uid="uid://hnsou228loeo" path="res://ScenesAndScripts/StoryOrSelection.gd" id="1_ayoky"]
+[ext_resource type="Script" uid="uid://hnsou228loeo" path="res://ScenesAndScripts/Menus/StoryOrSelection.gd" id="1_ayoky"]
 [ext_resource type="Texture2D" uid="uid://b3flej25yuh50" path="res://Assets/Visual Assets/MenuAssets/Buttons/Campaign.png" id="2_ayoky"]
 [ext_resource type="Texture2D" uid="uid://be71j47w53ep5" path="res://Assets/Visual Assets/MenuAssets/Buttons/Levels.png" id="3_8y1eg"]
 [ext_resource type="Texture2D" uid="uid://bpflm36dqcuyf" path="res://Assets/Visual Assets/MenuAssets/Buttons/Back.png" id="4_rxgdt"]
