@@ -44,6 +44,7 @@ layout_mode = 2
 icon = ExtResource("2_twc4o")
 
 [node name="Back" type="Button" parent="."]
+layout_mode = 0
 offset_left = 444.0
 offset_top = 435.0
 offset_right = 708.0

@@ -1,6 +1,24 @@
 To Do List
+	
+	- add pause and pause menu
+	
 	- work on making saves (and possibly achievements)
+	
 	- get started on the textboxes (with sprites) after enemies can kill the player and the player can complete the level
+	
+	- basic sfx and music for game?
+	
+	- possibly load tilemaps with text files since I'm loading entities and enemy instructions that way already
+	
+	- probably have a second layer of folders in MapFiles, seperating each set of files by level
+	
+	- Fix minor input lag with movement keys based on comments under tilemap movement tutorial
+	
+	- add either a bounce or player priority if a player and enemy move into the same space at the same time
+		- automatic detection guaranteed one way or another
+		- likely feaasible through somehow communicating to enemies what the target tile of the player is
+		- and then comparing it with the target tile of the enemy
+	
 	- finish up menus
 		- campaign menu
 			- later save all following information to a file
@@ -23,22 +41,13 @@ To Do List
 			- audio should eventually show sound settings
 			- visuals should eventually show resolution fullscreen/not fullscreen settings and the like
 			- controls should show control scheme and later allow for changing of keybinds
+	
 	- add actual "game over" functionality for enemies detecting the player
+	
 	- add player stab functionality
+	
 	- add player reaching goal functionality
-	- game menus
-		- main menu
-		- settings (volume, zoom? idk yet)
-		- level selection/player
-		- quit button
-	- basic sfx and music for game?
-	- possibly load tilemaps with text files since I'm loading entities and enemy instructions that way already
-	- probably have a second layer of folders in MapFiles, seperating each set of files by level
-	- Fix minor input lag with movement keys based on comments under tilemap movement tutorial
-	- add either a bounce or player priority if a player and enemy move into the same space at the same time
-		- automatic detection guaranteed one way or another
-		- likely feaasible through somehow communicating to enemies what the target tile of the player is
-		- and then comparing it with the target tile of the enemy
+	
 	- CLEANUP
 		- Reorganize with classes?
 		- Remove pointless code and text in all files
