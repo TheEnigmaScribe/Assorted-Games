@@ -1,3 +1,11 @@
+HBoxContainer
+Button
+GridContainer
+AudioStreamPlayer2D
+Label
+VBoxContainer
+Sprite2D
+Panel
 CollisionShape2D
 Area2D
 Node2D

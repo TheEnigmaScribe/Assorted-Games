@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://wiahd5jbgivy"]
+
+[ext_resource type="Texture2D" uid="uid://chjdix5jqup4w" path="res://Assets/Visual Assets/MenuAssets/Backstab.png" id="1_1njof"]
+[ext_resource type="Script" uid="uid://hnsou228loeo" path="res://ScenesAndScripts/StoryOrSelection.gd" id="1_ayoky"]
+[ext_resource type="Texture2D" uid="uid://b3flej25yuh50" path="res://Assets/Visual Assets/MenuAssets/Buttons/Campaign.png" id="2_ayoky"]
+[ext_resource type="Texture2D" uid="uid://be71j47w53ep5" path="res://Assets/Visual Assets/MenuAssets/Buttons/Levels.png" id="3_8y1eg"]
+[ext_resource type="Texture2D" uid="uid://bpflm36dqcuyf" path="res://Assets/Visual Assets/MenuAssets/Buttons/Back.png" id="4_rxgdt"]
+[ext_resource type="AudioStream" uid="uid://dq2pqvvbiff6w" path="res://Assets/Audio Assets/vine-boom.mp3" id="6_8y1eg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ygs38"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="StoryOrSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ayoky")
+
+[node name="BlackPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ygs38")
+
+[node name="Title" type="Button" parent="."]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 142.0
+offset_right = 840.0
+offset_bottom = 222.0
+icon = ExtResource("1_1njof")
+flat = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 444.0
+offset_top = 283.0
+offset_right = 708.0
+offset_bottom = 507.0
+
+[node name="Campaign" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("2_ayoky")
+flat = true
+
+[node name="Levels" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("3_8y1eg")
+flat = true
+
+[node name="Back" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("4_rxgdt")
+flat = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1121.0
+offset_top = -48.0
+offset_right = -961.0
+offset_bottom = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Backstab Version 0.1"
+
+[node name="VineBoom" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_8y1eg")
+
+[connection signal="pressed" from="Title" to="." method="_on_title_pressed"]
+[connection signal="pressed" from="VBoxContainer/Campaign" to="." method="_on_campaign_pressed"]
+[connection signal="pressed" from="VBoxContainer/Levels" to="." method="_on_levels_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]

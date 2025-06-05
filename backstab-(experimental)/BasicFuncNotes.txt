@@ -1,4 +1,26 @@
 To Do List
+	- finish up menus
+		- campaign menu
+			- later save all following information to a file
+			- start/continue button
+				- if it's a new save (or possible on the Cell 82 scene? or its equivalent) have it display start
+				- if it's not a new save, have it display continue
+			- information
+				- current level
+				- how much time played
+				- how many times you've died
+				- how many times you've killed
+			- managing save menu
+				- delete/reset save file
+					- are you sure? text
+					- yes button
+					- no button
+				- back button
+		- level selection (can't yet click and load a level')
+		- settings
+			- audio should eventually show sound settings
+			- visuals should eventually show resolution fullscreen/not fullscreen settings and the like
+			- controls should show control scheme and later allow for changing of keybinds
 	- add actual "game over" functionality for enemies detecting the player
 	- add player stab functionality
 	- add player reaching goal functionality
