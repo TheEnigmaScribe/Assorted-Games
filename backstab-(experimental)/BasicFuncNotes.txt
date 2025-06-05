@@ -1,4 +1,6 @@
 To Do List
+	- work on making saves (and possibly achievements)
+	- get started on the textboxes (with sprites) after enemies can kill the player and the player can complete the level
 	- finish up menus
 		- campaign menu
 			- later save all following information to a file
