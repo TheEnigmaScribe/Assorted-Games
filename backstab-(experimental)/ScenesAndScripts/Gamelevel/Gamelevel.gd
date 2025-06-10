@@ -62,10 +62,14 @@ func _process(delta):
 				secondFillCheck = true
 	if mapLoaded == false:
 		return
+	if Input.is_action_just_pressed("escape"):
+		print("escape pressed")
 	if Input.is_action_just_pressed("escape") and get_tree().paused == false:
 		get_tree().paused = true
+		print("paused")
 	elif Input.is_action_just_pressed("escape") and get_tree().paused == true:
 		get_tree().paused = false
+		print("unpaused")
 
 func loadEntities(entityMap):
 	# load entityMap
@@ -130,14 +134,22 @@ func loadInstructions(enemyInstructions):
 func _game_over():
 	print("gameOver")
 	gameOver.emit()
+	# play player death animation and screen transition, and have those signal when they're done
+	# save player stats
+	restartScreen()
 
 func _level_complete():
 	# level ending sequence probably has player walking off through the exit to elsewhere
 	# enemies possibly relax or something like that, but not necessarily
 	# things like snipers bringing up their guns and pointing em up as if done
+	# save player stats
 	print("level completed")
 	levelComplete.emit()
 
 # possible thing to implement
 func _go_on_alert():
 	pass
+
+func restartScreen():
+	pass
+	# get_tree().change_scene_to_file()

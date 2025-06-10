@@ -1,14 +1,12 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1749115677
-BasicFuncNotes.txt::TextFile/TextFile::-1::1749093813::0::1::::<><><>0<>0<><>::
-Campaign.gd::GDScript::769598068261847353::1749113720::0::1::::<>Control<><>0<>0<><>::
-Credits.gd::GDScript::7647277713962422071::1749114159::0::1::::<>Control<><>0<>0<><>::
-FutureDevNotes.txt::TextFile/TextFile::-1::1749005848::0::1::::<><><>0<>0<><>::
-Global.gd::GDScript::2874983295009368909::1749109471::0::1::::<>Node<><>0<>0<><>::
+::res://::1749531262
+BasicFuncNotes.txt::TextFile::-1::1749454750::0::1::::<><><>0<>0<><>::
+FutureDevNotes.txt::TextFile::-1::1749454750::0::1::::<><><>0<>0<><>::
+LevelTemplate.txt::TextFile::-1::1749456536::0::1::::<><><>0<>0<><>::
 ::res://Assets/::1747190412
 ::res://Assets/Audio Assets/::1749088254
 vine-boom.mp3::AudioStreamMP3/AudioStreamMP3::8338962211728985808::1749088250::1749088250::1::::<><><>0<>0<>cfc17a6894f1763c2e87fa1d322a0913<>res://.godot/imported/vine-boom.mp3-fdd680ad03bd2a48ef2569407d328b63.mp3str::
-::res://Assets/Visual Assets/::1749089636
+::res://Assets/Visual Assets/::1749452638
 Blackround.png::CompressedTexture2D/CompressedTexture2D::1233652815242766555::1749083763::1749083773::1::::<><><>0<>0<>3fb65a0785b53aac271212a297d43f9c<>res://.godot/imported/Blackround.png-80d3407fd50f074e2ba09985c0db0648.ctex::
 icon.svg::CompressedTexture2D/CompressedTexture2D::1524581384160784::1747960652::1747960665::1::::<><><>0<>0<>971f5d6e00b7b29b0a321895122eac93<>res://.godot/imported/icon.svg-4fe5694ae7aad80991e1352a58ad4b45.ctex::
 pixil-frame-0-8.png::CompressedTexture2D/CompressedTexture2D::2050345478018028386::1746670429::1747711416::1::::<><><>0<>0<>bfae02e6ae4a507d2efd605d91ce3b1f<>res://.godot/imported/pixil-frame-0-8.png-8c728f76c81879fdfee70854aa74fb3f.ctex::
@@ -49,30 +47,36 @@ Visuals.png::CompressedTexture2D/CompressedTexture2D::5904161351710733196::17490
 Locked.png::CompressedTexture2D/CompressedTexture2D::4131611323742163526::1749089646::1749089646::1::::<><><>0<>0<>44a3ceceb883194fa791487dbe73c942<>res://.godot/imported/Locked.png-643f278bfff1bf3c62db651d822e5f73.ctex::
 ::res://MapFiles/::1749101126
 TextMapExplanationReference.txt::TextFile/TextFile::-1::1748921582::0::1::::<><><>0<>0<><>::
-::res://MapFiles/TestMap/::1749108190
-EnemyInstructions_Test.txt::TextFile/TextFile::-1::1749002278::0::1::::<><><>0<>0<><>::
-EntityMap_Test.txt::TextFile::-1::1749002278::0::1::::<><><>0<>0<><>::
-::res://ScenesAndScripts/::1749114587
-Credits.tscn::PackedScene::509618126775834779::1749114587::0::1::::<><><>0<>0<><>::uid://dg7nst7hy6xpf::::res://Credits.gd<>uid://bpflm36dqcuyf::::res://Assets/Visual Assets/MenuAssets/Buttons/Back.png
-::res://ScenesAndScripts/Gamelevel/::1749114587
+::res://MapFiles/TestMap/::1749453567
+EnemyInstructions_Test.txt::TextFile::-1::1749453567::0::1::::<><><>0<>0<><>::
+EntityMap_Test.txt::TextFile/TextFile::-1::1749443406::0::1::::<><><>0<>0<><>::
+::res://ScenesAndScripts/::1749452196
+Global.gd::GDScript/GDScript::2874983295009368909::1749452196::0::1::::<>Node<><>0<>0<><>::
+::res://ScenesAndScripts/Gamelevel/::1749456536
 blackround.gd::GDScript/GDScript::8014056490107126514::1749084139::0::1::::<>Sprite2D<><>0<>0<><>::
-Gamelevel.gd::GDScript::6497725887589212464::1749113585::0::1::::<>Node2D<><>0<>0<><>::
-Gamelevel.tscn::PackedScene::6561327988522144139::1749114587::0::1::::<><><>0<>0<><>::uid://cytsujayk6rgi::::res://ScenesAndScripts/Gamelevel/Gamelevel.gd<>uid://rtuc1mkucvst::::res://Assets/Visual Assets/Blackround.png<>uid://dmgclsqv25klu::::res://ScenesAndScripts/Gamelevel/blackround.gd<>uid://4hg5jm10j7va::::res://Assets/Visual Assets/pixil-frame-0-8.png
-::res://ScenesAndScripts/LevelElements/::1749114587
-Player.gd::GDScript/GDScript::8044551327095515169::1749007540::0::1::::Player<>Node2D<><>0<>0<><>::
-Player.tscn::PackedScene::5276096899622166253::1749114587::0::1::::<><><>0<>0<><>::uid://dmu3t5kfp5u30::::res://ScenesAndScripts/LevelElements/Player.gd<>uid://4hg5jm10j7va::::res://Assets/Visual Assets/pixil-frame-0-8.png
-Sniper.gd::GDScript::7415823420262210767::1749110668::0::1::::<>Node2D<><>0<>0<><>::
-Sniper.tscn::PackedScene::7148565120542836767::1749114587::0::1::::<><><>0<>0<><>::uid://ddwjr7w8l6vyd::::res://ScenesAndScripts/LevelElements/Sniper.gd<>uid://4hg5jm10j7va::::res://Assets/Visual Assets/pixil-frame-0-8.png<>uid://cf7p6ocure5g::::res://ScenesAndScripts/LevelElements/SniperWallcheck.gd
+Gamelevel.gd::GDScript/GDScript::6497725887589212464::1749452422::0::1::::<>Node2D<><>0<>0<><>::
+Gamelevel.tscn::PackedScene::6561327988522144139::1749456536::0::1::::<><><>0<>0<><>::uid://cytsujayk6rgi::::res://ScenesAndScripts/Gamelevel/Gamelevel.gd<>uid://rtuc1mkucvst::::res://Assets/Visual Assets/Blackround.png<>uid://dmgclsqv25klu::::res://ScenesAndScripts/Gamelevel/blackround.gd<>uid://4hg5jm10j7va::::res://Assets/Visual Assets/pixil-frame-0-8.png
+::res://ScenesAndScripts/LevelElements/::1749456536
+Player.gd::GDScript/GDScript::8044551327095515169::1749452660::0::1::::Player<>Node2D<><>0<>0<><>::
+Player.tscn::PackedScene::5276096899622166253::1749456536::0::1::::<><><>0<>0<><>::uid://dmu3t5kfp5u30::::res://ScenesAndScripts/LevelElements/Player.gd<>uid://4hg5jm10j7va::::res://Assets/Visual Assets/pixil-frame-0-8.png
+Sniper.gd::GDScript/GDScript::7415823420262210767::1749451033::0::1::::<>Node2D<><>0<>0<><>::
+Sniper.tscn::PackedScene::7148565120542836767::1749456536::0::1::::<><><>0<>0<><>::uid://ddwjr7w8l6vyd::::res://ScenesAndScripts/LevelElements/Sniper.gd<>uid://4hg5jm10j7va::::res://Assets/Visual Assets/pixil-frame-0-8.png<>uid://cf7p6ocure5g::::res://ScenesAndScripts/LevelElements/SniperWallcheck.gd
+SniperBullet.gd::GDScript::7629239863353403056::1749453606::0::1::::<>Node2D<><>0<>0<><>::
+SniperBullet.tscn::PackedScene::5427805634446450868::1749456536::0::1::::<><><>0<>0<><>::uid://dgxwp3t4wy7fg::::res://ScenesAndScripts/LevelElements/SniperBullet.gd<>uid://4hg5jm10j7va::::res://Assets/Visual Assets/pixil-frame-0-8.png
 SniperWallcheck.gd::GDScript/GDScript::152670956692851610::1748952330::0::1::::<>Node2D<><>0<>0<><>::
-::res://ScenesAndScripts/Menus/::1749114587
-Campaign.tscn::PackedScene::5709158075255617619::1749114587::0::1::::<><><>0<>0<><>::uid://k72fx6bep162::::res://Campaign.gd<>uid://bpflm36dqcuyf::::res://Assets/Visual Assets/MenuAssets/Buttons/Back.png
-DevWindow.gd::GDScript::5496095096584420780::1749114300::0::1::::<>Control<><>0<>0<><>::
-DevWindow.tscn::PackedScene::6811915163223732363::1749114587::0::1::::<><><>0<>0<><>::uid://ckkl5bbkm4413::::res://ScenesAndScripts/Menus/DevWindow.gd<>uid://by4nbgkm1ople::::res://Assets/Visual Assets/MenuAssets/LevelIcons/Locked.png<>uid://bpflm36dqcuyf::::res://Assets/Visual Assets/MenuAssets/Buttons/Back.png
-LevelSelection.gd::GDScript::5644551361413477771::1749113745::0::1::::<>Control<><>0<>0<><>::
-LevelSelection.tscn::PackedScene::7210091693983365629::1749114587::0::1::::<><><>0<>0<><>::uid://cmoi63kdq84i6::::res://ScenesAndScripts/Menus/LevelSelection.gd<>uid://chjdix5jqup4w::::res://Assets/Visual Assets/MenuAssets/Backstab.png<>uid://y57ld54df6y0::::res://Assets/Visual Assets/MenuAssets/LevelIcons/1notcomplete.png<>uid://by4nbgkm1ople::::res://Assets/Visual Assets/MenuAssets/LevelIcons/Locked.png<>uid://bpflm36dqcuyf::::res://Assets/Visual Assets/MenuAssets/Buttons/Back.png<>uid://dq2pqvvbiff6w::::res://Assets/Audio Assets/vine-boom.mp3
-MainMenu.gd::GDScript::5377435315181795034::1749113831::0::1::::<>Control<><>0<>0<><>::
-MainMenu.tscn::PackedScene::6890469629140326126::1749114587::0::1::::<><><>0<>0<><>::uid://ciu4trsayfo8y::::res://ScenesAndScripts/Menus/MainMenu.gd<>uid://chjdix5jqup4w::::res://Assets/Visual Assets/MenuAssets/Backstab.png<>uid://ci1he3yg2yi1m::::res://Assets/Visual Assets/MenuAssets/Buttons/Play.png<>uid://catvhgvsdq76d::::res://Assets/Visual Assets/MenuAssets/Buttons/Settings.png<>uid://bq61fuu1fvldx::::res://Assets/Visual Assets/MenuAssets/Buttons/Quit.png<>uid://dq2pqvvbiff6w::::res://Assets/Audio Assets/vine-boom.mp3
-Settings.gd::GDScript::320948087263521240::1749102912::0::1::::<>Control<><>0<>0<><>::
-Settings.tscn::PackedScene::3228750063583138884::1749114587::0::1::::<><><>0<>0<><>::uid://chjdix5jqup4w::::res://Assets/Visual Assets/MenuAssets/Backstab.png<>uid://etp76epcnnfs::::res://ScenesAndScripts/Menus/Settings.gd<>uid://bpflm36dqcuyf::::res://Assets/Visual Assets/MenuAssets/Buttons/Back.png<>uid://op7nbjaabd0y::::res://Assets/Visual Assets/MenuAssets/Buttons/Controls.png<>uid://dq2pqvvbiff6w::::res://Assets/Audio Assets/vine-boom.mp3<>uid://cqeaw7eptnjwe::::res://Assets/Visual Assets/MenuAssets/Buttons/Visuals.png<>uid://djv31rbaon2lt::::res://Assets/Visual Assets/MenuAssets/Buttons/Audio.png
-StoryOrSelection.gd::GDScript::519277816701494998::1749102116::0::1::::<>Control<><>0<>0<><>::
-StoryOrSelection.tscn::PackedScene::1560682286951208802::1749114587::0::1::::<><><>0<>0<><>::uid://chjdix5jqup4w::::res://Assets/Visual Assets/MenuAssets/Backstab.png<>uid://hnsou228loeo::::res://ScenesAndScripts/Menus/StoryOrSelection.gd<>uid://b3flej25yuh50::::res://Assets/Visual Assets/MenuAssets/Buttons/Campaign.png<>uid://be71j47w53ep5::::res://Assets/Visual Assets/MenuAssets/Buttons/Levels.png<>uid://bpflm36dqcuyf::::res://Assets/Visual Assets/MenuAssets/Buttons/Back.png<>uid://dq2pqvvbiff6w::::res://Assets/Audio Assets/vine-boom.mp3
+::res://ScenesAndScripts/Menus/::1749456536
+Campaign.gd::GDScript/GDScript::769598068261847353::1749113720::0::1::::<>Control<><>0<>0<><>::
+Campaign.tscn::PackedScene/PackedScene::5709158075255617619::1749442647::0::1::::<><><>0<>0<><>::uid://k72fx6bep162::::res://ScenesAndScripts/Menus/Campaign.gd<>uid://bpflm36dqcuyf::::res://Assets/Visual Assets/MenuAssets/Buttons/Back.png
+Credits.gd::GDScript/GDScript::7647277713962422071::1749114159::0::1::::<>Control<><>0<>0<><>::
+Credits.tscn::PackedScene/PackedScene::509618126775834779::1749442655::0::1::::<><><>0<>0<><>::uid://dg7nst7hy6xpf::::res://ScenesAndScripts/Menus/Credits.gd<>uid://bpflm36dqcuyf::::res://Assets/Visual Assets/MenuAssets/Buttons/Back.png
+DevWindow.gd::GDScript/GDScript::5496095096584420780::1749114300::0::1::::<>Control<><>0<>0<><>::
+DevWindow.tscn::PackedScene::6811915163223732363::1749456536::0::1::::<><><>0<>0<><>::uid://ckkl5bbkm4413::::res://ScenesAndScripts/Menus/DevWindow.gd<>uid://by4nbgkm1ople::::res://Assets/Visual Assets/MenuAssets/LevelIcons/Locked.png<>uid://bpflm36dqcuyf::::res://Assets/Visual Assets/MenuAssets/Buttons/Back.png
+LevelSelection.gd::GDScript/GDScript::5644551361413477771::1749113745::0::1::::<>Control<><>0<>0<><>::
+LevelSelection.tscn::PackedScene/PackedScene::7210091693983365629::1749442331::0::1::::<><><>0<>0<><>::uid://cmoi63kdq84i6::::res://ScenesAndScripts/Menus/LevelSelection.gd<>uid://chjdix5jqup4w::::res://Assets/Visual Assets/MenuAssets/Backstab.png<>uid://y57ld54df6y0::::res://Assets/Visual Assets/MenuAssets/LevelIcons/1notcomplete.png<>uid://by4nbgkm1ople::::res://Assets/Visual Assets/MenuAssets/LevelIcons/Locked.png<>uid://bpflm36dqcuyf::::res://Assets/Visual Assets/MenuAssets/Buttons/Back.png<>uid://dq2pqvvbiff6w::::res://Assets/Audio Assets/vine-boom.mp3
+MainMenu.gd::GDScript/GDScript::5377435315181795034::1749450183::0::1::::<>Control<><>0<>0<><>::
+MainMenu.tscn::PackedScene::6890469629140326126::1749456536::0::1::::<><><>0<>0<><>::uid://ciu4trsayfo8y::::res://ScenesAndScripts/Menus/MainMenu.gd<>uid://chjdix5jqup4w::::res://Assets/Visual Assets/MenuAssets/Backstab.png<>uid://ci1he3yg2yi1m::::res://Assets/Visual Assets/MenuAssets/Buttons/Play.png<>uid://catvhgvsdq76d::::res://Assets/Visual Assets/MenuAssets/Buttons/Settings.png<>uid://bq61fuu1fvldx::::res://Assets/Visual Assets/MenuAssets/Buttons/Quit.png<>uid://dq2pqvvbiff6w::::res://Assets/Audio Assets/vine-boom.mp3
+RestartMenu.gd::GDScript::5814155640235142144::1749452422::0::1::::<>Control<><>0<>0<><>::
+Settings.gd::GDScript/GDScript::320948087263521240::1749102912::0::1::::<>Control<><>0<>0<><>::
+Settings.tscn::PackedScene/PackedScene::3228750063583138884::1749442233::0::1::::<><><>0<>0<><>::uid://chjdix5jqup4w::::res://Assets/Visual Assets/MenuAssets/Backstab.png<>uid://etp76epcnnfs::::res://ScenesAndScripts/Menus/Settings.gd<>uid://bpflm36dqcuyf::::res://Assets/Visual Assets/MenuAssets/Buttons/Back.png<>uid://op7nbjaabd0y::::res://Assets/Visual Assets/MenuAssets/Buttons/Controls.png<>uid://dq2pqvvbiff6w::::res://Assets/Audio Assets/vine-boom.mp3<>uid://cqeaw7eptnjwe::::res://Assets/Visual Assets/MenuAssets/Buttons/Visuals.png<>uid://djv31rbaon2lt::::res://Assets/Visual Assets/MenuAssets/Buttons/Audio.png
+StoryOrSelection.gd::GDScript/GDScript::519277816701494998::1749102116::0::1::::<>Control<><>0<>0<><>::
+StoryOrSelection.tscn::PackedScene/PackedScene::1560682286951208802::1749442331::0::1::::<><><>0<>0<><>::uid://chjdix5jqup4w::::res://Assets/Visual Assets/MenuAssets/Backstab.png<>uid://hnsou228loeo::::res://ScenesAndScripts/Menus/StoryOrSelection.gd<>uid://b3flej25yuh50::::res://Assets/Visual Assets/MenuAssets/Buttons/Campaign.png<>uid://be71j47w53ep5::::res://Assets/Visual Assets/MenuAssets/Buttons/Levels.png<>uid://bpflm36dqcuyf::::res://Assets/Visual Assets/MenuAssets/Buttons/Back.png<>uid://dq2pqvvbiff6w::::res://Assets/Audio Assets/vine-boom.mp3

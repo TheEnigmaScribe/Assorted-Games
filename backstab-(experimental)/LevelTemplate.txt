@@ -1,0 +1,20 @@
+# Level Settings
+
+-----
+
+# Tilemap
+
+-----
+
+# Player
+
+-----
+
+# Enemies
+
+-----
+
+# Interactibles
+# Includes:
+	- Terminals (computers with text)
+	- Noisemakers/traps

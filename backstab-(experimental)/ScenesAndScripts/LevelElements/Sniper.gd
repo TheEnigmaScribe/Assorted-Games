@@ -5,6 +5,7 @@ enum {OnPatrol = 1, NoticedSomething = 2, OnAlert = 3, Dead = 4}
 
 signal playerSeen
 
+@onready var bulletScene = preload("res://ScenesAndScripts/LevelElements/SniperBullet.tscn")
 @onready var game_level = get_tree().get_first_node_in_group("gamelevel")
 @onready var tile_map = get_tree().get_first_node_in_group("tilemaplayer")
 var player: Sprite2D
@@ -24,6 +25,7 @@ var customBehavior: bool
 var enemyInfo: Dictionary
 var is_moving: bool
 var playerDetected: bool = false
+var orientationSet: bool = true
 
 # determines enemy behavior
 # NoticedSomething and OnAlert are future possibilities for more ways the enemy can behave
@@ -195,15 +197,21 @@ func turn(looking):
 func _game_over_sequence():
 	# checks playerDetected to make sure that this only triggers on enemy that detected player
 	if playerDetected == true:
-		print("playerDetected")
 		pass
+		# print("playerDetected")
+		# pass
+		# var bullet = bulletScene.instantiate()
+		# add_child(bullet)
+		# could be later added to the entityList instead, but works for now
+		# bullet.direction = facing if necessary
 
 func _is_enemy_killed(nodeSeen, playerFacing):
 	print("enemynode area2d is " + str(area_2d))
 	if nodeSeen == area_2d:
 		# checks if player is behind the enemy
 		if facing == playerFacing:
-			print("Enemy" + id + "has been killed")
+			print("Enemy " + id + " has been killed")
+			queue_free()
 			# run death animation/deletion? or just turn state to dead
 			pass
 		else:

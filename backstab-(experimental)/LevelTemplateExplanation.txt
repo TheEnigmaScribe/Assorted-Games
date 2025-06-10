@@ -1,0 +1,104 @@
+LEVELMAKING GUIDE
+
+A guide to levelmaking with .txt files for Backstab
+Does not include cutscenes in or outside of levels
+
+Backstab levels are all made through .txt files loaded into the scene Gamelevel.
+In those .txt files, there are seven parts:
+	1 - Tilemap
+	2 - VisualsTilemap
+	3 - VentTilemap
+	4 - Player
+	5 - Enemies
+	6 - Interactibles
+	7 - Level Settings
+Each part is seperated by five dashes (-----) in order to indicate a seperate part.
+This is due to how the game loads the levels through the split() method.
+The split() method turns strings into arrays, each part split on a string within it that is removed.
+Within each part, using different indicators, smaller strings are created.
+From there, the level is loaded part by part.
+
+TILEMAPS
+
+The first part, the Tilemap(s) functions as part of movement for the player and enemies, so it is loaded first.
+Tilemap tiles can be sorted into walkable and non-walkable tiles through the bool "walkable".
+If a tile is walkable, entities can move onto that tile type, and can't if it isn't.
+(Might possibly have a second tilemap for visuals only, given the 32x64 sprite size.)
+Given that the player hitbox is actually 32*32, the top part of any sprite doesn't matter.
+(have two seperate sets for each tilemap)
+Non-Solid/"walkable" Tiles:
+	tilesymbol (for the grid) - actual tile name
+
+Solid/not "walkable" Tiles:
+	tilesymbol (for the grid) - actual tile name
+
+The size of a level is defined by the tilemap.
+There are no restrictions on shape of the tilemap (through empty tiles) or the size of the tilemap.
+(rewrite to refer to explain both tilemaps if I add a second)
+
+ENTITIES
+The following three parts are dedicated to spawning entities, and all follow a similar format:
+	entityType; initialFacing; spawnCoordinates/nodes (node1; node2; node3; (and so forth))
+
+entityType is what sort of entity is being spawned, with three categories for the three parts:
+	- Player
+	- Enemies
+	- Interactibles
+The Player's assigned entityType is Player.
+Enemies have unique entityTypes for each type of enemy, consisting of:
+	- Sniper
+	- Guard
+	- Watcher
+	- Camera
+	- Keyholder
+	- Tracker
+Interactibles have unique entityTypes for each type of interactible, consisting of:
+	- Terminals (computer screens with text) (other similar things? vending machines)
+	- Noisemakers/Traps
+	- Vent entrances?
+	- Upgrades?
+
+initialFacing is the direction an entity is initially facing.
+The values used are consistent across all entities, being as follows:
+	- L or Left
+	- R or Right
+	- U or Up
+	- D or Down
+
+Coordinates are used for both spawnCoordinates and nodes, using the following rules:
+	On the x axis, from left to right, tile coordinates start at zero.
+	On the y axis, from top to bottom, tile coordinates start at zero.
+	Counting manually is required
+
+spawnCoordinates is what entities that are static or don't need movement code use.
+The player is controlled by the player, so spawnCoordinates is used.
+Interactibles are static (though maybe some won't be), so spawnCoordinates are used.
+
+nodes are what Enemies use for pathing in tandem with AStarGrid2D.
+The AStarGrid2D uses the Manhattan heuristic for pathing, meaning that it favors straight lines.
+(Potentially look at giving the AStarGrid2D a copy of the map to see what is/isn't solid.)
+(If I can manage that, I can use less nodes and get the intended pathing easily.)
+Each node consists of three parts: nodeId; coordinates; actions
+nodeId is a String, used for storing information about said node elsewhere.
+coordinates is a Vector2i, used as coordinates as per the name.
+actions is a String for additional pre-programmed movements.
+It is either filled with "none" for no actions, or one or more of the following actions:
+These commands are:
+	- Turn(int) - (explanation)
+	- Move(int) - (explanation)
+	- IdleAction(String) - explanation
+	- (any other actions get added later)
+These are to allow for additional behavior outside of simply moving to the next node.
+
+LEVEL SETTINGS
+
+Level settings consists of a variety of additional traits for the level itself.
+These include:
+	- Tileset(s)?
+	- Lighting
+	- Player abilities (array of true/false)
+	- Cutscenes
+	- Timer
+	- Hardmode
+	- (other customizable)
+Some are functional, some are only visible, but they all do something.

@@ -1,11 +1,9 @@
 res://ScenesAndScripts/Menus/MainMenu.tscn
-res://ScenesAndScripts/Menus/StoryOrSelection.tscn
-res://ScenesAndScripts/Menus/LevelSelection.tscn
-res://ScenesAndScripts/Menus/Campaign.tscn
-res://ScenesAndScripts/Menus/Settings.tscn
+res://FutureDevNotes.txt
+res://LevelTemplate.txt
+res://ScenesAndScripts/Menus/DevWindow.tscn
 res://ScenesAndScripts/Gamelevel/Gamelevel.tscn
 res://ScenesAndScripts/LevelElements/Player.tscn
 res://ScenesAndScripts/LevelElements/Sniper.tscn
-res://ScenesAndScripts/Menus/DevWindow.tscn
-res://ScenesAndScripts/Credits.tscn
-res://BasicFuncNotes.txt
+res://ScenesAndScripts/LevelElements/SniperBullet.tscn
+res://LevelTemplateExplanation.txt

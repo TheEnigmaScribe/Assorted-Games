@@ -7,9 +7,9 @@
 atlas = ExtResource("2_onrkg")
 region = Rect2(224, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fg7ow"]
 atlas = ExtResource("2_onrkg")
-region = Rect2(0, 0, 64, 64)
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kpjcp"]
 size = Vector2(32, 32)
@@ -19,7 +19,7 @@ texture = SubResource("AtlasTexture_onrkg")
 script = ExtResource("1_4flbx")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_i3pqv")
+texture = SubResource("AtlasTexture_fg7ow")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 

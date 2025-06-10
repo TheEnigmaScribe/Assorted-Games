@@ -83,6 +83,14 @@ text = "Backstab Version 0.1"
 [node name="VineBoom" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_81wmy")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 306.0
+offset_right = 350.0
+offset_bottom = 440.0
+text = "Nothing besides the back button works here right now, so you might as well ignroe this menu"
+
 [connection signal="pressed" from="Title" to="." method="_on_title_pressed"]
 [connection signal="pressed" from="VBoxContainer/Controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="VBoxContainer/Visuals" to="." method="_on_visuals_pressed"]

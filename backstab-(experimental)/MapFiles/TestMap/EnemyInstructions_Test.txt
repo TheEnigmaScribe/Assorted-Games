@@ -1,1 +1,4 @@
-S0 L
+S0 U M
+S1 R
+S2 L
+S3 D

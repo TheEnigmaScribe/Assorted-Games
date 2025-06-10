@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjljfvwde45ye"]
+
+[ext_resource type="Script" uid="uid://dgxwp3t4wy7fg" path="res://ScenesAndScripts/LevelElements/SniperBullet.gd" id="1_nwnr6"]
+[ext_resource type="Texture2D" uid="uid://4hg5jm10j7va" path="res://Assets/Visual Assets/pixil-frame-0-8.png" id="2_oc6y7"]
+
+[node name="SniperBullet" type="Node2D"]
+script = ExtResource("1_nwnr6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_oc6y7")
+region_enabled = true
+region_rect = Rect2(64, 64, 64, 32)

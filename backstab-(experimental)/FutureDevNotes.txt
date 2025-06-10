@@ -4,6 +4,31 @@ REALLY thinking about that...
 Guards have a set "patrol" path, but have AI to go off and investigate if they "hear" or otherwise indirectly detect the player?
 would return to patrols aftewards if they didn't find the player
 
+Enemies possibly have "screwing off" behaviors?
+Can potentially just outright stop doing their patrol?
+Possibly different personalities or behaviors for enemies?
+
+maybe make a basic map editor?
+needs to be able to:
+	- Save at least two layers to seperate files
+		- at minimum includes:
+			- tilemap
+			- entities (player/enemies/interactibles)
+			- enemy sightlines should be viewable in editor (from where they're placed)
+			- enemy nodes ideally visible? if not possible it's fine
+				- if possible, look into having node data be visible and editable
+					- this is so you can add instructions to each ndoe
+				- if possible, look into drawing arrow lines to indicate movement pattern
+			- should be able to see and edit data attatched to each entity
+	
+	- Have a layer for the actual map part of the map editor
+	- Have a layer for moving entities
+	- Have a layer for interactibles
+	- Have a way to identify what id an enemy will be
+		- probably save the instructions for that id? or perhaps only saves them to file once done
+	- Have a way to assign instructions to a specific enemy
+	- Be able to write all this, be it by filling in a template or fully create a new file
+
 - textboxes and sprites for showing characters?
 - enemy sight indicators that don't outright show area mostly
 	- red laser line for snipers
@@ -20,6 +45,10 @@ would return to patrols aftewards if they didn't find the player
 - "feeling" if you're right next to a guard?
 - dashing and other abilities
 - Alert phase
+
+glass walls
+always able to see through them
+sometimes breakable by player and/or enemy
 
 Gameplay
 - (none yet)

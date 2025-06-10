@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cnls88jw3wuat"]
 
-[ext_resource type="Script" uid="uid://k72fx6bep162" path="res://Campaign.gd" id="1_ipm4l"]
+[ext_resource type="Script" uid="uid://k72fx6bep162" path="res://ScenesAndScripts/Menus/Campaign.gd" id="1_ipm4l"]
 [ext_resource type="Texture2D" uid="uid://bpflm36dqcuyf" path="res://Assets/Visual Assets/MenuAssets/Buttons/Back.png" id="2_qixae"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_is08e"]
@@ -57,5 +57,13 @@ offset_bottom = -25.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Backstab Version 0.1"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 394.0
+offset_top = 188.0
+offset_right = 732.0
+offset_bottom = 272.0
+text = "Window in development right now, come back later when there's something to see"
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

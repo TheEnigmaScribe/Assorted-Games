@@ -1,10 +1,11 @@
-GridContainer
 Button
+VBoxContainer
+Sprite2D
+RichTextLabel
+GridContainer
 HBoxContainer
 AudioStreamPlayer2D
 Label
-VBoxContainer
-Sprite2D
 Panel
 CollisionShape2D
 Area2D

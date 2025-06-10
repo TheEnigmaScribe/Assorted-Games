@@ -52,5 +52,18 @@ offset_bottom = 507.0
 icon = ExtResource("3_rixew")
 flat = true
 
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.305
+anchor_bottom = 0.263
+offset_left = 380.0
+offset_top = 98.0
+offset_right = 427.64
+offset_bottom = 49.576
+text = "Oh, someone's here?
+Surprised you found this already (unless you're me)
+It was supposed to be a secret until you beat the game, but cool I guess!"
+
 [connection signal="pressed" from="GridContainer/TestLevel" to="." method="_on_test_level_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

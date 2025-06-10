@@ -90,7 +90,16 @@ text = "Backstab Version 0.1"
 [node name="VineBoom" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_dll0x")
 
+[node name="devwindowtemp" type="Button" parent="."]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 343.0
+offset_right = 287.0
+offset_bottom = 374.0
+text = "dev window temp"
+
 [connection signal="pressed" from="Title" to="." method="_on_title_pressed"]
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="devwindowtemp" to="." method="_on_devwindowtemp_pressed"]

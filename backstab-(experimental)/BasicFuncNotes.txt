@@ -1,5 +1,29 @@
 To Do List
 	
+	FIXING FUNCTION
+	
+	Level initialization
+	
+	- Tilemaps will be initialized through a text file
+		- Said text file could potentially be the same that contains the entitymap info
+		- This would allow for each level to be a single file
+	
+	- Reorganize spawning to create the enemy and assign their instructions at the same time
+		- Enemy loading code will need to be redone
+		- The intended format will consist of a list of points, and use AStar2D pathfinding
+		- Each node may have its own set of instructions, or can be empty
+		- The enemy will perform the instructions before continuing towards the next node
+		- If a node is empty, the enemy automatically moves towards the next node
+		- Format example: [S1] = []
+		
+	-bullets in animation go through player?
+	
+	
+	
+	
+	
+	
+	
 	- add pause and pause menu
 	
 	- work on making saves (and possibly achievements)
@@ -12,12 +36,21 @@ To Do List
 	
 	- probably have a second layer of folders in MapFiles, seperating each set of files by level
 	
+	FEATURES TO ADD
+	
+	BUGS 
+	
 	- Fix minor input lag with movement keys based on comments under tilemap movement tutorial
 	
 	- add either a bounce or player priority if a player and enemy move into the same space at the same time
 		- automatic detection guaranteed one way or another
 		- likely feaasible through somehow communicating to enemies what the target tile of the player is
 		- and then comparing it with the target tile of the enemy
+	
+	- figure out what part of the code is causing all enemy sprites to be aligned the same way
+		- (raycasts are aimed appropriately, it's just the sprites that aren't)
+	
+	MENUS
 	
 	- finish up menus
 		- campaign menu
@@ -47,6 +80,9 @@ To Do List
 	- add player stab functionality
 	
 	- add player reaching goal functionality
+	
+	- add special functionality for goal depending on which way it's facing
+		- ex: if it's on a wall to the player's left, have the player walk out left
 	
 	- CLEANUP
 		- Reorganize with classes?

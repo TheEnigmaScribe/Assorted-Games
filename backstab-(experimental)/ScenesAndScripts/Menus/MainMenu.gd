@@ -92,3 +92,6 @@ func typing():
 		code = code.substr(0, code.length() - 1)
 	if code == "":
 		code = ">"
+
+func _on_devwindowtemp_pressed() -> void:
+	openDevWindow()
