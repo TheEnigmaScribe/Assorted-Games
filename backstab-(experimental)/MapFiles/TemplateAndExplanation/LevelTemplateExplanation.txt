@@ -5,7 +5,7 @@ Does not include cutscenes in or outside of levels
 
 Backstab levels are all made through .txt files loaded into the scene Gamelevel.
 In those .txt files, there are seven parts:
-	1 - Tilemap
+	1 - PhysicsTilemap
 	2 - VisualsTilemap
 	3 - VentTilemap
 	4 - Player
@@ -16,10 +16,14 @@ Each part is seperated by five dashes (-----) in order to indicate a seperate pa
 This is due to how the game loads the levels through the split() method.
 The split() method turns strings into arrays, each part split on a string within it that is removed.
 Within each part, using different indicators, smaller strings are created.
-From there, the level is loaded part by part.
+From there, the level is loaded part by part, but these parts can be grouped into three groups:
+	- Tilemaps
+	- Entities
+	- Settings
 
 TILEMAPS
 
+(VisualTilemap and VentTilemap can both be skipped for now)
 The first part, the Tilemap(s) functions as part of movement for the player and enemies, so it is loaded first.
 Tilemap tiles can be sorted into walkable and non-walkable tiles through the bool "walkable".
 If a tile is walkable, entities can move onto that tile type, and can't if it isn't.
