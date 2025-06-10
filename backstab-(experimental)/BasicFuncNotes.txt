@@ -7,6 +7,7 @@ To Do List
 	- Tilemaps will be initialized through a text file
 		- Said text file could potentially be the same that contains the entitymap info
 		- This would allow for each level to be a single file
+		- Make it so code looks for only one file
 	
 	- Reorganize spawning to create the enemy and assign their instructions at the same time
 		- Enemy loading code will need to be redone

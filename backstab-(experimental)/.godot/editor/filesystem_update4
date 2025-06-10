@@ -7,3 +7,11 @@ res://ScenesAndScripts/LevelElements/Player.tscn
 res://ScenesAndScripts/LevelElements/Sniper.tscn
 res://ScenesAndScripts/LevelElements/SniperBullet.tscn
 res://LevelTemplateExplanation.txt
+res://BasicFuncNotes.txt
+res://ScenesAndScripts/LevelElements/Entities/Sniper.tscn
+res://ScenesAndScripts/LevelElements/Entities/SniperBullet.tscn
+res://ScenesAndScripts/LevelElements/Entities/Enemies/Sniper.tscn
+res://ScenesAndScripts/LevelElements/Entities/Enemies/SniperBullet.tscn
+res://ScenesAndScripts/LevelElements/Entities/Player.tscn
+res://ScenesAndScripts/LevelElements/Enemies/Sniper.tscn
+res://ScenesAndScripts/LevelElements/Enemies/SniperBullet.tscn

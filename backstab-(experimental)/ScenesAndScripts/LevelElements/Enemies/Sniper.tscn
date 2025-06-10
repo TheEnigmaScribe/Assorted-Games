@@ -1,12 +1,12 @@
 [gd_scene load_steps=7 format=3 uid="uid://c83228r10urql"]
 
-[ext_resource type="Script" uid="uid://ddwjr7w8l6vyd" path="res://ScenesAndScripts/LevelElements/Sniper.gd" id="1_s7dwn"]
-[ext_resource type="Texture2D" uid="uid://4hg5jm10j7va" path="res://Assets/Visual Assets/pixil-frame-0-8.png" id="2_73jju"]
-[ext_resource type="Script" uid="uid://cf7p6ocure5g" path="res://ScenesAndScripts/LevelElements/SniperWallcheck.gd" id="3_ml80e"]
+[ext_resource type="Script" uid="uid://ddwjr7w8l6vyd" path="res://ScenesAndScripts/LevelElements/Enemies/Sniper.gd" id="1_vijh0"]
+[ext_resource type="Texture2D" uid="uid://4hg5jm10j7va" path="res://Assets/Visual Assets/pixil-frame-0-8.png" id="2_htxyj"]
+[ext_resource type="Script" uid="uid://cf7p6ocure5g" path="res://ScenesAndScripts/LevelElements/Enemies/SniperWallcheck.gd" id="3_ake7c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6jcko"]
 resource_local_to_scene = true
-atlas = ExtResource("2_73jju")
+atlas = ExtResource("2_htxyj")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ml80e"]
@@ -15,7 +15,7 @@ region = Rect2(64, 0, 32, 32)
 size = Vector2(32, 32)
 
 [node name="Sniper" type="Node2D"]
-script = ExtResource("1_s7dwn")
+script = ExtResource("1_vijh0")
 
 [node name="SniperSprite" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_6jcko")
@@ -26,7 +26,7 @@ collide_with_areas = true
 collide_with_bodies = false
 
 [node name="SniperWallcheck" type="Node2D" parent="."]
-script = ExtResource("3_ml80e")
+script = ExtResource("3_ake7c")
 
 [node name="Area2D" type="Area2D" parent="SniperWallcheck"]
 
