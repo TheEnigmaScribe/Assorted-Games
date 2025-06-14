@@ -31,6 +31,16 @@ func _on_game_level_visuals(map):
 				tileLocation = Vector2i(1, 1)
 			elif i == "F":
 				tileLocation = Vector2i(5, 0)
+			if i == "L": # wall
+				tileLocation = Vector2i(0, 3)
+			elif i == "M":
+				tileLocation = Vector2i(1, 3)
+			elif i == "R":
+				tileLocation = Vector2i(2, 3)
+			elif i == "T":
+				tileLocation = Vector2i(1, 1)
+			elif i == "F":
+				tileLocation = Vector2i(5, 0)
 			elif i == "1":
 				tileLocation = Vector2i(0, 0)
 			elif i == "2":
@@ -47,8 +57,14 @@ func _on_game_level_visuals(map):
 				tileLocation = Vector2i(1, 2)
 			elif i == "8":
 				tileLocation = Vector2i(2, 2)
+			elif i == "|":
+				tileLocation = Vector2i(4, 1)
 			elif i == "-":
 				tileLocation = Vector2i(4, 2)
+			elif i == "<":
+				tileLocation = Vector2i(3, 3)
+			elif i == ">":
+				tileLocation = Vector2i(4, 3)
 			else:
 				continue
 			# coordinates for placement, and coordinates on atlasTexture of tile to place
