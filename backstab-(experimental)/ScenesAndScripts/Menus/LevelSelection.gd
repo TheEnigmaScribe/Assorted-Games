@@ -1,6 +1,6 @@
 extends Control
 
-signal folderPath
+signal levelID
 
 # have ten levels displayed at a time, with the ability to change "windows" to access other sets
 

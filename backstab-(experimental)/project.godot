@@ -11,13 +11,9 @@ config_version=5
 [application]
 
 config/name="Backstab (experimental)"
-run/main_scene="uid://c5f2a7pyvjsnu"
+run/main_scene="uid://b3jvr3k4r1kpl"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://Assets/Visual Assets/icon.svg"
-
-[autoload]
-
-Global="*res://ScenesAndScripts/Global.gd"
 
 [global_group]
 

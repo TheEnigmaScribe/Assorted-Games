@@ -13,7 +13,7 @@ func _ready():
 	elif direction == 2 or direction == 4:
 		orientation = "vertical"
 
-func _process(delta):
+func _process(_delta):
 	pass
 	# print(direction)
 	#if 

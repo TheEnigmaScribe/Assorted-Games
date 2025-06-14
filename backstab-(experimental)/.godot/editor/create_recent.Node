@@ -1,6 +1,9 @@
+Sprite2D
+Camera2D
+Node
+TileMapLayer
 Button
 VBoxContainer
-Sprite2D
 RichTextLabel
 GridContainer
 HBoxContainer
@@ -9,5 +12,3 @@ Label
 Panel
 CollisionShape2D
 Area2D
-Node2D
-Node

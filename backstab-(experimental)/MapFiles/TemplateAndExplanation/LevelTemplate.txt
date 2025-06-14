@@ -1,20 +1,63 @@
 # Level Settings
 
------
+visualTilemap: bool
+ventTilemap: bool
+enemies: bool
+interactables: bool
+lighting: String (or int?)
 
-# Tilemap
+=====
 
------
+# Physics Tilemap
+# does contain visuals
+
+########
+########
+########
+########
+########
+########
+########
+########
+
+=====
+
+# Visuals Tilemap
+# only visuals
+
+-put grid here if any-
+
+=====
+
+# Vent Tilemap
+# visuals and physics for vents
+
+-put grid here if any-
+
+=====
 
 # Player
 
------
+EntityType; EntityID; Direction; (#, #)
+
+=====
 
 # Enemies
 
------
+EntityType; EntityID; Direction; P0/(#, #)/None:
+P1/(#, #)/None;
+P1/(#, #)/None
+~~~~~
+EntityType; EntityID; Direction; P0/(#, #)/None:
 
-# Interactibles
-# Includes:
-	- Terminals (computers with text)
-	- Noisemakers/traps
+
+=====
+
+# Interactables
+
+EntityType; EntityID; Direction; (#, #):
+textline1/#####;
+textline2/#####
+~~~~~
+EntityType; InteractableID; Direction: (#, #):
+textline1/#####

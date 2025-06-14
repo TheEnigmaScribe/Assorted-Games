@@ -5,7 +5,7 @@ enum {OnPatrol = 1, NoticedSomething = 2, OnAlert = 3, Dead = 4}
 
 signal playerSeen
 
-@onready var bulletScene = preload("res://ScenesAndScripts/LevelElements/SniperBullet.tscn")
+@onready var bulletScene = preload("res://ScenesAndScripts/LevelElements/Enemies/SniperBullet.tscn")
 @onready var game_level = get_tree().get_first_node_in_group("gamelevel")
 @onready var tile_map = get_tree().get_first_node_in_group("tilemaplayer")
 var player: Sprite2D
@@ -22,7 +22,7 @@ var facing
 var initialFacing
 var instructions: String
 var customBehavior: bool
-var enemyInfo: Dictionary
+var entityInfo: Dictionary
 var is_moving: bool
 var playerDetected: bool = false
 var orientationSet: bool = true
@@ -49,8 +49,8 @@ func _ready():
 	# run raycast endpoint check initially
 	var raycast_endpoint = wallchecker.findRaycastEndpoint(facing, id)
 	raycast_2d.target_position = raycast_endpoint
-	# set instance version of enemyInfo dict of gamelevel version of enemyInfo dict
-	enemyInfo = game_level.enemyInfo
+	# set instance version of entityInfo dict of gamelevel version of entityInfo dict
+	entityInfo = game_level.entityInfo
 	# connect gamelevel signals to methods to fill in information when available
 	# done this way so the code that uses the information isn't run before it can be loaded
 	game_level.connectToPlayer.connect(_connect_to_player)
@@ -58,7 +58,7 @@ func _ready():
 	game_level.gameOver.connect(_game_over_sequence)
 
 # process methods, used for player detection and movement processing
-func _process(delta):
+func _process(_delta):
 	if playerDetected == false:
 		if raycast_2d.is_colliding():
 			var seenObject = raycast_2d.get_collider()
@@ -68,7 +68,7 @@ func _process(delta):
 	elif playerDetected == true:
 		pass
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if is_moving == false:
 		return
 	if sprite_2d.global_position == global_position:
@@ -87,7 +87,7 @@ func _on_player_step():
 	# raycast_2d.target_position = raycast_endpoint
 
 func runNextInSequence():
-	# print(enemyInfo["Instructions" + id])
+	# print(entityInfo["Instructions" + id])
 	# first time this is run actually starts from 0 due to being -1 initially
 	var loopSequence: bool
 	var parts = instructions.split("/")
@@ -226,7 +226,6 @@ func _connect_to_player():
 	print(playerNodes)
 	for i in playerNodes:
 		if i is Sprite2D:
-			var nodeSeen: Area2D
 			player = i
 			player.playerStep.connect(_on_player_step)
 			player.whatWasHit.connect(_is_enemy_killed)
@@ -236,7 +235,7 @@ func _connect_to_player():
 			print("playerHitbox filled with: " + str(playerHitbox))
 
 func _register_sequence():
-	initialFacing = enemyInfo["InitFacing" + id]
+	initialFacing = entityInfo["InitFacing" + id]
 	print(id + " should be facing " + initialFacing)
 	if initialFacing != null:
 		if initialFacing == "L":
@@ -249,7 +248,7 @@ func _register_sequence():
 			initialFacing = Down
 		facing = initialFacing
 		turn(facing)
-	instructions = enemyInfo["Instructions" + id]
+	instructions = entityInfo["Instructions" + id]
 	if instructions == "null":
 		customBehavior = false
 	else:

@@ -32,15 +32,16 @@ func _ready():
 		raycast_default = Vector2.DOWN
 	raycast_2d.target_position = raycast_default * 32
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if is_moving == false:
 		return
 	if global_position == sprite_2d.global_position:
 		is_moving = false
 		return
+	# put line below in between the two if statements above?
 	sprite_2d.global_position = sprite_2d.global_position.move_toward(global_position, 2)
 
-func _process(delta):
+func _process(_delta):
 	spriteFacing(facing)
 	if is_moving == true:
 		return

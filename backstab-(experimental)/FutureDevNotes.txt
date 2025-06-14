@@ -1,33 +1,44 @@
-Possibly make all movement on a timer? Should try Crypt of the Necrodancer to get a feel of how
-REALLY thinking about that...
+Future ideas for development
 
-Guards have a set "patrol" path, but have AI to go off and investigate if they "hear" or otherwise indirectly detect the player?
-would return to patrols aftewards if they didn't find the player
+Sounds like a good change
+- Guards being able to "hear" the player when they walk onto a tile with a noisemaking interactible
+	- would interrupt regular patrol sequence, possibly can get guards moving back to their patrol after
+	- Would go to check it out, and if the player is not spotted, would return to their patrol
+- Alarm phase (mixes up behavior)
+	- Triggered by dashing past a guard
+	- Changes behaviors of all guards on map (to be better or worse for the player)
+	- Guards that saw the player can get a vague sense of where the player is?
+- Sightline indicators (absolutely needed)
+	- Snipers have a red laser indicator
+	- Guards/Captains/Trackers have areas of light around them?
+	- Watchers have brightened circles or ovals of vision on ground
+- Player abilities (sounds really good)
+	- Dashing (move in one direction until hitting a wall)
+		- Prevents dying to a guard if dashing past one, instead activates alert
+- Guards interacting with each other in various ways
 
-Enemies possibly have "screwing off" behaviors?
+Unsure if it's cool (unsure on a change)
+- Possibly make all movement on a timer? Should try Crypt of the Necrodancer to get a feel of how
+	- REALLY thinking about that...
+- Special idling actions that might affect game? ideas listed below:
+	- like guards talking on their radios
+	- two guards chatting? if I can somehow manage that with the whole patrol thing
+		- maybe if there's some guards that aren't on patrol but idling out of bounds
+	- screwing off, like falling asleep or not paying attention?
+		- if so, dashing by could mean that the guards only wake up but don't activate the alarm
+		- could generally add behaviors as a method of making tight/impossible paths easier/possible
+		
+
+Uneccessary? (idea might be excessive)
+- Being able to "overhear" guards chatting during chatting action
+
+
+
 Can potentially just outright stop doing their patrol?
 Possibly different personalities or behaviors for enemies?
-
-maybe make a basic map editor?
-needs to be able to:
-	- Save at least two layers to seperate files
-		- at minimum includes:
-			- tilemap
-			- entities (player/enemies/interactibles)
-			- enemy sightlines should be viewable in editor (from where they're placed)
-			- enemy nodes ideally visible? if not possible it's fine
-				- if possible, look into having node data be visible and editable
-					- this is so you can add instructions to each ndoe
-				- if possible, look into drawing arrow lines to indicate movement pattern
-			- should be able to see and edit data attatched to each entity
 	
-	- Have a layer for the actual map part of the map editor
-	- Have a layer for moving entities
-	- Have a layer for interactibles
-	- Have a way to identify what id an enemy will be
-		- probably save the instructions for that id? or perhaps only saves them to file once done
-	- Have a way to assign instructions to a specific enemy
-	- Be able to write all this, be it by filling in a template or fully create a new file
+Map editor eventually, to make levelmaking more streamlined?
+Reorganize code with classes?
 
 - textboxes and sprites for showing characters?
 - enemy sight indicators that don't outright show area mostly
@@ -41,10 +52,7 @@ needs to be able to:
 	- trackers have same area as guards, but can track once they have a "trace" 
 		- (or maybe they just always have a trace? or get one if you leave one, or just at some point midway)
 - vents? able to go between two points, possibly have guards notice the noise
-- "Hearing" if you're close to the guard but not within sight range?
-- "feeling" if you're right next to a guard?
 - dashing and other abilities
-- Alert phase
 
 glass walls
 always able to see through them
@@ -66,56 +74,3 @@ Later Development
 - Add bottom screen text box and portrait for later?
 - Title screen, level selection, etc?
 - Saved stuff
-
-
-
-defunct movement code?
-	if hold != "none":
-		if Input.is_action_just_pressed("left"):
-			hold = "holdLeft"
-		elif Input.is_action_just_pressed("right"):
-			hold = "holdRight"
-		elif Input.is_action_just_pressed("up"):
-			hold = "holdUp"
-		elif Input.is_action_just_pressed("down"):
-			hold = "holdDown"
-			
-		if hold == "holdLeft":
-			if Input.is_action_pressed("left"):
-				move(Vector2.LEFT)
-			else:
-				hold = "none"
-		elif hold == "holdRight":
-			if Input.is_action_pressed("right"):
-				move(Vector2.RIGHT)
-			else:
-				hold = "none"
-		elif hold == "holdUp":
-			if Input.is_action_pressed("up"):
-				move(Vector2.UP)
-			else:
-				hold = "none"
-		elif hold == "holdDown":
-			if Input.is_action_pressed("down"):
-				move(Vector2.DOWN)
-			else:
-				hold = "none"
-	elif hold == "none":
-		if Input.is_action_just_pressed("stab"):
-			pass
-		if Input.is_action_just_pressed("left"):
-			move(Vector2.LEFT)
-			if Input.is_action_pressed("hold"):
-				hold = "holdLeft"
-		elif Input.is_action_just_pressed("right"):
-			move(Vector2.RIGHT)
-			if Input.is_action_pressed("hold"):
-				hold = "holdRight"
-		elif Input.is_action_just_pressed("up"):
-			move(Vector2.UP)
-			if Input.is_action_pressed("hold"):
-				hold = "holdUp"
-		elif Input.is_action_just_pressed("down"):
-			move(Vector2.DOWN)
-			if Input.is_action_pressed("hold"):
-				hold = "holdDown"

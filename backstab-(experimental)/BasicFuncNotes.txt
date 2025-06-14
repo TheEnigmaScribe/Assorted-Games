@@ -1,12 +1,11 @@
 To Do List
 	
-	FIXING FUNCTION
+FIXING FUNCTIONS
 	
 	Level initialization
-	
-	- Create function that initializes the tilemaps from textfile
-	- Create function that spawns entities from the textfile (player, enemies, interactibles)
-	- Create function that sets settings to the settings in the textfile
+		- Create function that initializes the tilemaps from textfile
+		- Create function that spawns entities from the textfile (player, enemies, interactibles)
+		- Create function that sets settings to the settings in the textfile
 	
 	- Reorganize spawning to create the enemy and assign their instructions at the same time
 		- Enemy loading code will need to be redone
@@ -15,7 +14,32 @@ To Do List
 		- The enemy will perform the instructions before continuing towards the next node
 		- If a node is empty, the enemy automatically moves towards the next node
 		- Format example: [S1] = []
-		
+	
+NEW THINGS TO IMPLEMENT
+	
+	Sooner (important for function)
+	- add pausing to game alongside a pause menu (solid buttons with semi-transparent background color)
+	- basic campaign menu functionality
+	- basic level selection menu functionality
+	- saves (store data about what player has done and what level they're on)
+	
+	Later (function not dependent on it)
+	- Audio settings page
+	- Visuals setting page
+	- Better visuals and basic animations
+	- Basic audio and music
+	
+BUGS TO FIX
+	
+	- Fix minor input lag with movement keys based on comments under tilemap movement tutorial
+	- Fix the bug of two entities being able to move into the same tile if moving at the same time
+		- add either a bounce or player priority if a player and enemy move into the same space at the same time
+		- automatic detection guaranteed one way or another
+		- likely feaasible through somehow communicating to enemies what the target tile of the player is
+		- and then comparing it with the target tile of the enemy
+	
+VISUAL/AUDIO
+	
 	-bullets in animation go through player?
 	
 	
@@ -24,31 +48,13 @@ To Do List
 	
 	
 	
-	- add pause and pause menu
-	
 	- work on making saves (and possibly achievements)
 	
 	- get started on the textboxes (with sprites) after enemies can kill the player and the player can complete the level
 	
 	- basic sfx and music for game?
 	
-	- possibly load tilemaps with text files since I'm loading entities and enemy instructions that way already
-	
-	- probably have a second layer of folders in MapFiles, seperating each set of files by level
-	
 	FEATURES TO ADD
-	
-	BUGS 
-	
-	- Fix minor input lag with movement keys based on comments under tilemap movement tutorial
-	
-	- add either a bounce or player priority if a player and enemy move into the same space at the same time
-		- automatic detection guaranteed one way or another
-		- likely feaasible through somehow communicating to enemies what the target tile of the player is
-		- and then comparing it with the target tile of the enemy
-	
-	- figure out what part of the code is causing all enemy sprites to be aligned the same way
-		- (raycasts are aimed appropriately, it's just the sprites that aren't)
 	
 	MENUS
 	
@@ -84,8 +90,7 @@ To Do List
 	- add special functionality for goal depending on which way it's facing
 		- ex: if it's on a wall to the player's left, have the player walk out left
 	
-	- CLEANUP
-		- Reorganize with classes?
-		- Remove pointless code and text in all files
-		- Properly comment out code
+CLEANUP?
+	Remove pointless code and text in all files
+	Properly comment out code
 	

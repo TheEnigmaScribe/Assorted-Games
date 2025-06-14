@@ -5,21 +5,21 @@ Does not include cutscenes in or outside of levels
 
 Backstab levels are all made through .txt files loaded into the scene Gamelevel.
 In those .txt files, there are seven parts:
-	1 - PhysicsTilemap
-	2 - VisualsTilemap
-	3 - VentTilemap
-	4 - Player
-	5 - Enemies
-	6 - Interactibles
-	7 - Level Settings
-Each part is seperated by five dashes (-----) in order to indicate a seperate part.
+	1 - Level Settings
+	2 - PhysicsTilemap
+	3 - VisualsTilemap
+	4 - VentTilemap
+	5 - Player
+	6 - Enemies
+	7 - Interactibles
+Each part is seperated by five dashes (=====) in order to indicate a seperate part.
 This is due to how the game loads the levels through the split() method.
 The split() method turns strings into arrays, each part split on a string within it that is removed.
 Within each part, using different indicators, smaller strings are created.
 From there, the level is loaded part by part, but these parts can be grouped into three groups:
+	- Settings
 	- Tilemaps
 	- Entities
-	- Settings
 
 TILEMAPS
 
@@ -41,58 +41,139 @@ There are no restrictions on shape of the tilemap (through empty tiles) or the s
 (rewrite to refer to explain both tilemaps if I add a second)
 
 ENTITIES
-The following three parts are dedicated to spawning entities, and all follow a similar format:
-	entityType; initialFacing; spawnCoordinates/nodes (node1; node2; node3; (and so forth))
 
-entityType is what sort of entity is being spawned, with three categories for the three parts:
-	- Player
-	- Enemies
-	- Interactibles
-The Player's assigned entityType is Player.
-Enemies have unique entityTypes for each type of enemy, consisting of:
+The following three parts are dedicated to spawning entities, and largely follow a similar format:
+	entityType; entityID; initialFacing;/:
+		
+The player's spawning information is formatted as follows:
+	entityType; entityID; initialFacing; spawnCoordinates
+Enemies spawning information is formatted as follows:
+	entityType; entityID; initialFacing: node0/####; node1/####; (etc)
+Interactables spawning information is formatted as follows:
+	entityType; entityID; initialFacing; spawnCoordinates: textline1/#####; textline2/#####; (etc)
+
+EntityType is what kind of entity is being spawned.
+The player entityType is Player.
+The enemy entityTypes are:
 	- Sniper
 	- Guard
 	- Watcher
 	- Camera
 	- Keyholder
 	- Tracker
-Interactibles have unique entityTypes for each type of interactible, consisting of:
-	- Terminals (computer screens with text) (other similar things? vending machines)
-	- Noisemakers/Traps
-	- Vent entrances?
-	- Upgrades?
+The interactable entityTypes are:
+	- Terminal
+	- Noisemakers/Traps (multiple entityTypes, but none made yet)
+	- Vents
 
-initialFacing is the direction an entity is initially facing.
-The values used are consistent across all entities, being as follows:
-	- L or Left
-	- R or Right
-	- U or Up
-	- D or Down
+EntityID is what the instance and any additional information about the instance is saved under.
+The instance id is saved under EntityID in entityInfo with no additions.
+If the instance is an enemy, the instance's nodes are saved as an array under EntityID + "Path" in entityInfo.
+If the instance is an interactable and brings up text, the instance's text is saved under EntityID + "Lines" in entityInfo.
 
-Coordinates are used for both spawnCoordinates and nodes, using the following rules:
-	On the x axis, from left to right, tile coordinates start at zero.
-	On the y axis, from top to bottom, tile coordinates start at zero.
-	Counting manually is required
+InitialFacing is what direction an entity is facing.
 
-spawnCoordinates is what entities that are static or don't need movement code use.
-The player is controlled by the player, so spawnCoordinates is used.
-Interactibles are static (though maybe some won't be), so spawnCoordinates are used.
+SpawnCoordinates are the coordinates where a player or interactable is spawned.
 
-nodes are what Enemies use for pathing in tandem with AStarGrid2D.
-The AStarGrid2D uses the Manhattan heuristic for pathing, meaning that it favors straight lines.
-(Potentially look at giving the AStarGrid2D a copy of the map to see what is/isn't solid.)
-(If I can manage that, I can use less nodes and get the intended pathing easily.)
-Each node consists of three parts: nodeId; coordinates; actions
-nodeId is a String, used for storing information about said node elsewhere.
-coordinates is a Vector2i, used as coordinates as per the name.
-actions is a String for additional pre-programmed movements.
-It is either filled with "none" for no actions, or one or more of the following actions:
-These commands are:
+The enemy's nodes is split from its other information with a colon.
+Enemies follow the order in which their nodes are saved.
+Nodes may also contain additional data in the form of strings that prompt premade actions, such as:
+	- None - no action
 	- Turn(int) - (explanation)
 	- Move(int) - (explanation)
-	- IdleAction(String) - explanation
+	- IdleAction(String) - (explanation)
+		- String action - (explanation)
 	- (any other actions get added later)
-These are to allow for additional behavior outside of simply moving to the next node.
+	
+All nodes are saved in an array under EntityID + "Path" in entityInfo.
+The first node is used as the enemy's SpawnCoordinates.
+
+Textlines are split from an interactable with text's other information with a colon.
+All textlines are saved in an array under EntityID + "Lines" in entityInfo.
+
+After these three parts, there is either spawnCoordinates or nodes.
+spawnCoordinates are what static or entities that don't need movement code use.
+That includes the player and interactables.
+nodes are what enemies use for pathfinding, but are split from the full enemy string along a colon.
+A 
+Coordinates can be counted, starting from 0, from the left for the x axis or the top for the y axis.
+spawnCoordinates/nodes (node0; node1; etc); textLine0; (etc)
+
+ENTITYTYPE
+	entityType is what sort of entity is being spawned, with three categories for the three parts:
+	- Player
+	- Enemies
+	- Interactibles
+	Different versions of the spawning code will run depend on which group an entityType falls under.
+	
+	The Player's assigned entityType is Player.
+	
+	ENEMIES
+		Enemies have unique entityTypes for each type of enemy, consisting of:
+		- Sniper
+		- Guard
+		- Watcher
+		- Camera
+		- Keyholder
+		- Tracker
+	
+	INTERACTABLES
+		Interactables have unique entityTypes for each type of interactable, consisting of:
+		- Terminals (computer screens with text) (other similar things? vending machines)
+		- Noisemakers/Traps
+		- Vent entrances?
+		- Upgrades?
+
+ENTITYID
+	entityID is what the entity's unique identifier is.
+	When spawning an enemy, the following happens:
+		- The instance will be added to EntityList and renamed to it's ID.
+		- The instance's id will be saved under its entityID.
+		- An enemy instance's nodes will be saved under its entityID + "Path"
+
+INITIALFACING
+	initialFacing is the direction an entity is initially facing.
+	The values used are consistent across all entities, being as follows:
+		- L or Left
+		- R or Right
+		- U or Up
+		- D or Down
+
+COORDINATES
+	Coordinates are used for both spawnCoordinates and nodes, using the following rules:
+		On the x axis, from left to right, tile coordinates start at zero.
+		On the y axis, from top to bottom, tile coordinates start at zero.
+		Counting manually is required
+
+	SPAWNCOORDINATES
+		spawnCoordinates is what entities that are static or don't need movement code use.
+		The player is controlled by the player, so spawnCoordinates is used.
+		Interactibles are static (though maybe some won't be), so spawnCoordinates are used.
+
+	NODES
+		nodes are split from the rest of the enemy data in the array
+		nodes are what Enemies use for pathing in tandem with AStarGrid2D.
+		The AStarGrid2D uses the Manhattan heuristic for pathing, meaning that it favors straight lines.
+		(Potentially look at giving the AStarGrid2D a copy of the map to see what is/isn't solid.)
+		(If I can manage that, I can use less nodes and get the intended pathing easily.)
+		Each node consists of three parts: nodeId; coordinates; actions
+		nodeId is a String, used for storing information about said node elsewhere.
+		coordinates is a Vector2i, used as coordinates as per the name.
+		actions is a String for additional pre-programmed movements.
+		It is either filled with "none" for no actions, or one or more of the following actions:
+		These commands are:
+			- Turn(int) - (explanation)
+			- Move(int) - (explanation)
+			- IdleAction(String) - explanation
+			- (any other actions get added later)
+		These are to allow for additional behavior outside of simply moving to the next node.
+
+TEXTLINES
+	textLines are unique to interactables that interface with the textbox.
+	They are formatted as:
+		textline#: #####;
+	
+TEXTLINES
 
 LEVEL SETTINGS
 

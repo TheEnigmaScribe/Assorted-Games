@@ -1,5 +1,6 @@
 extends Control
 
 func _on_restart_pressed():
-	# get level details and reload
+	# play animation, get level details and reload
+	
 	pass

@@ -1,0 +1,23 @@
+visualsTilemap: false;
+ventsTilemap: false;
+enemies: false;
+interactables: false
+=====
+WWWWWWW
+W#####W
+W#####W
+W#####W
+W#####W
+W#####W
+WWWWWWW
+=====
+no visualsTilemap
+=====
+no ventsTilemap
+=====
+player; Player; Down; 1,1
+=====
+sniper; Sniper1; Up; P0/6,6/None:
+P1/6,1/None
+=====
+no interactables

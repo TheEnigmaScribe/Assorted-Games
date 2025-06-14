@@ -5,7 +5,7 @@ extends Control
 # add animation transitions when going into a level
 var code: String = ">"
 
-func _process(delta):
+func _process(_delta):
 	typing()
 	if Input.is_action_just_pressed("enter"):
 		if code == ">silence":
