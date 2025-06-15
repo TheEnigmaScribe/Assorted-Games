@@ -13,14 +13,13 @@ func _on_game_level_visuals(map):
 	# yCoord is -2 because it double triggers initially for some reason
 	var yCoord: int = -2
 	var tileLocation: Vector2i
-	print(get_used_cells())
 	for line in mapData.split("\n"):
 		line.strip_edges()
 		yCoord += 1
 		xCoord = -1
 		for i in line:
 			xCoord += 1
-			print("(" + str(xCoord) + ", " + str(yCoord) + ") = " + i)
+			# print("(" + str(xCoord) + ", " + str(yCoord) + ") = " + i)
 			if i == "L": # wall
 				tileLocation = Vector2i(0, 3)
 			elif i == "M":
@@ -30,7 +29,7 @@ func _on_game_level_visuals(map):
 			elif i == "T":
 				tileLocation = Vector2i(1, 1)
 			elif i == "F":
-				tileLocation = Vector2i(5, 0)
+				tileLocation = Vector2i(5, 3)
 			if i == "L": # wall
 				tileLocation = Vector2i(0, 3)
 			elif i == "M":
@@ -65,6 +64,8 @@ func _on_game_level_visuals(map):
 				tileLocation = Vector2i(3, 3)
 			elif i == ">":
 				tileLocation = Vector2i(4, 3)
+			elif i == "B":
+				tileLocation = Vector2i(5, 2)
 			else:
 				continue
 			# coordinates for placement, and coordinates on atlasTexture of tile to place

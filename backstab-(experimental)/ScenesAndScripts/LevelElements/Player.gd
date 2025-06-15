@@ -12,8 +12,9 @@ signal reachedGoal
 @onready var sprite_2d: Sprite2D = $PlayerSprite
 @onready var raycast_2d: RayCast2D = $PlayerEnemyCollisionRaycast
 
+var id: String
+var direction: String
 var is_moving: bool = false
-var default_facing = Down
 var facing: int
 var raycast_default: Vector2
 
@@ -21,7 +22,7 @@ var nodeSeen
 
 func _ready():
 	if facing == null:
-		facing = default_facing
+		facing = Down
 	if facing == Left:
 		raycast_default = Vector2.LEFT
 	elif facing == Right:
@@ -72,7 +73,7 @@ func move(direction):
 	
 	# possibly move the "step" variable here, if changing direction but not changing tiles is something I want to count
 	
-	if tile_data.get_custom_data("walkable") == false:
+	if tile_data.get_custom_data("solid") == true:
 		return
 	
 	if tile_data.get_custom_data("goal") == true:

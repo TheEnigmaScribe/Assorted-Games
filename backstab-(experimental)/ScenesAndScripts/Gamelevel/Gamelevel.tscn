@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://lixk6erojg78"]
 
 [ext_resource type="Script" uid="uid://byu3jody3myxa" path="res://ScenesAndScripts/Gamelevel/Gamelevel.gd" id="1_i1ugw"]
-[ext_resource type="Texture2D" uid="uid://brambkmlbmowo" path="res://Assets/Visual Assets/TestTiles.png" id="2_bjsss"]
+[ext_resource type="Texture2D" uid="uid://dqo04klsv82po" path="res://Assets/Visual Assets/TileTextures.png" id="2_bjsss"]
 [ext_resource type="Script" uid="uid://boxggymn65cux" path="res://ScenesAndScripts/Gamelevel/physics.gd" id="2_mjsu4"]
 [ext_resource type="Script" uid="uid://bgmy52mkg782f" path="res://ScenesAndScripts/Gamelevel/visuals.gd" id="3_aty5w"]
 [ext_resource type="Script" uid="uid://dq3axqu834xmi" path="res://ScenesAndScripts/Gamelevel/vents.gd" id="4_bjsss"]
@@ -20,6 +20,9 @@ texture_region_size = Vector2i(32, 32)
 4:0/0 = 0
 4:0/0/custom_data_0 = true
 5:0/0 = 0
+5:0/0/custom_data_0 = true
+6:0/0 = 0
+6:0/0/custom_data_0 = true
 0:1/0 = 0
 0:1/0/custom_data_0 = true
 1:1/0 = 0
@@ -30,6 +33,10 @@ texture_region_size = Vector2i(32, 32)
 3:1/0/custom_data_0 = true
 4:1/0 = 0
 4:1/0/custom_data_0 = true
+5:1/0 = 0
+5:1/0/custom_data_0 = true
+6:1/0 = 0
+6:1/0/custom_data_0 = true
 0:2/0 = 0
 0:2/0/custom_data_0 = true
 1:2/0 = 0
@@ -40,6 +47,9 @@ texture_region_size = Vector2i(32, 32)
 3:2/0/custom_data_0 = true
 4:2/0 = 0
 4:2/0/custom_data_0 = true
+5:2/0 = 0
+5:2/0/custom_data_0 = true
+6:2/0 = 0
 0:3/0 = 0
 0:3/0/custom_data_0 = true
 1:3/0 = 0
@@ -50,15 +60,20 @@ texture_region_size = Vector2i(32, 32)
 3:3/0/custom_data_0 = true
 4:3/0 = 0
 4:3/0/custom_data_0 = true
+5:3/0 = 0
+6:3/0 = 0
+6:3/0/custom_data_1 = true
 
 [sub_resource type="TileSet" id="TileSet_suip4"]
 resource_local_to_scene = true
 tile_size = Vector2i(32, 32)
 custom_data_layer_0/name = "solid"
 custom_data_layer_0/type = 1
+custom_data_layer_1/name = "goal"
+custom_data_layer_1/type = 1
 sources/0 = SubResource("TileSetAtlasSource_cctdq")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bjsss"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_suip4"]
 texture = ExtResource("2_bjsss")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -67,34 +82,42 @@ texture_region_size = Vector2i(32, 32)
 3:0/0 = 0
 4:0/0 = 0
 5:0/0 = 0
+6:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
 2:1/0 = 0
 3:1/0 = 0
 4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
 0:2/0 = 0
 1:2/0 = 0
 2:2/0 = 0
 3:2/0 = 0
 4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
 0:3/0 = 0
 1:3/0 = 0
 2:3/0 = 0
 3:3/0 = 0
 4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_cctdq"]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_bjsss")
+sources/0 = SubResource("TileSetAtlasSource_suip4")
 
 [node name="GameLevel" type="Node2D"]
 script = ExtResource("1_i1ugw")
 
-[node name="Physics" type="TileMapLayer" parent="."]
+[node name="Physics" type="TileMapLayer" parent="." groups=["tilemaplayer"]]
 tile_set = SubResource("TileSet_suip4")
 script = ExtResource("2_mjsu4")
 
 [node name="Visuals" type="TileMapLayer" parent="."]
+z_index = 1
 tile_set = SubResource("TileSet_cctdq")
 script = ExtResource("3_aty5w")
 

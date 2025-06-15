@@ -8,5 +8,9 @@ res://ScenesAndScripts/Gamelevel/Gamelevel.tscn
 res://PGamelevel.tscn
 res://MapFiles/Maps/Level_Test.txt
 res://ScenesAndScripts/Gamelevel/physics.gd
-res://ScenesAndScripts/Gamelevel/vents.gd
 res://ScenesAndScripts/Gamelevel/visuals.gd
+res://ScenesAndScripts/Gamelevel/Gamelevel.gd
+res://BasicFuncNotes.txt
+res://ScenesAndScripts/LevelElements/Player.gd
+res://ScenesAndScripts/LevelElements/Enemies/Sniper.gd
+res://ScenesAndScripts/LevelElements/Enemies/SniperWallcheck.gd

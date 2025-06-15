@@ -34,7 +34,7 @@ func findRaycastEndpoint(facing, id):
 		var tile_data: TileData = tile_map.get_cell_tile_data(target_tile)
 		
 		# print(id + ": " + str(target_tile))
-		if tile_data.get_custom_data("walkable") == false:
+		if tile_data.get_custom_data("solid") == true:
 			raycast_endpoint = position
 			position = Vector2i(0, 0)
 			# print(raycast_endpoint)

@@ -3,31 +3,31 @@ ventsEnabled: false;
 enemiesEnabled: false;
 interactablesEnabled: false
 =====
-1-----3
-|FFFFF|
-|MMMMM|
-|FFFFF|
-|FFFFF|
-|FFFFF|
-|FFFFF|
-6FFFFF8
-<FFFFF>
-LMMMMMR
+Z-----------X
+|BBBBBBBBBBB|
+|MMMMMDMMMMM|
+|FFFFFGFFFFF|
+|FFFFFFFFFFF|
+|FFFFFFFFFFF|
+|FFFFFFFFFFF|
+CFFFFFFFFFFFV
+<FFFFFFFFFFF>
+LMMMMMMMMMMMR
 =====
-#######
-#######
-#######
-#######
-#######
-#######
-#######
-#-----#
-#######
-#######
+#############
+#############
+#############
+#############
+#############
+#############
+#############
+#-----------#
+#BBBBBBBBBBB#
+#############
 =====
 no ventsTilemap
 =====
-player; Player; Down; (1, 1)
+player; Player; Down; (3, 3)
 =====
 sniper; Sniper1; Up; P0/(6, 6)/None:
 P1/(6, 1)/None

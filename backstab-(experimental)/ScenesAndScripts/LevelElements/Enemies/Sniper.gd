@@ -140,7 +140,7 @@ func move(facing):
 	
 	# checks if target_tile can be moved to or not, and stops movement code if unable
 	var tile_data: TileData = tile_map.get_cell_tile_data(target_tile)
-	if tile_data.get_custom_data("walkable") == false:
+	if tile_data.get_custom_data("solid") == true:
 		return
 	
 	# extends raycast towards target_tile to check that if it's occupied, cancels if so

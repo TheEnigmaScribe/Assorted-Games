@@ -1,4 +1,7 @@
 To Do List
+
+Continue working on entity spawning code, specifically enemies and nodes
+
 	
 FIXING FUNCTIONS
 	
