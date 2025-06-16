@@ -16,13 +16,20 @@ var levelFilePath: String
 @onready var entityList = $EntityList
 
 # preloaded game element scenes
+# player
 var playerScene: PackedScene = preload("res://ScenesAndScripts/LevelElements/Player.tscn")
+
+# enemies
 #var guardScene: PackedScene = preload(
 var sniperScene: PackedScene = preload("res://ScenesAndScripts/LevelElements/Enemies/Sniper.tscn")
 #var watcherScene: PackedScene = preload(
 #var cameraScene: PackedScene = preload(
 #var keyholderScene: PackedScene = preload(
 #var trackerScene: PackedScene = preload(
+
+# interactables
+var bottlesScene: PackedScene
+# var terminalScene: PackedScene = preload(
 
 # dictionaries
 var entityScenes: Dictionary = {
