@@ -33,3 +33,5 @@ sniper; Sniper1; Up; P0/(6, 6)/None:
 P1/(6, 1)/None
 =====
 no interactables
+terminal; Terminal1; Down; (4, 4):
+Line1/sprite/text;

@@ -113,43 +113,103 @@ func loadSettings(settingsData):
 	return true
 
 func loadEntities(entityData, entityGroup):
+	# list of all entities in a section
 	var entitiesToSpawn = entityData.split("~~~~~")
+	
+	# required data pieces for entity spawning
 	var entityType: String
 	var entityId: String
 	var direction: String
-	var spawnCoordinates: String
+	var spawnCoordinatesString: String
+	var spawnCoordinatesVector: Vector2i
+	
+	# variable to hold additional data, if the entity has any
+	var otherData: String
+	
+	# dictionaries to save additional entity data in for later
+	var enemyNodes: Dictionary = {}
+	var interactablesTextbox: Dictionary = {}
 	for i in entitiesToSpawn:
-		var parts = i.split(":")
+		i = i.strip_edges()
+		var parts: Array = i.split(":")
 		var spawnData = parts[0].split(";")
 		entityType = spawnData[0].strip_edges()
 		entityId = spawnData[1].strip_edges()
 		direction = spawnData[2].strip_edges()
-		spawnCoordinates = spawnData[3].strip_edges()
-	# if loading the player
-	if entityGroup == "player":
-		var entity = entityScenes[entityType]
-		var player = entity.instantiate()
-		entityInfo[entityId] = player
-		player.id = entityId
-		player.direction = direction
-		# removes all characters that aren't number or commas from the coordinates
-		for i in spawnCoordinates:
-			if i == "(" or i == ")" or i == " ":
-				spawnCoordinates.replace(i, "")
-		# turns spawncoordinates into two number strings
-		var coordXY = spawnCoordinates.split(",")
-		# converts number strings to int and then creates a Vector2i with them
-		var coordinates = Vector2i(int(coordXY[0]), int(coordXY[1]))
-		# print(coordinates)
-		player.global_position = physicsMap.map_to_local(coordinates)
-		entityList.add_child(player)
-	elif entityGroup == "enemies":
-		var entity = entityScenes[entityType]
-		var enemy = entity.instantiate()
-		entityInfo[entityId] = enemy
-		enemy.id = entityId
-		enemy.direction = direction
-		enemy.global_position = physicsMap.map_to_local(spawnCoordinates)
+		spawnCoordinatesString = spawnData[3].strip_edges()
+		# checks if there's only the four required data pieces
+		if parts.size() > 1:
+			# sets otherData to additional data
+			otherData = parts[1].strip_edges()
+		else:
+			# marks otherData as nothing
+			otherData = "none"
+		
+		# takes additional data from spawnCoordinates if it's an enemy node
+		# then sets spawnCoordinates to just the coordinates part of the node
+		# the rest is saved under the node's id (always P0 initially) and _Inst
+		if entityGroup == "enemy":
+			var nodeData = spawnCoordinatesString.split("/")
+			for n in nodeData:
+				nodeData[nodeData.index[n]] = n.strip_edges()
+			enemyNodes["P0_Inst"] = nodeData[2]
+			spawnCoordinatesString = nodeData[1]
+		
+		# converts spawnCoordinates from a String to a Vector2i
+		for c in spawnCoordinatesString:
+			if c == "(" or c == ")" or c == " ":
+				spawnCoordinatesString.replace(c, "")
+				# turns spawncoordinates into two number strings
+				var coordXY = spawnCoordinatesString.split(",")
+				# converts number strings to int and then creates a Vector2i with them
+				var coordinates = Vector2i(int(coordXY[0]), int(coordXY[1]))
+				if entityGroup == "enemies":
+					enemyNodes["P0"] = coordinates
+				spawnCoordinatesVector = coordinates
+		
+		# spawns entities, gives them id, direction, and position
+		var sceneToInstantiate = entityScenes[entityType]
+		var entity = sceneToInstantiate.instantiate()
+		entity.id = entityId
+		entity.direction = direction
+		entity.global_position = physicsMap.map_to_local(spawnCoordinatesVector)
+		
+		# if an entity is an enemy, checks for a node list
+		# if there is a node list, saves all node information in enemyNodes
+		# sets the enemy's nodes dictionary in enemy to enemyNodes
+		if entityGroup == "enemies":
+			if otherData != "none":
+				for o in otherData.split(";"):
+					var nodeParts = o.split("/")
+					var coordinates: Vector2i
+					for n in nodeParts:
+						nodeParts[nodeParts.index[n]] = n.strip_edges()
+					for a in nodeParts[1]:
+						if a == "(" or a == ")" or a == " ":
+							nodeParts[1].replace(a, "")
+							# turns spawncoordinates into two number strings
+							var coordXY = nodeParts[1].split(",")
+							# converts number strings to int and then creates a Vector2i with them
+							coordinates = Vector2i(int(coordXY[0]), int(coordXY[1]))
+					enemyNodes[nodeParts[0]] = coordinates
+					enemyNodes[nodeParts[0] + "_Inst"] = nodeParts[2]
+				entity.nodes = enemyNodes
+		
+		# if an entity is an interactable, checks for textlines
+		# if there are textlines, saves all textline information in interactablesTextbox
+		# sets the interactable's textbox dictionary to interactablesTextbox
+		elif entityGroup == "interactables":
+			if otherData != "none":
+				for o in otherData.split(";"):
+					var lineParts = o.split("/")
+					for l in lineParts:
+						lineParts[lineParts.index[l]] = l.strip_edges()
+					interactablesTextbox[lineParts[0]] = lineParts[2]
+					interactablesTextbox[lineParts[0] + "_Sprite"] = lineParts[1]
+				entity.textbox = interactablesTextbox
+		
+		# adds entity to scene under entityList once all data is done being set
+		entityList.add_child(entity)
 
 func _map_loaded(map):
 	# map is either "physics", "visuals" or "vents"

@@ -1,4 +1,5 @@
 res://ScenesAndScripts/Game.tscn
+res://ScenesAndScripts/Gamelevel/Gamelevel.gd
 res://ScenesAndScripts/Menus/MainMenu.tscn
 res://ScenesAndScripts/Menus/DevWindow.tscn
 res://ScenesAndScripts/LevelElements/Player.tscn
@@ -7,10 +8,3 @@ res://ScenesAndScripts/LevelElements/Enemies/SniperBullet.tscn
 res://ScenesAndScripts/Gamelevel/Gamelevel.tscn
 res://PGamelevel.tscn
 res://MapFiles/Maps/Level_Test.txt
-res://ScenesAndScripts/Gamelevel/physics.gd
-res://ScenesAndScripts/Gamelevel/visuals.gd
-res://ScenesAndScripts/Gamelevel/Gamelevel.gd
-res://BasicFuncNotes.txt
-res://ScenesAndScripts/LevelElements/Player.gd
-res://ScenesAndScripts/LevelElements/Enemies/Sniper.gd
-res://ScenesAndScripts/LevelElements/Enemies/SniperWallcheck.gd
