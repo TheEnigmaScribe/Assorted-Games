@@ -12,6 +12,9 @@ func _ready():
 		orientation = "horizontal"
 	elif direction == 2 or direction == 4:
 		orientation = "vertical"
+	
+	# connect to player
+	
 
 func _process(_delta):
 	pass

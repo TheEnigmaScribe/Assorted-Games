@@ -1,8 +1,8 @@
 To Do List
 
-Continue working on entity spawning code, specifically enemies and nodes
+Finish up terminal code with connecting to the player and printing when interacted with
+Enemy pathfinding and movement code up next after this? or sprites
 
-	
 FIXING FUNCTIONS
 	
 	Level initialization

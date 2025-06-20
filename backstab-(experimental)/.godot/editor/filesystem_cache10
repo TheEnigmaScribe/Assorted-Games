@@ -1,12 +1,12 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1750034097
-BasicFuncNotes.txt::TextFile::-1::1749952906::0::1::::<><><>0<>0<><>::
+::res://::1750405582
+BasicFuncNotes.txt::TextFile/TextFile::-1::1750050323::0::1::::<><><>0<>0<><>::
 blackround.gd::GDScript/GDScript::8014056490107126514::1749084139::0::1::::<>Sprite2D<><>0<>0<><>::
 EnemyInstructions_Test.txt::TextFile/TextFile::-1::1749453567::0::1::::<><><>0<>0<><>::
 EntityMap_Test.txt::TextFile/TextFile::-1::1749443406::0::1::::<><><>0<>0<><>::
 FutureDevNotes.txt::TextFile/TextFile::-1::1749544925::0::1::::<><><>0<>0<><>::
 PGamelevel.gd::GDScript/GDScript::6497725887589212464::1749803663::0::1::::<>Node2D<><>0<>0<><>::
-PGamelevel.tscn::PackedScene::6561327988522144139::1749959856::0::1::::<><><>0<>0<><>::uid://cytsujayk6rgi::::res://PGamelevel.gd<>uid://rtuc1mkucvst::::res://Assets/Visual Assets/Blackround.png<>uid://dmgclsqv25klu::::res://blackround.gd<>uid://4hg5jm10j7va::::res://Assets/Visual Assets/pixil-frame-0-8.png<>uid://b7lfvh3ielv8s::::res://PhysicsTilemap.gd<>uid://byum8ure3gjor::::res://visuals_tilemap.gd<>uid://oxig2acqi2r2::::res://vents_tilemap.gd
+PGamelevel.tscn::PackedScene/PackedScene::6561327988522144139::1750050334::0::1::::<><><>0<>0<><>::uid://cytsujayk6rgi::::res://PGamelevel.gd<>uid://rtuc1mkucvst::::res://Assets/Visual Assets/Blackround.png<>uid://dmgclsqv25klu::::res://blackround.gd<>uid://4hg5jm10j7va::::res://Assets/Visual Assets/pixil-frame-0-8.png<>uid://b7lfvh3ielv8s::::res://PhysicsTilemap.gd<>uid://byum8ure3gjor::::res://visuals_tilemap.gd<>uid://oxig2acqi2r2::::res://vents_tilemap.gd
 PhysicsTilemap.gd::GDScript/GDScript::4655513333327891168::1749792359::0::1::::<>TileMapLayer<><>0<>0<><>::
 TwistUsecases.txt::TextFile/TextFile::-1::1749544925::0::1::::<><><>0<>0<><>::
 vents_tilemap.gd::GDScript/GDScript::1030622368224441673::1749792229::0::1::::<>TileMapLayer<><>0<>0<><>::
@@ -58,42 +58,43 @@ Visuals.png::CompressedTexture2D/CompressedTexture2D::5904161351710733196::17490
 10notcomplete.png::CompressedTexture2D/CompressedTexture2D::4268200035730216179::1749089646::1749089646::1::::<><><>0<>0<>c0582c7cd53986ba305605761f7bec42<>res://.godot/imported/10notcomplete.png-4c3c60e87e9e971d775475119a36620e.ctex::
 Locked.png::CompressedTexture2D/CompressedTexture2D::4131611323742163526::1749089646::1749089646::1::::<><><>0<>0<>44a3ceceb883194fa791487dbe73c942<>res://.godot/imported/Locked.png-643f278bfff1bf3c62db651d822e5f73.ctex::
 ::res://MapFiles/::1749536786
-::res://MapFiles/Maps/::1749958651
-Level_Test.txt::TextFile::-1::1749958651::0::1::::<><><>0<>0<><>::
+::res://MapFiles/Maps/::1750049812
+Level_Test.txt::TextFile/TextFile::-1::1750049812::0::1::::<><><>0<>0<><>::
 ::res://MapFiles/TemplateAndExplanation/::1749786735
 LevelTemplate.txt::TextFile/TextFile::-1::1749786735::0::1::::<><><>0<>0<><>::
 LevelTemplateExplanation.txt::TextFile/TextFile::-1::1749552447::0::1::::<><><>0<>0<><>::
-::res://ScenesAndScripts/::1749959856
-Game.gd::GDScript/GDScript::2874983295009368909::1749875413::0::1::::<>Node<><>0<>0<><>::
-Game.tscn::PackedScene::4371594608132251953::1749959856::0::1::::<><><>0<>0<><>::uid://bg7ws4m8jusjd::::res://ScenesAndScripts/Game.gd
-::res://ScenesAndScripts/Gamelevel/::1749959856
-Gamelevel.gd::GDScript::4113957375119361870::1749958704::0::1::::<>Node2D<><>0<>0<><>::
-Gamelevel.tscn::PackedScene::790008286018056897::1749959856::0::1::::<><><>0<>0<><>::uid://byu3jody3myxa::::res://ScenesAndScripts/Gamelevel/Gamelevel.gd<>uid://dqo04klsv82po::::res://Assets/Visual Assets/TileTextures.png<>uid://boxggymn65cux::::res://ScenesAndScripts/Gamelevel/physics.gd<>uid://bgmy52mkg782f::::res://ScenesAndScripts/Gamelevel/visuals.gd<>uid://dq3axqu834xmi::::res://ScenesAndScripts/Gamelevel/vents.gd
-physics.gd::GDScript::3416921479420282951::1749958947::0::1::::<>TileMapLayer<><>0<>0<><>::
+::res://ScenesAndScripts/::1750405435
+Game.gd::GDScript/GDScript::2874983295009368909::1750047990::0::1::::<>Node<><>0<>0<><>::
+Game.tscn::PackedScene/PackedScene::4371594608132251953::1750405435::0::1::::<><><>0<>0<><>::uid://bg7ws4m8jusjd::::res://ScenesAndScripts/Game.gd
+::res://ScenesAndScripts/Gamelevel/::1750405435
+Gamelevel.gd::GDScript/GDScript::4113957375119361870::1750049572::0::1::::<>Node2D<><>0<>0<><>::
+Gamelevel.tscn::PackedScene/PackedScene::790008286018056897::1750405435::0::1::::<><><>0<>0<><>::uid://byu3jody3myxa::::res://ScenesAndScripts/Gamelevel/Gamelevel.gd<>uid://dqo04klsv82po::::res://Assets/Visual Assets/TileTextures.png<>uid://boxggymn65cux::::res://ScenesAndScripts/Gamelevel/physics.gd<>uid://bgmy52mkg782f::::res://ScenesAndScripts/Gamelevel/visuals.gd<>uid://dq3axqu834xmi::::res://ScenesAndScripts/Gamelevel/vents.gd
+physics.gd::GDScript/GDScript::3416921479420282951::1749958947::0::1::::<>TileMapLayer<><>0<>0<><>::
 vents.gd::GDScript/GDScript::8340128072468951492::1749897909::0::1::::<>TileMapLayer<><>0<>0<><>::
-visuals.gd::GDScript::2833838497345330623::1749958704::0::1::::<>TileMapLayer<><>0<>0<><>::
-::res://ScenesAndScripts/LevelElements/::1749959856
-Player.gd::GDScript::8044551327095515169::1749957621::0::1::::Player<>Node2D<><>0<>0<><>::
-Player.tscn::PackedScene::5276096899622166253::1749959856::0::1::::<><><>0<>0<><>::uid://4hg5jm10j7va::::res://Assets/Visual Assets/pixil-frame-0-8.png<>uid://dmu3t5kfp5u30::::res://ScenesAndScripts/LevelElements/Player.gd
-::res://ScenesAndScripts/LevelElements/Enemies/::1749959856
-Sniper.gd::GDScript::7415823420262210767::1749958341::0::1::::<>Node2D<><>0<>0<><>::
-Sniper.tscn::PackedScene::7148565120542836767::1749959856::0::1::::<><><>0<>0<><>::uid://ddwjr7w8l6vyd::::res://ScenesAndScripts/LevelElements/Enemies/Sniper.gd<>uid://4hg5jm10j7va::::res://Assets/Visual Assets/pixil-frame-0-8.png<>uid://cf7p6ocure5g::::res://ScenesAndScripts/LevelElements/Enemies/SniperWallcheck.gd
-SniperBullet.gd::GDScript/GDScript::7629239863353403056::1749785798::0::1::::<>Node2D<><>0<>0<><>::
-SniperBullet.tscn::PackedScene::5427805634446450868::1749959856::0::1::::<><><>0<>0<><>::uid://dgxwp3t4wy7fg::::res://ScenesAndScripts/LevelElements/Enemies/SniperBullet.gd<>uid://4hg5jm10j7va::::res://Assets/Visual Assets/pixil-frame-0-8.png
-SniperWallcheck.gd::GDScript::152670956692851610::1749958342::0::1::::<>Node2D<><>0<>0<><>::
-::res://ScenesAndScripts/LevelElements/Interactibles/::1749536662
-placeholder.txt::TextFile/TextFile::-1::1749536662::0::1::::<><><>0<>0<><>::
-::res://ScenesAndScripts/Menus/::1749959856
+visuals.gd::GDScript/GDScript::2833838497345330623::1749958704::0::1::::<>TileMapLayer<><>0<>0<><>::
+::res://ScenesAndScripts/LevelElements/::1750050334
+Player.gd::GDScript/GDScript::8044551327095515169::1750050151::0::1::::Player<>Node2D<><>0<>0<><>::
+Player.tscn::PackedScene/PackedScene::5276096899622166253::1750050334::0::1::::<><><>0<>0<><>::uid://4hg5jm10j7va::::res://Assets/Visual Assets/pixil-frame-0-8.png<>uid://dmu3t5kfp5u30::::res://ScenesAndScripts/LevelElements/Player.gd
+::res://ScenesAndScripts/LevelElements/Enemies/::1750050334
+Sniper.gd::GDScript/GDScript::7415823420262210767::1750047850::0::1::::<>Node2D<><>0<>0<><>::
+Sniper.tscn::PackedScene/PackedScene::7148565120542836767::1750050334::0::1::::<><><>0<>0<><>::uid://ddwjr7w8l6vyd::::res://ScenesAndScripts/LevelElements/Enemies/Sniper.gd<>uid://4hg5jm10j7va::::res://Assets/Visual Assets/pixil-frame-0-8.png<>uid://cf7p6ocure5g::::res://ScenesAndScripts/LevelElements/Enemies/SniperWallcheck.gd
+SniperBullet.gd::GDScript/GDScript::7629239863353403056::1750050202::0::1::::<>Node2D<><>0<>0<><>::
+SniperBullet.tscn::PackedScene/PackedScene::5427805634446450868::1750050334::0::1::::<><><>0<>0<><>::uid://dgxwp3t4wy7fg::::res://ScenesAndScripts/LevelElements/Enemies/SniperBullet.gd<>uid://4hg5jm10j7va::::res://Assets/Visual Assets/pixil-frame-0-8.png
+SniperWallcheck.gd::GDScript/GDScript::152670956692851610::1749958342::0::1::::<>Node2D<><>0<>0<><>::
+::res://ScenesAndScripts/LevelElements/Interactibles/::1750050334
+Terminal.gd::GDScript/GDScript::4549024433996880370::1750049937::0::1::::<>Node2D<><>0<>0<><>::
+Terminal.tscn::PackedScene/PackedScene::3983782010154620233::1750050334::0::1::::<><><>0<>0<><>::uid://b52t1dt5lagbi::::res://ScenesAndScripts/LevelElements/Interactibles/Terminal.gd<>uid://4hg5jm10j7va::::res://Assets/Visual Assets/pixil-frame-0-8.png
+::res://ScenesAndScripts/Menus/::1750050334
 Campaign.gd::GDScript/GDScript::769598068261847353::1749791620::0::1::::<>Control<><>0<>0<><>::
 Campaign.tscn::PackedScene/PackedScene::5709158075255617619::1749791620::0::1::::<><><>0<>0<><>::uid://k72fx6bep162::::res://ScenesAndScripts/Menus/Campaign.gd<>uid://bpflm36dqcuyf::::res://Assets/Visual Assets/MenuAssets/Buttons/Back.png
 Credits.gd::GDScript/GDScript::7647277713962422071::1749114159::0::1::::<>Control<><>0<>0<><>::
 Credits.tscn::PackedScene/PackedScene::509618126775834779::1749442655::0::1::::<><><>0<>0<><>::uid://dg7nst7hy6xpf::::res://ScenesAndScripts/Menus/Credits.gd<>uid://bpflm36dqcuyf::::res://Assets/Visual Assets/MenuAssets/Buttons/Back.png
 DevWindow.gd::GDScript/GDScript::5496095096584420780::1749875413::0::1::::<>Control<><>0<>0<><>::
-DevWindow.tscn::PackedScene::6811915163223732363::1749959856::0::1::::<><><>0<>0<><>::uid://ckkl5bbkm4413::::res://ScenesAndScripts/Menus/DevWindow.gd<>uid://by4nbgkm1ople::::res://Assets/Visual Assets/MenuAssets/LevelIcons/Locked.png<>uid://bpflm36dqcuyf::::res://Assets/Visual Assets/MenuAssets/Buttons/Back.png
+DevWindow.tscn::PackedScene/PackedScene::6811915163223732363::1750050334::0::1::::<><><>0<>0<><>::uid://ckkl5bbkm4413::::res://ScenesAndScripts/Menus/DevWindow.gd<>uid://by4nbgkm1ople::::res://Assets/Visual Assets/MenuAssets/LevelIcons/Locked.png<>uid://bpflm36dqcuyf::::res://Assets/Visual Assets/MenuAssets/Buttons/Back.png
 LevelSelection.gd::GDScript/GDScript::5644551361413477771::1749791582::0::1::::<>Control<><>0<>0<><>::
 LevelSelection.tscn::PackedScene/PackedScene::7210091693983365629::1749442331::0::1::::<><><>0<>0<><>::uid://cmoi63kdq84i6::::res://ScenesAndScripts/Menus/LevelSelection.gd<>uid://chjdix5jqup4w::::res://Assets/Visual Assets/MenuAssets/Backstab.png<>uid://y57ld54df6y0::::res://Assets/Visual Assets/MenuAssets/LevelIcons/1notcomplete.png<>uid://by4nbgkm1ople::::res://Assets/Visual Assets/MenuAssets/LevelIcons/Locked.png<>uid://bpflm36dqcuyf::::res://Assets/Visual Assets/MenuAssets/Buttons/Back.png<>uid://dq2pqvvbiff6w::::res://Assets/Audio Assets/vine-boom.mp3
 MainMenu.gd::GDScript/GDScript::5377435315181795034::1749785798::0::1::::<>Control<><>0<>0<><>::
-MainMenu.tscn::PackedScene::6890469629140326126::1749959856::0::1::::<><><>0<>0<><>::uid://ciu4trsayfo8y::::res://ScenesAndScripts/Menus/MainMenu.gd<>uid://chjdix5jqup4w::::res://Assets/Visual Assets/MenuAssets/Backstab.png<>uid://ci1he3yg2yi1m::::res://Assets/Visual Assets/MenuAssets/Buttons/Play.png<>uid://catvhgvsdq76d::::res://Assets/Visual Assets/MenuAssets/Buttons/Settings.png<>uid://bq61fuu1fvldx::::res://Assets/Visual Assets/MenuAssets/Buttons/Quit.png<>uid://dq2pqvvbiff6w::::res://Assets/Audio Assets/vine-boom.mp3
+MainMenu.tscn::PackedScene/PackedScene::6890469629140326126::1750050334::0::1::::<><><>0<>0<><>::uid://ciu4trsayfo8y::::res://ScenesAndScripts/Menus/MainMenu.gd<>uid://chjdix5jqup4w::::res://Assets/Visual Assets/MenuAssets/Backstab.png<>uid://ci1he3yg2yi1m::::res://Assets/Visual Assets/MenuAssets/Buttons/Play.png<>uid://catvhgvsdq76d::::res://Assets/Visual Assets/MenuAssets/Buttons/Settings.png<>uid://bq61fuu1fvldx::::res://Assets/Visual Assets/MenuAssets/Buttons/Quit.png<>uid://dq2pqvvbiff6w::::res://Assets/Audio Assets/vine-boom.mp3
 RestartMenu.gd::GDScript/GDScript::5814155640235142144::1749791582::0::1::::<>Control<><>0<>0<><>::
 Settings.gd::GDScript/GDScript::320948087263521240::1749102912::0::1::::<>Control<><>0<>0<><>::
 Settings.tscn::PackedScene/PackedScene::3228750063583138884::1749442233::0::1::::<><><>0<>0<><>::uid://chjdix5jqup4w::::res://Assets/Visual Assets/MenuAssets/Backstab.png<>uid://etp76epcnnfs::::res://ScenesAndScripts/Menus/Settings.gd<>uid://bpflm36dqcuyf::::res://Assets/Visual Assets/MenuAssets/Buttons/Back.png<>uid://op7nbjaabd0y::::res://Assets/Visual Assets/MenuAssets/Buttons/Controls.png<>uid://dq2pqvvbiff6w::::res://Assets/Audio Assets/vine-boom.mp3<>uid://cqeaw7eptnjwe::::res://Assets/Visual Assets/MenuAssets/Buttons/Visuals.png<>uid://djv31rbaon2lt::::res://Assets/Visual Assets/MenuAssets/Buttons/Audio.png

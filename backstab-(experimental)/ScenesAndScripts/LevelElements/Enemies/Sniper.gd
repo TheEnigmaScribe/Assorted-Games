@@ -19,13 +19,16 @@ var playerHitbox: Area2D
 var instPath: Node2D
 var id: String = "invalidID"
 var facing
-var initialFacing
 var instructions: String
 var customBehavior: bool
 var entityInfo: Dictionary
 var is_moving: bool
 var playerDetected: bool = false
 var orientationSet: bool = true
+var direction
+var nodes: Dictionary
+#var entityInfo: Dictionary
+# set this in gamelevel script if necessary
 
 # determines enemy behavior
 # NoticedSomething and OnAlert are future possibilities for more ways the enemy can behave
@@ -40,22 +43,28 @@ var enemyState = OnPatrol
 var sequenceComplete: bool = false
 var currentChar: int = -1
 
-# Used in determining direction
-var toFace: int
-
 func _ready():
-	# default facing in case a proper value isn't loaded
-	facing = Right
-	# run raycast endpoint check initially
-	var raycast_endpoint = wallchecker.findRaycastEndpoint(facing, id)
-	raycast_2d.target_position = raycast_endpoint
+	# sets direction from direction string, and turn includes raycast endpoint calculations
+	if direction == "Left":
+		direction = Left
+	elif direction == "Up":
+		direction = Up
+	elif direction == "Right":
+		direction = Right
+	elif direction == "Down":
+		direction = Down
+	turn(direction)
+	connectToPlayer()
 	# set instance version of entityInfo dict of gamelevel version of entityInfo dict
-	entityInfo = game_level.entityInfo
+	# entityInfo = game_level.entityInfo
 	# connect gamelevel signals to methods to fill in information when available
 	# done this way so the code that uses the information isn't run before it can be loaded
-	game_level.connectToPlayer.connect(_connect_to_player)
-	game_level.instructionsFilled.connect(_register_sequence)
-	game_level.gameOver.connect(_game_over_sequence)
+	
+	#game_level.connectToPlayer.connect(_connect_to_player)
+	# in theory, I can remove this entirely? unsure, but if the player is always loaded before
+	
+	#game_level.instructionsFilled.connect(_register_sequence)
+	#game_level.gameOver.connect(_game_over_sequence)
 
 # process methods, used for player detection and movement processing
 func _process(_delta):
@@ -77,65 +86,67 @@ func _physics_process(_delta):
 	sprite_2d.global_position = sprite_2d.global_position.move_toward(global_position, 2)
 
 # movement methods
-func _on_player_step():
+func _on_step():
 	if customBehavior == true:
-		runNextInSequence()
+		pass
+		#runNextInSequence()
 	elif customBehavior == false:
 		return
 	# var raycast_endpoint = wallchecker.findRaycastEndpoint(facing, id)
 	# print(raycast_endpoint)
 	# raycast_2d.target_position = raycast_endpoint
 
-func runNextInSequence():
+#func runNextInSequence():
+#	pass
 	# print(entityInfo["Instructions" + id])
 	# first time this is run actually starts from 0 due to being -1 initially
-	var loopSequence: bool
-	var parts = instructions.split("/")
-	currentChar += 1
-	if parts[0] == "Y":
-		loopSequence = true
-	elif parts[0] == "N":
-		loopSequence = false
-	var sequence = parts[1]
-	if sequenceComplete:
-		return
-	var nextInst = sequence.substr(currentChar, 1)
-	if nextInst == "M":
-		move(facing)
-	elif nextInst == "L" or nextInst == "R" or nextInst == "U":
-		facing = whatDirection(facing, nextInst)
-		turn(facing)
-	elif nextInst == "H":
-		pass
-	elif nextInst == "X":
-		if loopSequence == true:
-			currentChar = 0
-			nextInst = sequence.substr(currentChar, 1)
-			if nextInst == "M":
-				move(facing)
-			elif nextInst == "L" or nextInst == "R" or nextInst == "U":
-				facing = whatDirection(facing, nextInst)
-				turn(facing)
-		elif loopSequence == false:
-			sequenceComplete = true
+#	var loopSequence: bool
+#	var parts = instructions.split("/")
+#	currentChar += 1
+#	if parts[0] == "Y":
+#		loopSequence = true
+#	elif parts[0] == "N":
+#		loopSequence = false
+#	var sequence = parts[1]
+#	if sequenceComplete:
+#		return
+#	var nextInst = sequence.substr(currentChar, 1)
+#	if nextInst == "M":
+#		move(facing)
+#	elif nextInst == "L" or nextInst == "R" or nextInst == "U":
+#		facing = whatDirection(facing, nextInst)
+#		turn(facing)
+#	elif nextInst == "H":
+#		pass
+#	elif nextInst == "X":
+#		if loopSequence == true:
+#			currentChar = 0
+#			nextInst = sequence.substr(currentChar, 1)
+#			if nextInst == "M":
+#				move(facing)
+#			elif nextInst == "L" or nextInst == "R" or nextInst == "U":
+#				facing = whatDirection(facing, nextInst)
+#				turn(facing)
+#		elif loopSequence == false:
+#			sequenceComplete = true
 
 func move(facing):
 	# get direction
-	var direction: Vector2i
+	var movementDirection: Vector2i
 	if facing == Left:
-		direction = Vector2i.LEFT
+		movementDirection = Vector2i.LEFT
 	elif facing == Up:
-		direction = Vector2i.UP
+		movementDirection = Vector2i.UP
 	elif facing == Right:
-		direction = Vector2i.RIGHT
+		movementDirection = Vector2i.RIGHT
 	elif facing == Down:
-		direction = Vector2i.DOWN
+		movementDirection = Vector2i.DOWN
 	
 	# tilemap movement code
 	var current_tile: Vector2i = tile_map.local_to_map(global_position)
 	var target_tile: Vector2i = Vector2i(
-		current_tile.x + direction.x,
-		current_tile.y + direction.y
+		current_tile.x + movementDirection.x,
+		current_tile.y + movementDirection.y
 	)
 	
 	# checks if target_tile can be moved to or not, and stops movement code if unable
@@ -221,39 +232,39 @@ func _is_enemy_killed(nodeSeen, playerFacing):
 		pass
 
 # variable setting methods
-func _connect_to_player():
+func connectToPlayer():
 	var playerNodes = get_tree().get_nodes_in_group("player")
 	print(playerNodes)
 	for i in playerNodes:
 		if i is Sprite2D:
 			player = i
-			player.playerStep.connect(_on_player_step)
+			player.playerStep.connect(_on_step)
 			player.whatWasHit.connect(_is_enemy_killed)
 			print("player filled with: " + str(player))
 		elif i is Area2D:
 			playerHitbox = i
 			print("playerHitbox filled with: " + str(playerHitbox))
 
-func _register_sequence():
-	initialFacing = entityInfo["InitFacing" + id]
-	print(id + " should be facing " + initialFacing)
-	if initialFacing != null:
-		if initialFacing == "L":
-			initialFacing = Left
-		elif initialFacing == "U":
-			initialFacing = Up
-		elif initialFacing == "R":
-			initialFacing = Right
-		elif initialFacing == "D":
-			initialFacing = Down
-		facing = initialFacing
-		turn(facing)
-	instructions = entityInfo["Instructions" + id]
-	if instructions == "null":
-		customBehavior = false
-	else:
-		customBehavior = true
-	print(id + " Instructions: " + instructions)
+#func _register_sequence():
+	#initialFacing = entityInfo["InitFacing" + id]
+	#print(id + " should be facing " + initialFacing)
+	#if initialFacing != null:
+	#	if initialFacing == "L":
+	#		initialFacing = Left
+	#	elif initialFacing == "U":
+	#		initialFacing = Up
+	#	elif initialFacing == "R":
+	#		initialFacing = Right
+	#	elif initialFacing == "D":
+	#		initialFacing = Down
+	#	facing = initialFacing
+	#	turn(facing)
+	#instructions = entityInfo["Instructions" + id]
+	#if instructions == "null":
+	#	customBehavior = false
+	#else:
+	#	customBehavior = true
+	#print(id + " Instructions: " + instructions)
 
 func _go_on_alert():
 	# runs sequence if an enemy detected the player while dashing/didn't kill the player

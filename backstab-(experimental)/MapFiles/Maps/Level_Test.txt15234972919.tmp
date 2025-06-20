@@ -33,4 +33,4 @@ sniper; Sniper1; Up; P0/(6, 6)/None:
 P1/(6, 1)/None
 =====
 terminal; Terminal1; Down; (4, 4):
-Line0/sprite/text
+Line0/sprite/text;

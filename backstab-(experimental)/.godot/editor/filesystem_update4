@@ -1,10 +1,2 @@
 res://ScenesAndScripts/Game.tscn
-res://ScenesAndScripts/Gamelevel/Gamelevel.gd
-res://ScenesAndScripts/Menus/MainMenu.tscn
-res://ScenesAndScripts/Menus/DevWindow.tscn
-res://ScenesAndScripts/LevelElements/Player.tscn
-res://ScenesAndScripts/LevelElements/Enemies/Sniper.tscn
-res://ScenesAndScripts/LevelElements/Enemies/SniperBullet.tscn
 res://ScenesAndScripts/Gamelevel/Gamelevel.tscn
-res://PGamelevel.tscn
-res://MapFiles/Maps/Level_Test.txt

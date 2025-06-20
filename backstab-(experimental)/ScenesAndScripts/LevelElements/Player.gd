@@ -6,6 +6,7 @@ enum {Left = 1, Up = 2, Right = 3, Down = 4}
 signal playerStep
 signal whatWasHit
 signal reachedGoal
+signal whatWasInteractedWith
 
 @onready var game_level = get_tree().get_first_node_in_group("gamelevel")
 @onready var tile_map = get_tree().get_first_node_in_group("tilemaplayer")
@@ -109,6 +110,15 @@ func stab(looking):
 		print(str(hit))
 	else:
 		# player stab animation and sound
+		pass
+
+func interact(looking):
+	if raycast_2d.is_colliding():
+		var interactingWith: Area2D = raycast_2d.get_collider()
+		whatWasInteractedWith.emit(interactingWith, looking)
+		print("interacted with something")
+		print(str(interactingWith))
+	else:
 		pass
 
 func _level_finished():

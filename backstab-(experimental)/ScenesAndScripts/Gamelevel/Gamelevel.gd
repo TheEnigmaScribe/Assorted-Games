@@ -28,13 +28,14 @@ var sniperScene: PackedScene = preload("res://ScenesAndScripts/LevelElements/Ene
 #var trackerScene: PackedScene = preload(
 
 # interactables
-var bottlesScene: PackedScene
-# var terminalScene: PackedScene = preload(
+# var bottlesScene: PackedScene
+var terminalScene: PackedScene = preload("res://ScenesAndScripts/LevelElements/Interactibles/Terminal.tscn")
 
 # dictionaries
 var entityScenes: Dictionary = {
 	"player": playerScene,
-	"sniper": sniperScene
+	"sniper": sniperScene,
+	"terminal": terminalScene
 	}
 var entityInfo: Dictionary = {}
 var settings: Dictionary = {
@@ -190,7 +191,7 @@ func loadEntities(entityData, entityGroup):
 					var nodeParts = o.split("/")
 					var coordinates: Vector2i
 					for n in nodeParts:
-						nodeParts[nodeParts.index[n]] = n.strip_edges()
+						nodeParts[nodeParts.find(n, 0)] = n.strip_edges()
 					for a in nodeParts[1]:
 						if a == "(" or a == ")" or a == " ":
 							nodeParts[1].replace(a, "")
@@ -210,7 +211,7 @@ func loadEntities(entityData, entityGroup):
 				for o in otherData.split(";"):
 					var lineParts = o.split("/")
 					for l in lineParts:
-						lineParts[lineParts.index[l]] = l.strip_edges()
+						lineParts[lineParts.find(l, 0)] = l.strip_edges()
 					interactablesTextbox[lineParts[0]] = lineParts[2]
 					interactablesTextbox[lineParts[0] + "_Sprite"] = lineParts[1]
 				entity.textbox = interactablesTextbox

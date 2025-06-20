@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bw01kpwvyelc0"]
+
+[ext_resource type="Script" uid="uid://b52t1dt5lagbi" path="res://ScenesAndScripts/LevelElements/Interactibles/Terminal.gd" id="1_7a82i"]
+[ext_resource type="Texture2D" uid="uid://4hg5jm10j7va" path="res://Assets/Visual Assets/pixil-frame-0-8.png" id="2_vrnqp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t813r"]
+atlas = ExtResource("2_vrnqp")
+region = Rect2(0, 64, 128, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gewvr"]
+size = Vector2(32, 32)
+
+[node name="Terminal" type="Node2D"]
+script = ExtResource("1_7a82i")
+
+[node name="TerminalSprite" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_t813r")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_gewvr")

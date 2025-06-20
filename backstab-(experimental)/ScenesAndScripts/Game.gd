@@ -6,6 +6,8 @@ var devMenu: PackedScene = preload("res://ScenesAndScripts/Menus/DevWindow.tscn"
 var selectionMenu: PackedScene = preload("res://ScenesAndScripts/Menus/LevelSelection.tscn")
 var campaignMenu: PackedScene = preload("res://ScenesAndScripts/Menus/Campaign.tscn")
 var levelMenu: PackedScene = preload("res://ScenesAndScripts/Menus/LevelSelection.tscn")
+# var resetMenu: PackedScene = preload(
+# var nextLevel: PackedScene = preload(
 var settingsMenu: PackedScene = preload("res://ScenesAndScripts/Menus/Settings.tscn")
 var creditsMenu: PackedScene = preload("res://ScenesAndScripts/Menus/Credits.tscn")
 

@@ -1,5 +1,7 @@
-CanvasLayer
+CollisionShape2D
+Area2D
 Sprite2D
+CanvasLayer
 Camera2D
 Node
 TileMapLayer
@@ -11,5 +13,3 @@ HBoxContainer
 AudioStreamPlayer2D
 Label
 Panel
-CollisionShape2D
-Area2D
