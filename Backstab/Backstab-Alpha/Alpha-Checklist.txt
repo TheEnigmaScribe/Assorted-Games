@@ -1,0 +1,26 @@
+Requirements for minimum function:
+
+Each map (the tilemap and entities) should be fully loadable from a file
+- The tilemap should be initialized fully
+- All entity instances should be saved in the entityInfo dictionary
+- All entities should received all required information (notably enemies and their nodes + instructions)
+
+The basic guard should have full functionality
+- Pathfinding using node list
+- Able to move
+- Able to shoot the player, and kill the player through that
+- Guards should die upon being attacked
+
+The basic bullet should have full functionality
+- Travels in straight line
+- Upon hitting the player, should trigger game over functionality and disappear
+- Upon hitting a wall, should disappear
+
+The player should have full basic functionality
+- WASD movement
+- Able to attack guards
+
+The level should have full functionality
+- Periodic movement should be implemented
+- The level should be able to do a "game over", and return to the main menu or a restart screen
+- The level should be able to finish, and change to a continue or main menu screen
