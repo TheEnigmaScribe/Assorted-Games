@@ -1,5 +1,7 @@
 Future ideas for development
 
+could be interesting to make the grid hexagonal
+
 Sounds like a good change
 - Guards being able to "hear" the player when they walk onto a tile with a noisemaking interactible
 	- would interrupt regular patrol sequence, possibly can get guards moving back to their patrol after
