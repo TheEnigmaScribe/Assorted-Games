@@ -1,0 +1,9 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1750564851
+game.gd::GDScript::2262515211292478178::1750564839::0::1::::<>Node<><>0<>0<><>::
+Game.tscn::PackedScene::1475378440689980904::1750564845::0::1::::<><><>0<>0<><>::uid://7h8ka8uhb33c::::res://game.gd
+icon.svg::CompressedTexture2D/CompressedTexture2D::226649051090703487::1750564811::1750564819::1::::<><><>0<>0<>92aef46d30bfdb92e313b1a98b499591<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+level.gd::GDScript::5177183639270926330::1750564864::0::1::::<>Node2D<><>0<>0<><>::
+Level.tscn::PackedScene::830715630555905580::1750564871::0::1::::<><><>0<>0<><>::uid://cf04ptu3ygwwg::::res://level.gd
+player.gd::GDScript::4935339115774150183::1750564908::0::1::::<>Sprite2D<><>0<>0<><>::
+player.tscn::PackedScene::8643645914727032782::1750564912::0::1::::<><><>0<>0<><>::uid://cckykxglaem1d::::res://player.gd
