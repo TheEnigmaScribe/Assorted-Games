@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1750405582
+::res://::1750571672
 BasicFuncNotes.txt::TextFile/TextFile::-1::1750050323::0::1::::<><><>0<>0<><>::
 blackround.gd::GDScript/GDScript::8014056490107126514::1749084139::0::1::::<>Sprite2D<><>0<>0<><>::
 EnemyInstructions_Test.txt::TextFile/TextFile::-1::1749453567::0::1::::<><><>0<>0<><>::
@@ -63,12 +63,12 @@ Level_Test.txt::TextFile/TextFile::-1::1750049812::0::1::::<><><>0<>0<><>::
 ::res://MapFiles/TemplateAndExplanation/::1749786735
 LevelTemplate.txt::TextFile/TextFile::-1::1749786735::0::1::::<><><>0<>0<><>::
 LevelTemplateExplanation.txt::TextFile/TextFile::-1::1749552447::0::1::::<><><>0<>0<><>::
-::res://ScenesAndScripts/::1750405435
+::res://ScenesAndScripts/::1750405585
 Game.gd::GDScript/GDScript::2874983295009368909::1750047990::0::1::::<>Node<><>0<>0<><>::
-Game.tscn::PackedScene/PackedScene::4371594608132251953::1750405435::0::1::::<><><>0<>0<><>::uid://bg7ws4m8jusjd::::res://ScenesAndScripts/Game.gd
-::res://ScenesAndScripts/Gamelevel/::1750405435
+Game.tscn::PackedScene::4371594608132251953::1750405585::0::1::::<><><>0<>0<><>::uid://bg7ws4m8jusjd::::res://ScenesAndScripts/Game.gd
+::res://ScenesAndScripts/Gamelevel/::1750405585
 Gamelevel.gd::GDScript/GDScript::4113957375119361870::1750049572::0::1::::<>Node2D<><>0<>0<><>::
-Gamelevel.tscn::PackedScene/PackedScene::790008286018056897::1750405435::0::1::::<><><>0<>0<><>::uid://byu3jody3myxa::::res://ScenesAndScripts/Gamelevel/Gamelevel.gd<>uid://dqo04klsv82po::::res://Assets/Visual Assets/TileTextures.png<>uid://boxggymn65cux::::res://ScenesAndScripts/Gamelevel/physics.gd<>uid://bgmy52mkg782f::::res://ScenesAndScripts/Gamelevel/visuals.gd<>uid://dq3axqu834xmi::::res://ScenesAndScripts/Gamelevel/vents.gd
+Gamelevel.tscn::PackedScene::790008286018056897::1750405585::0::1::::<><><>0<>0<><>::uid://byu3jody3myxa::::res://ScenesAndScripts/Gamelevel/Gamelevel.gd<>uid://dqo04klsv82po::::res://Assets/Visual Assets/TileTextures.png<>uid://boxggymn65cux::::res://ScenesAndScripts/Gamelevel/physics.gd<>uid://bgmy52mkg782f::::res://ScenesAndScripts/Gamelevel/visuals.gd<>uid://dq3axqu834xmi::::res://ScenesAndScripts/Gamelevel/vents.gd
 physics.gd::GDScript/GDScript::3416921479420282951::1749958947::0::1::::<>TileMapLayer<><>0<>0<><>::
 vents.gd::GDScript/GDScript::8340128072468951492::1749897909::0::1::::<>TileMapLayer<><>0<>0<><>::
 visuals.gd::GDScript/GDScript::2833838497345330623::1749958704::0::1::::<>TileMapLayer<><>0<>0<><>::

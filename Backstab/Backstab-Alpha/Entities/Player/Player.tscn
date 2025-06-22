@@ -1,6 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvfbt5xd02ie5"]
+[gd_scene load_steps=4 format=3 uid="uid://dvfbt5xd02ie5"]
 
-[ext_resource type="Script" uid="uid://cckykxglaem1d" path="res://player.gd" id="1_xhfnw"]
+[ext_resource type="Script" uid="uid://cckykxglaem1d" path="res://Entities/Player/player.gd" id="1_xhfnw"]
+[ext_resource type="Texture2D" uid="uid://b3os7h626abxd" path="res://Sprites/PlayerSprites.png" id="2_ww0jn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ww0jn"]
+size = Vector2(32, 32)
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_xhfnw")
+
+[node name="MovementIndicatorSprite" type="Sprite2D" parent="."]
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_ww0jn")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="PlayerHitbox" type="Area2D" parent="."]
+
+[node name="PlayerHitboxShape" type="CollisionShape2D" parent="PlayerHitbox"]
+shape = SubResource("RectangleShape2D_ww0jn")
+
+[node name="PlayerRaycast" type="RayCast2D" parent="."]
+target_position = Vector2(-32, 0)

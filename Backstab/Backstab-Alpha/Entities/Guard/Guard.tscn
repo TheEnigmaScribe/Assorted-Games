@@ -1,6 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://hjq5lqke5v0e"]
+[gd_scene load_steps=5 format=3 uid="uid://hjq5lqke5v0e"]
 
-[ext_resource type="Script" uid="uid://4onhm4iyot6c" path="res://guard.gd" id="1_rpvx7"]
+[ext_resource type="Script" uid="uid://4onhm4iyot6c" path="res://Entities/Guard/guard.gd" id="1_rpvx7"]
+[ext_resource type="Texture2D" uid="uid://csau7b6tx6d8j" path="res://Sprites/EnemySprites.png" id="2_kq4cj"]
+[ext_resource type="Script" uid="uid://bqvjsjtxhjh8v" path="res://Entities/Guard/wallchecker.gd" id="3_mu3er"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mu3er"]
+size = Vector2(32, 32)
 
 [node name="Guard" type="Node2D"]
 script = ExtResource("1_rpvx7")
+
+[node name="MovementIndicatorSprite" type="Sprite2D" parent="."]
+
+[node name="GuardSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_kq4cj")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="GuardHitbox" type="Area2D" parent="."]
+
+[node name="GuardHitboxShape" type="CollisionShape2D" parent="GuardHitbox"]
+shape = SubResource("RectangleShape2D_mu3er")
+
+[node name="GuardRaycast" type="RayCast2D" parent="."]
+target_position = Vector2(0, 0)
+
+[node name="Wallchecker" type="Node2D" parent="."]
+script = ExtResource("3_mu3er")

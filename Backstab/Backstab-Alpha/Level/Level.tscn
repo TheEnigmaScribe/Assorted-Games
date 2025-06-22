@@ -1,6 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://l3n1aofqol4w"]
+[gd_scene load_steps=6 format=3 uid="uid://l3n1aofqol4w"]
 
-[ext_resource type="Script" uid="uid://cf04ptu3ygwwg" path="res://level.gd" id="1_bexhn"]
+[ext_resource type="Script" uid="uid://cf04ptu3ygwwg" path="res://Level/level.gd" id="1_bexhn"]
+[ext_resource type="Texture2D" uid="uid://bcd3vnhfi86ha" path="res://Sprites/TileSprites.png" id="2_cyxyq"]
+[ext_resource type="Script" uid="uid://lv5jtxi71ca8" path="res://Level/physics.gd" id="2_r3cbp"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i5eh5"]
+texture = ExtResource("2_cyxyq")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/custom_data_0 = true
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_5noo7"]
+tile_size = Vector2i(32, 32)
+custom_data_layer_0/name = "solid"
+custom_data_layer_0/type = 1
+sources/0 = SubResource("TileSetAtlasSource_i5eh5")
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_bexhn")
+
+[node name="Physics" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_5noo7")
+script = ExtResource("2_r3cbp")
+
+[node name="EntityList" type="Node" parent="."]
