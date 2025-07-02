@@ -23,3 +23,5 @@ shape = SubResource("RectangleShape2D_ww0jn")
 
 [node name="PlayerRaycast" type="RayCast2D" parent="."]
 target_position = Vector2(-32, 0)
+
+[node name="PlayerCamera" type="Camera2D" parent="."]

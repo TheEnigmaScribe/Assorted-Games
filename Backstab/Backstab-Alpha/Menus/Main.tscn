@@ -64,3 +64,4 @@ text = "Level 1
 
 [connection signal="pressed" from="GameControls/Start" to="." method="_on_control_pressed" binds= ["Start"]]
 [connection signal="pressed" from="GameControls/Quit" to="." method="_on_control_pressed" binds= ["Quit"]]
+[connection signal="pressed" from="LevelSelect/Lvl1" to="." method="_on_level_pressed" binds= [1]]

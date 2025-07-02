@@ -1,8 +1,8 @@
 Requirements for minimum function:
 
 Each map (the tilemap and entities) should be fully loadable from a file
-- The tilemap should be initialized fully
-- All entity instances should be saved in the entityInfo dictionary
+[Done!] - The tilemap should be initialized fully
+(unnecessary?) - All entity instances should be saved in the entityInfo dictionary
 - All entities should received all required information (notably enemies and their nodes + instructions)
 
 The basic guard should have full functionality

@@ -12,19 +12,19 @@ func _ready():
 
 func _on_change_scene(sceneName, levelId):
 	var oldScene = get_child(0)
-	var newScene: PackedScene
+	var newScene #possibly later make it specifically packedScene or node?
 	if sceneName == "Main":
-		newScene = Main
+		newScene = Main.instantiate()
 	elif sceneName == "Level":
-		newScene = Level
+		newScene = Level.instantiate()
 	elif sceneName == "Restart":
-		newScene = Restart
+		newScene = Restart.instantiate()
 	elif sceneName == "Continue":
-		newScene = Continue
-	var scene = newScene.instantiate()
+		newScene = Continue.instantiate()
+	# var scene = newScene
 	if sceneName == "Level":
 		newScene.levelId = levelId
-	scene.connect("changeScene", _on_change_scene)
-	add_child(scene)
+	newScene.connect("changeScene", _on_change_scene)
+	add_child(newScene)
 	oldScene.queue_free()
 	

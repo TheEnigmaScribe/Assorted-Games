@@ -8,9 +8,10 @@
 texture = ExtResource("2_cyxyq")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-0:0/0/custom_data_0 = true
 1:0/0 = 0
+1:0/0/custom_data_0 = true
 2:0/0 = 0
+2:0/0/custom_data_1 = true
 3:0/0 = 0
 4:0/0 = 0
 5:0/0 = 0
@@ -25,6 +26,8 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 custom_data_layer_0/name = "solid"
 custom_data_layer_0/type = 1
+custom_data_layer_1/name = "goal"
+custom_data_layer_1/type = 1
 sources/0 = SubResource("TileSetAtlasSource_i5eh5")
 
 [node name="Level" type="Node2D"]
@@ -37,3 +40,4 @@ script = ExtResource("2_r3cbp")
 [node name="EntityList" type="Node" parent="."]
 
 [connection signal="physics" from="." to="Physics" method="_on_level_physics"]
+[connection signal="loaded" from="Physics" to="." method="_loaded"]
