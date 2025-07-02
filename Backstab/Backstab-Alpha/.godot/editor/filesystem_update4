@@ -1,12 +1,9 @@
 res://Game/Game.tscn
-res://Level/level.gd
 res://Menus/Main.tscn
 res://Menus/Restart.tscn
 res://Menus/Continue.tscn
-res://Menus/Bullet.tscn
 res://Level/Level.tscn
-res://Maps/Level1.txt
 res://Entities/Player/Player.tscn
 res://Entities/Guard/Guard.tscn
-res://bullet.gd
-res://Alpha-Checklist.txt
+res://Level/level.gd
+res://Level/physics.gd

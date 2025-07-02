@@ -13,7 +13,8 @@ var GuardScene: PackedScene = preload("res://Entities/Guard/Guard.tscn")
 
 var levelId: int
 
-var entityInfo: Dictionary = {}
+# var entityInfo: Dictionary = {}
+# don't know if I need this anymore?
 
 func _ready():
 	var levelData = FileAccess.open("res://Level" + str(levelId), FileAccess.READ)
