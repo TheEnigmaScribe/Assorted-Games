@@ -35,3 +35,5 @@ tile_set = SubResource("TileSet_5noo7")
 script = ExtResource("2_r3cbp")
 
 [node name="EntityList" type="Node" parent="."]
+
+[connection signal="physics" from="." to="Physics" method="_on_level_physics"]
