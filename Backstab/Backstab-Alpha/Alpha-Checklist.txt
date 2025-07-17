@@ -1,5 +1,18 @@
 Requirements for minimum function:
 
+Levels will require two different parts now.
+First part is the map, which I'll make by hand in an editor.
+This includes anything that isn't a guard
+Second part is a text file that contains all the enemies, their movements, and other behaviors.
+It also contains where the player spawns, but only needs coordinates.
+
+
+
+
+
+
+
+
 Each map (the tilemap and entities) should be fully loadable from a file
 [Done!] - The tilemap should be initialized fully
 (unnecessary?) - All entity instances should be saved in the entityInfo dictionary

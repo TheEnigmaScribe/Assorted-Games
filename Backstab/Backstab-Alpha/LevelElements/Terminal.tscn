@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://criimbvhf44tj"]
+
+[ext_resource type="Texture2D" uid="uid://dh142sc1l6vb" path="res://icon.svg" id="1_gw08m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yrvhh"]
+size = Vector2(32, 32)
+
+[node name="Terminal" type="Node2D"]
+
+[node name="TerminalSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_gw08m")
+
+[node name="Interactable" type="Node2D" parent="."]
+
+[node name="TerminalBody" type="StaticBody2D" parent="."]
+
+[node name="TerminalShape" type="CollisionShape2D" parent="TerminalBody"]
+shape = SubResource("RectangleShape2D_yrvhh")

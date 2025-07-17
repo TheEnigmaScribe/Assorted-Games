@@ -2,7 +2,6 @@ extends Node2D
 
 # signals
 signal changeScene
-signal physics
 
 @onready var physicsMap = $Physics
 @onready var entityList = $EntityList
@@ -11,6 +10,10 @@ signal physics
 var PlayerScene: PackedScene = preload("res://Entities/Player/Player.tscn")
 var GuardScene: PackedScene = preload("res://Entities/Guard/Guard.tscn")
 
+var levelmapstring
+
+var map: PackedScene
+
 var levelId: int
 
 var loadedList: Dictionary = {"physics": false}
@@ -18,24 +21,17 @@ var loadedList: Dictionary = {"physics": false}
 # don't know if I need this anymore?
 
 func _ready():
-	var levelData = FileAccess.open("res://Maps/Level" + str(levelId) + ".txt", FileAccess.READ)
-	levelData = levelData.get_as_text()
-	levelData = levelData.split("=====")
+	var map = load("res://Levels/LevelMaps/Map" + str(levelId) + ".tscn")
+	$Game.add_child(map)
+	# var levelData = FileAccess.open("res://Maps/Level" + str(levelId) + ".txt", FileAccess.READ)
+	# levelData = levelData.get_as_text()
+	# levelData = levelData.split("=====")
 	
 	# make sure that the numbers are updated when adding more parts before other parts
 	
 	# load settings
 	# skipped for now
-	
-	# load physicsTilemap
-	physics.emit(levelData[0])
-	await loadedList["physics"] == true
-	
-	# load player
-	loadEntities(levelData[1], "player")
-	
-	# load enemies
-	loadEntities(levelData[2], "enemies")
+
 
 func loadEntities(entityData, entityGroup):
 	# spawns entity based on entityType

@@ -1,7 +1,7 @@
 extends Node
 
 var Main: PackedScene = preload("res://Menus/Main.tscn")
-var Level: PackedScene = preload("res://Level/Level.tscn")
+var Level: PackedScene
 var Restart: PackedScene = preload("res://Menus/Restart.tscn")
 var Continue: PackedScene = preload("res://Menus/Continue.tscn")
 
@@ -16,14 +16,13 @@ func _on_change_scene(sceneName, levelId):
 	if sceneName == "Main":
 		newScene = Main.instantiate()
 	elif sceneName == "Level":
+		Level = load("res://Levels/Level_" + str(levelId) + ".tscn")
 		newScene = Level.instantiate()
 	elif sceneName == "Restart":
 		newScene = Restart.instantiate()
 	elif sceneName == "Continue":
 		newScene = Continue.instantiate()
 	# var scene = newScene
-	if sceneName == "Level":
-		newScene.levelId = levelId
 	newScene.connect("changeScene", _on_change_scene)
 	add_child(newScene)
 	oldScene.queue_free()
