@@ -2,32 +2,19 @@
 
 [ext_resource type="Script" uid="uid://bsu5svs8wxfbs" path="res://Levels/Level_1.gd" id="1_ka50d"]
 [ext_resource type="PackedScene" uid="uid://dvfbt5xd02ie5" path="res://Entities/Player/Player.tscn" id="2_8a5oj"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ka50d"]
-size = Vector2(96, 32)
+[ext_resource type="Script" uid="uid://bvxmu7kajmghi" path="res://Levels/camera.gd" id="2_nl7va"]
 
 [node name="Level_1" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_ka50d")
+
+[node name="Camera" type="Camera2D" parent="."]
+script = ExtResource("2_nl7va")
 
 [node name="Player" parent="." instance=ExtResource("2_8a5oj")]
 rotation = 1.5708
 
 [node name="MapCollision" type="StaticBody2D" parent="."]
 
-[node name="Bottom" type="CollisionShape2D" parent="MapCollision"]
-position = Vector2(0, 64)
-shape = SubResource("RectangleShape2D_ka50d")
-
-[node name="Top" type="CollisionShape2D" parent="MapCollision"]
-position = Vector2(0, -64)
-shape = SubResource("RectangleShape2D_ka50d")
-
-[node name="Right" type="CollisionShape2D" parent="MapCollision"]
-position = Vector2(64, 0)
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_ka50d")
-
-[node name="Left" type="CollisionShape2D" parent="MapCollision"]
-position = Vector2(-64, 0)
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_ka50d")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MapCollision"]
+polygon = PackedVector2Array(-72, 72, -48, 72, -48, 112, -72, 112, -72, 192, 128, 192, 128, 112, 0, 112, 0, 72, 72, 72, 72, -64, -32, -64, -32, -56, 64, -56, 64, 64, -8, 64, -8, 120, 120, 120, 120, 184, -64, 184, -64, 120, -40, 120, -40, 64, -64, 64, -64, -64, -72, -64)

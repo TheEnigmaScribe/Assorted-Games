@@ -8,9 +8,11 @@ It also contains where the player spawns, but only needs coordinates.
 
 
 
+glass walls go on different collision layer than raycast2d so they don't block it
 
 
 
+possibly do chunkloading with area2d nodes or just player position
 
 
 Each map (the tilemap and entities) should be fully loadable from a file

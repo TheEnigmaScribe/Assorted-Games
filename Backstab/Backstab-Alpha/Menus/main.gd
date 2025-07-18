@@ -15,4 +15,4 @@ func _on_control_pressed(button):
 		get_tree().quit()
 
 func _on_level_pressed(levelId):
-	changeScene.emit("Level", levelId)
+	changeScene.emit("Level", str(levelId))
