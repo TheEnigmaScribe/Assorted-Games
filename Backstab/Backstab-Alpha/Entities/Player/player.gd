@@ -10,6 +10,7 @@ var movementDirection: Vector2
 var speed: int = 160
 var lastMovement
 var input
+var bounce: String = "ping"
 
 var cooldowns: Dictionary = {"stab": false, "dash": false}
 
@@ -17,6 +18,16 @@ func _ready():
 	pass
 	
 func _physics_process(delta):
+
+	#if bounce == "ping":
+	#	raycast2d.rotation_degrees += 10
+	#elif bounce == "pong":
+	#	raycast2d.rotation_degrees -= 10
+	#if raycast2d.rotation_degrees <= -45:
+	#	bounce = "ping"
+	#elif raycast2d.rotation_degrees >= 45:
+	#	bounce = "pong"
+	#print(raycast2d.rotation)
 	input = Input.get_vector("left", "right", "up", "down")
 	#if movementDirection != Vector2.ZERO:
 	#if movementDirection != lastMovement:
@@ -30,7 +41,6 @@ func _physics_process(delta):
 	# add collision soonish
 
 func _process(delta):
-	
 	#if velocity != Vector2(0, 0):
 	#	print(velocity)
 	# possibly make these pause the player's movement before and while using them?
