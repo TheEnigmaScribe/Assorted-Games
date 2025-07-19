@@ -16,7 +16,7 @@ script/source = "extends Node
 [node name="Game" type="Node"]
 script = SubResource("GDScript_wbfu4")
 
+[node name="TestMap" parent="." instance=ExtResource("2_u44n3")]
+
 [node name="Player" parent="." instance=ExtResource("2_xkndl")]
 position = Vector2(560, 320)
-
-[node name="TestMap" parent="." instance=ExtResource("2_u44n3")]

@@ -9,147 +9,163 @@ extends CharacterBody2D
 @onready var MagUp: Sprite2D = $UpMagnet
 @onready var MagDown: Sprite2D = $DownMagnet
 
-var magnets: Dictionary = {"Left": false, "Right": false, "Up": false, "Down": false}
-var move: Dictionary = {"Left": false, "Right": false, "Up": false, "Down": false}
-var mode = "+"
+var magnetsOn: Dictionary = {"Left": false, "Right": false, "Up": false, "Down": false}
+var detectedPolarities: Dictionary = {"Left": null, "Right": null, "Up": null, "Down": null}
+var polarity = "+"
+# var movementDirection: Vector2
+var speed = 100
+var accelerationRate = 1.5
+var accelerationX = 1
+var accelerationY = 1
 var movementDirection: Vector2
-var speed = 500
-var acceleration = 5
+var latestCollision = Vector2(0, 0)
+var latestVelocity
 
 func _ready():
-	trigger("Left")
-	trigger("Right")
-	trigger("Up")
-	trigger("Down")
-	trigger("Left")
-	trigger("Right")
-	trigger("Up")
-	trigger("Down")
+	pass
 
 func _physics_process(delta):
+	# will implement acceleration at some point?
 	collisionCheck()
-	if move["Left"] != "None":
-		if move["Left"] == "Toward":
-			movementDirection.x = -1
-		elif move["Left"] == "Away":
-			movementDirection.x = 1
-	else:
-		movementDirection.x = 0
-	if move["Right"] != "None":
-		if move["Right"] == "Toward":
-			movementDirection.x = 1
-		elif move["Right"] == "Away":
-			movementDirection.x = -1
-	else:
-		movementDirection.x = 0
-	if move["Up"] != "None":
-		if move["Up"] == "Toward":
-			movementDirection.y = -1
-		elif move["Up"] == "Away":
-			movementDirection.y = 1
-	else:
-		movementDirection.y = 0
-	if move["Down"] != "None":
-		if move["Down"] == "Toward":
-			movementDirection.y = 1
-		elif move["Down"] == "Away":
-			movementDirection.y = -1
-	else:
-		movementDirection.y = 0
-	velocity = Vector2(movementDirection.x * speed, movementDirection.y * speed)
+	if latestCollision.x >= 0:
+		if magnetsOn["Left"]:
+			if detectedPolarities["Left"] != null:
+				accelerationX *= accelerationRate
+				if detectedPolarities["Left"] == polarity:
+					movementDirection.x += 1
+				else:
+					movementDirection.x += -1
+	if latestCollision.x <= 0:
+		if magnetsOn["Right"]:
+			if detectedPolarities["Right"] != null:
+				accelerationX *= accelerationRate
+				if detectedPolarities["Right"] == polarity:
+					movementDirection.x += -1
+				else:
+					movementDirection.x += 1
+	
+	if latestCollision.y >= 0:
+		if magnetsOn["Up"]:
+			if detectedPolarities["Up"] != null:
+				accelerationY *= accelerationRate
+				if detectedPolarities["Up"] == polarity:
+					movementDirection.y += 1
+				else:
+					movementDirection.y += -1
+	if latestCollision.y <= 0:
+		if magnetsOn["Down"]:
+			if detectedPolarities["Down"] != null:
+				accelerationY *= accelerationRate
+				if detectedPolarities["Down"] == polarity:
+					movementDirection.y += -1
+				else:
+					movementDirection.y += 1
+	var collision
+	for i in self.get_slide_collision_count():
+		collision = get_slide_collision(i).get_normal()
+		if (collision.x > 0) and magnetsOn["Right"]:
+			if movementDirection.x > 0:
+				# movementDirection.x = movementDirection.x + movementDirection.x * -1
+				accelerationX = 100
+		elif (collision.x < 0) and magnetsOn["Left"]:
+			if movementDirection.x < 0:
+				# movementDirection.x = movementDirection.x + movementDirection.x * -1
+				accelerationX = 100
+		if (collision.y > 0) and magnetsOn["Down"]:
+			if movementDirection.y > 0:
+				# movementDirection.y = movementDirection.y + movementDirection.y * -1
+				accelerationY = 100
+		elif (collision.y < 0) and magnetsOn["Up"]:
+			if movementDirection.y < 0:
+				# movementDirection.x = movementDirection.y + movementDirection.y * -1
+				accelerationY = 100
+		elif collision == Vector2(0, 0):
+			accelerationX = 100
+			accelerationY = 100
+		latestCollision = collision
+	if velocity != latestVelocity:
+		print(velocity)
+	if collision != latestCollision:
+		print(collision)
+	
+	
+	velocity = Vector2(movementDirection.x * speed * accelerationX, movementDirection.y * speed* accelerationY)
+	latestVelocity = velocity
+	print("xaccel = " + str(accelerationX) + ", yaccel = " + str(accelerationY))
 	move_and_slide()
 
 func _process(delta):
-	if Input.is_action_just_pressed("shift"):
-		if mode == "+":
-			mode = "-"
-		elif mode == "-":
-			mode = "+"
-	elif Input.is_action_just_pressed("left"):
-		trigger("Left")
-	elif Input.is_action_just_pressed("right"):
-		trigger("Right")
-	elif Input.is_action_just_pressed("up"):
-		trigger("Up")
-	elif Input.is_action_just_pressed("down"):
-		trigger("Down")
+	if Input.is_action_pressed("shift"):
+		polarity = "-"
+		spriteChange()
+	else:
+		polarity = "+"
+		spriteChange()
+	if Input.is_action_pressed("left"):
+		magnetsOn["Left"] = true
+		MagLeft.show()
+		RayLeft.enabled = true
+	else:
+		magnetsOn["Left"] = false
+		MagLeft.hide()
+		RayLeft.enabled = false
+	if Input.is_action_pressed("right"):
+		magnetsOn["Right"] = true
+		MagRight.show()
+		RayRight.enabled = true
+	else:
+		magnetsOn["Right"] = false
+		MagRight.hide()
+		RayRight.enabled = false
+	if Input.is_action_pressed("up"):
+		magnetsOn["Up"] = true
+		MagUp.show()
+		RayUp.enabled = true
+	else:
+		magnetsOn["Up"] = false
+		MagUp.hide()
+		RayUp.enabled = false
+	if Input.is_action_pressed("down"):
+		magnetsOn["Down"] = true
+		MagDown.show()
+		RayDown.enabled = true
+	else:
+		magnetsOn["Down"] = false
+		MagDown.hide()
+		RayDown.enabled = false
+	spriteChange()
 
 func collisionCheck():
 	var collider
 	var colliderCharge
 	if RayLeft.is_colliding():
-		collider = RayLeft.get_collider()
-		colliderCharge = collider.get_name().substr(0, 1)
-		if colliderCharge == mode:
-			move["Left"] = "Toward"
-		else:
-			move["Left"] = "Away"
+		detectedPolarities["Left"] = RayLeft.get_collider().get_name().substr(0, 1)
 	else:
-		move["Left"] = "None"
+		detectedPolarities["Left"] = null
 	
 	if RayRight.is_colliding():
-		collider = RayRight.get_collider()
-		colliderCharge = collider.get_name().substr(0, 1)
-		if colliderCharge == mode:
-			move["Right"] = "Toward"
-		else:
-			move["Right"] = "Away"
+		detectedPolarities["Right"] = RayRight.get_collider().get_name().substr(0, 1)
 	else:
-		move["Right"] = "None"
-	
-	if RayUp.is_colliding():
-		collider = RayUp.get_collider()
-		colliderCharge = collider.get_name().substr(0, 1)
-		if colliderCharge == mode:
-			move["Up"] = "Toward"
-		else:
-			move["Up"] = "Away"
-	else:
-		move["Up"] = "None"
-	if RayDown.is_colliding():
-		collider = RayDown.get_collider()
-		colliderCharge = collider.get_name().substr(0, 1)
-		if colliderCharge == mode:
-			move["Down"] = "Toward"
-		else:
-			move["Down"] = "Away"
-	else:
-		move["Down"] = "None"
+		detectedPolarities["Right"] = null
 
-func trigger(dir):
-	if dir == "Left":
-		if magnets["Left"]:
-			magnets["Left"] = false
-			MagLeft.hide()
-			RayLeft.enabled = false
-		elif !magnets["Left"]:
-			magnets["Left"] = true
-			MagLeft.show()
-			RayLeft.enabled = true
-	elif dir == "Right":
-		if magnets["Right"]:
-			magnets["Right"] = false
-			MagRight.hide()
-			RayRight.enabled = false
-		elif !magnets["Right"]:
-			magnets["Right"] = true
-			MagRight.show()
-			RayRight.enabled = true
-	elif dir == "Up":
-		if magnets["Up"]:
-			magnets["Up"] = false
-			MagUp.hide()
-			RayUp.enabled = false
-		elif !magnets["Up"]:
-			magnets["Up"] = true
-			MagUp.show()
-			RayUp.enabled = true
-	elif dir == "Down":
-		if magnets["Down"]:
-			magnets["Down"] = false
-			MagDown.hide()
-			RayDown.enabled = false
-		elif !magnets["Down"]:
-			magnets["Down"] = true
-			MagDown.show()
-			RayDown.enabled = true
+	if RayUp.is_colliding():
+		detectedPolarities["Up"] = RayUp.get_collider().get_name().substr(0, 1)
+	else:
+		detectedPolarities["Up"] = null
+	
+	if RayDown.is_colliding():
+		detectedPolarities["Down"] = RayDown.get_collider().get_name().substr(0, 1)
+	else:
+		detectedPolarities["Down"] = null
+
+func spriteChange():
+	if polarity == "+":
+		MagUp.region_rect.position.x = 0
+		MagLeft.region_rect.position.x = 0
+		MagDown.region_rect.position.x = 0
+		MagRight.region_rect.position.x = 0
+	elif polarity == "-":
+		MagUp.region_rect.position.x = 80
+		MagLeft.region_rect.position.x = 80
+		MagDown.region_rect.position.x = 80
+		MagRight.region_rect.position.x = 80
