@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Cubage (Alpha)"
+config/name="PhysicsGame (Alpha)"
 run/main_scene="uid://c7c45mos7xgd6"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://baxqmejv3bd4b"
